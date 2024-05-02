@@ -79,7 +79,7 @@ class ProductTableViewCell: UITableViewCell {
        let label = UILabel()
         var paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.05
-        label.textColor = UIColor(red: 0.541, green: 0.537, blue: 0.557, alpha: 1)
+        label.textColor = StarbucksColors.starbucksBlack // I need to practice
         let attributedString = NSMutableAttributedString(string: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.\n", attributes: [NSAttributedString.Key.kern: -0.1, NSAttributedString.Key.paragraphStyle: paragraphStyle])
         label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.light)
         label.attributedText = attributedString
