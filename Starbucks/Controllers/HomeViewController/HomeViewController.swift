@@ -19,13 +19,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return imageView
     }()
     
-    lazy var advertView: AdvertContainerView = {
-        let view = AdvertContainerView()
-        //view.backgroundColor = .cyan
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
     lazy var starbucksTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.delegate = self
@@ -46,18 +39,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func setupUI() {
-        view.addSubview(advertView)
         view.addSubview(starbucksTableView)
         
-        
-        advertView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 14).isActive = true
-        advertView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        advertView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        advertView.heightAnchor.constraint(equalToConstant: 140.0).isActive = true
-        
-        starbucksTableView.topAnchor.constraint(equalTo: advertView.bottomAnchor, constant: 10).isActive = true
-        starbucksTableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        starbucksTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        starbucksTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        starbucksTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        starbucksTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         starbucksTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
     }

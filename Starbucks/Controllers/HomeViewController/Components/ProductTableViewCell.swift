@@ -98,6 +98,8 @@ class ProductTableViewCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return  stackView
     }()
+    
+    // Comment: add the lines in each cell as UIView
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: reuseIdentifier)
@@ -115,12 +117,13 @@ class ProductTableViewCell: UITableViewCell {
         productImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
         productImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
 
-        productInformationStackView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        productInformationStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
         productInformationStackView.rightAnchor.constraint(equalTo: productImageView.leftAnchor , constant: -20).isActive = true
         productInformationStackView.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
         productInformationStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12).isActive = true
         
-        menuDescriptionLabel.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: -6).isActive = true
+        menuDescriptionLabel.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, 
+                                                  constant: -6).isActive = true
 
     }
     

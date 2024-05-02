@@ -42,7 +42,7 @@ class TableSectionHeaderView: UIView {
         addSubview(titleLabel)
         addSubview(seeAllButton)
         
-        titleLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
         titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         seeAllButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true

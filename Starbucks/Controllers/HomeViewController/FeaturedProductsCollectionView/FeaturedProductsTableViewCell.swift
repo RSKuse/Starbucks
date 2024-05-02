@@ -15,7 +15,12 @@ class FeaturedProductsTableViewCell: UITableViewCell, UICollectionViewDelegate, 
         flowLayout.scrollDirection = UICollectionView.ScrollDirection.horizontal
         flowLayout.minimumLineSpacing = 10.0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        // Comment: This will push the collectionview on the left and right by 20.0
+        collectionView.contentInset = UIEdgeInsets(top: 0.0, left: 20.0, bottom: 0.0, right: 20.0)
         collectionView.backgroundColor = UIColor.clear
+        
+        // Comment: Hide the horizontal indicator
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.isScrollEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -36,7 +41,6 @@ class FeaturedProductsTableViewCell: UITableViewCell, UICollectionViewDelegate, 
     func setupView() {
         contentView.addSubview(featuredProductCollectionView)
 
-        
         featuredProductCollectionView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         featuredProductCollectionView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
         featuredProductCollectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
