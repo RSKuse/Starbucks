@@ -26,22 +26,22 @@ class TabBarController: UITabBarController {
     
     func setupViewControllers() {
         
-        let homeTabBarItem = UITabBarItem(title: "",
-                                          image: UIImage(named: "icLogo"),
-                                          selectedImage: UIImage(named: "icLogo"))
+        let homeTabBarItem = UITabBarItem(title: "Home",
+                                          image: StarbucksImages.homeImage,
+                                          selectedImage: StarbucksImages.homeImage)
         let homeController = UINavigationController(rootViewController: HomeViewController())
         homeController.tabBarItem = homeTabBarItem
         
       
         let cartTabBarItem = UITabBarItem(title: "Cart",
-                                            image: UIImage(named: "icCart"),
-                                            selectedImage: UIImage(named: "icCart"))
+                                            image: UIImage(named: "ic_cart"),
+                                            selectedImage: UIImage(named: "ic_cart"))
         let cartController = UINavigationController(rootViewController: CartViewController())
         cartController.tabBarItem = cartTabBarItem
         
         let profileBarItem = UITabBarItem(title: "Profile",
-                                              image: UIImage(named: "icProfileTab"),
-                                              selectedImage: UIImage(named: "icProfileTab"))
+                                              image: UIImage(named: "ic_profile"),
+                                              selectedImage: UIImage(named: "ic_profile"))
         let profileController = UINavigationController(rootViewController: ProfileViewController())
         profileController.tabBarItem = profileBarItem
     

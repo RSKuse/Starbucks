@@ -11,7 +11,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "homeLogo.")
+        imageView.image = StarbucksImages.homeImage
         imageView.layer.cornerRadius = 15
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -31,6 +31,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = true
+        tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -41,40 +42,40 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         setupUI()
         setupNavigationBar()
         registerCell()
-        
-        
-        func setupUI() {
-            view.addSubview(advertView)
-            view.addSubview(starbucksTableView)
-            
+    }
     
-            advertView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 14).isActive = true
-            advertView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-            advertView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-            advertView.heightAnchor.constraint(equalToConstant: 140.0).isActive = true
-            
-            starbucksTableView.topAnchor.constraint(equalTo: advertView.bottomAnchor, constant: 10).isActive = true
-            starbucksTableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-            starbucksTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-            starbucksTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-            
-        }
+    
+    func setupUI() {
+        view.addSubview(advertView)
+        view.addSubview(starbucksTableView)
         
         
-        func setupNavigationBar() {
-            navigationItem.titleView = logoImageView
-            
-            logoImageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-            logoImageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
-            
-        }
-        func registerCell() {
-            starbucksTableView.register(ProductTableViewCell.self, forCellReuseIdentifier: "ProductTableViewCellID")
-            starbucksTableView.register(FeaturedProductsTableViewCell.self, forCellReuseIdentifier: "FeaturedProductsTableViewCellID")
-            
-        }
+        advertView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 14).isActive = true
+        advertView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        advertView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        advertView.heightAnchor.constraint(equalToConstant: 140.0).isActive = true
         
+        starbucksTableView.topAnchor.constraint(equalTo: advertView.bottomAnchor, constant: 10).isActive = true
+        starbucksTableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        starbucksTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        starbucksTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
     }
     
+    
+    func setupNavigationBar() {
+        navigationItem.titleView = logoImageView
+        
+        logoImageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        logoImageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        
+    }
+    func registerCell() {
+        starbucksTableView.register(ProductTableViewCell.self, forCellReuseIdentifier: "ProductTableViewCellID")
+        starbucksTableView.register(FeaturedProductsTableViewCell.self, forCellReuseIdentifier: "FeaturedProductsTableViewCellID")
+        
+    }
+    
+    
 }
+
