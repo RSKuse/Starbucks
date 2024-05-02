@@ -67,6 +67,14 @@
 			path = ProductsViewController;
 			sourceTree = "<group>";
 		};
+		45E8852E2BE39E2A00131E4D /* AdvertContainerView */ = {
+			isa = PBXGroup;
+			children = (
+				F3F1D2232BDA7622009BFF98 /* AdvertContainerView.swift */,
+			);
+			path = AdvertContainerView;
+			sourceTree = "<group>";
+		};
 		F3F1D2032BDA637D009BFF98 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +123,7 @@
 				F3F1D2132BDA637D009BFF98 /* HomeViewController.swift */,
 				F3F1D24E2BE1252F009BFF98 /* HomeViewController+TableView.swift */,
 				F3F1D2572BE26D9E009BFF98 /* FeaturedProductsCollectionView */,
+				45E8852E2BE39E2A00131E4D /* AdvertContainerView */,
 				F3F1D25C2BE38543009BFF98 /* Components */,
 			);
 			path = HomeViewController;
@@ -134,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				F3F1D2582BE2E231009BFF98 /* TableSectionHeaderView.swift */,
-				F3F1D2232BDA7622009BFF98 /* AdvertContainerView.swift */,
 				F3F1D2502BE16048009BFF98 /* ProductTableViewCell.swift */,
 			);
 			path = Components;
