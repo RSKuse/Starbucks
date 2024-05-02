@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class TableSectionHeaderView: UIView {
-
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -23,6 +22,7 @@ class TableSectionHeaderView: UIView {
         button.setTitle("See All", for:.normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)
         button.setTitleColor(StarbucksColors.primaryColor, for:.normal)
+        // button.addTarget(self, action: #selector(seeAllButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
         
@@ -47,8 +47,10 @@ class TableSectionHeaderView: UIView {
         
         seeAllButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
         seeAllButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        
-        
+    }
+    
+    @objc func seeAllButtonTapped() {
+        print("See All Tapped")
     }
 }
 
