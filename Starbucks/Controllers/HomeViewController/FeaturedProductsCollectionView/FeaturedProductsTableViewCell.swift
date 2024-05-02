@@ -10,6 +10,8 @@ import UIKit
 
 class FeaturedProductsTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    var featuredProductsArray: [Product] = []
+    
     lazy var featuredProductCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = UICollectionView.ScrollDirection.horizontal
@@ -66,7 +68,7 @@ extension FeaturedProductsTableViewCell {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return featuredProductsArray.count
     }
     
     
@@ -76,6 +78,25 @@ extension FeaturedProductsTableViewCell {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let productCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeaturedProductCollectionCellID", for: indexPath) as! FeaturedProductCollectionCell
+        let product = featuredProductsArray[indexPath.item]
+        productCollectionCell.productImageView.image = product.image
+        productCollectionCell.productNameLabel.text = product.name
+        
+        if product.numberOfLikes == 0 {
+            productCollectionCell.priceLabel.text = "R\(product.price)"
+        } else {
+            
+            productCollectionCell.mostLikedView.isHidden = false
+            if product.numberOfLikes > 1000 && product.numberOfLikes < 2000 {
+                productCollectionCell.priceLabel.text = "R\(product.price) ♥︎\(product.rating) (1k)"
+            } else if product.numberOfLikes > 2000 && product.numberOfLikes < 3000 {
+                productCollectionCell.priceLabel.text = "R\(product.price) ♥︎\(product.rating) (2k)"
+            } else {
+                productCollectionCell.priceLabel.text = "R\(product.price) ♥︎\(product.rating) (\(product.numberOfLikes))"
+            }
+        }
+        
+        
         return productCollectionCell
     }
 

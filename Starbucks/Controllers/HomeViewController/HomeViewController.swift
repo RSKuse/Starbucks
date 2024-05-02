@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let starBucksDatabase = StarbucksDatabase()    
     let advertHeaderView = AdvertContainerView()
     
     lazy var logoImageView: UIImageView = {

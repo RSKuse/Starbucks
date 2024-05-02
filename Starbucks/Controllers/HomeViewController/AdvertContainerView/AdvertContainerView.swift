@@ -13,8 +13,6 @@ class AdvertContainerView: UIView {
     //let starbucksColors = StarbucksColors()
     
     // HomeWork: Add a CollectionView in Here
-    
-    
     lazy var advertImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 20.0
