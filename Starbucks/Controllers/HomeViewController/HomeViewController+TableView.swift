@@ -29,24 +29,27 @@ extension HomeViewController {
         if section == 0 {
             return 1
         } else if section == 1 {
-            return 3
+            return productsArray.count
         } else {
-            return 3
+            return productsArray.count
         }
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let featuredProductCell = tableView.dequeueReusableCell(withIdentifier: "FeaturedProductsTableViewCellID", for: indexPath) as! FeaturedProductsTableViewCell
-            return featuredProductCell
-            
-        } else {
-            let menuCell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCellID", for: indexPath) as! ProductTableViewCell
-            return menuCell
+            if indexPath.section == 0 {
+                let featuredProductCell = tableView.dequeueReusableCell(withIdentifier: "FeaturedProductsTableViewCellID", for: indexPath) as! FeaturedProductsTableViewCell
+                return featuredProductCell
+            } else {
+                let productCell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCellID", for: indexPath) as! ProductTableViewCell
+                let product = productsArray[indexPath.row]
+                productCell.productImageView.image = product.image
+                productCell.productNameLabel.text = product.name
+                productCell.priceLabel.text = "R\(product.price)"
+                productCell.menuDescriptionLabel.text = product.description
+                return productCell
+            }
         }
-        
-    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = TableSectionHeaderView()
@@ -70,7 +73,5 @@ extension HomeViewController {
         productsViewController.hidesBottomBarWhenPushed = true // Comment: Hides the tab bar when navigating
         navigationController?.pushViewController(productsViewController, animated: true)
     }
-
-
     
 }
