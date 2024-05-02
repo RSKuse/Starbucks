@@ -47,9 +47,10 @@ extension HomeViewController {
         }
         
     }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = TableSectionHeaderView()
-        tableView.separatorStyle = .none
+        
         if section == 0 {
             headerView.titleLabel.text = "Featured"
         } else if section == 1 {
@@ -57,6 +58,7 @@ extension HomeViewController {
         } else {
             headerView.titleLabel.text = "Bakery"
         }
+        
         return headerView
     }
 

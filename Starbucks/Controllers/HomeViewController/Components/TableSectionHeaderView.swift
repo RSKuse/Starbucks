@@ -18,8 +18,19 @@ class TableSectionHeaderView: UIView {
         return label
     }()
     
+    lazy var seeAllButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("See All", for:.normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)
+        button.setTitleColor(StarbucksColors.primaryColor, for:.normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+        
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .white
         setupUI()
     }
     
@@ -29,8 +40,15 @@ class TableSectionHeaderView: UIView {
     
     func setupUI() {
         addSubview(titleLabel)
+        addSubview(seeAllButton)
+        
         titleLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+        seeAllButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
+        seeAllButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+        
     }
 }
 
