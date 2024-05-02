@@ -9,6 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let advertHeaderView = AdvertContainerView()
+    
     lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = StarbucksImages.homeImage
@@ -35,6 +37,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         setupUI()
         setupNavigationBar()
         registerCell()
+        configureHeaderView()
     }
     
     
@@ -45,7 +48,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         starbucksTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         starbucksTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         starbucksTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
     }
     
     
@@ -61,7 +63,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         starbucksTableView.register(FeaturedProductsTableViewCell.self, forCellReuseIdentifier: "FeaturedProductsTableViewCellID")
         
     }
-    
-    
 }
 
+// Comment: Adding a HeaderView (not a TableSectionHeaderView) to a TableView
+extension HomeViewController {
+    func sizeHeaderToFit() {
+        advertHeaderView.setNeedsLayout()
+        advertHeaderView.layoutIfNeeded()
+        advertHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 140.0)
+    }
+
+    func configureHeaderView() {
+        advertHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 140.0)
+        starbucksTableView.tableHeaderView = advertHeaderView
+    }
+}
