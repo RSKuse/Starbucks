@@ -51,6 +51,8 @@ extension HomeViewController {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = TableSectionHeaderView()
         
+        headerView.seeAllButton.addTarget(self, action: #selector(seeAllButtonTapped), for: .touchUpInside)
+        
         if section == 0 {
             headerView.titleLabel.text = "Featured"
         } else if section == 1 {
@@ -60,6 +62,12 @@ extension HomeViewController {
         }
         
         return headerView
+    }
+    
+    @objc func seeAllButtonTapped() {
+        let productsViewController = ProductsViewController()
+        productsViewController.hidesBottomBarWhenPushed = true // Hides the tab bar when navigating
+        navigationController?.pushViewController(productsViewController, animated: true)
     }
 
 

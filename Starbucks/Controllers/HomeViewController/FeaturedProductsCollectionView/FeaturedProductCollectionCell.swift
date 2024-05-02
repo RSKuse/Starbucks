@@ -10,7 +10,6 @@ import UIKit
 
 class FeaturedProductCollectionCell: UICollectionViewCell {
     
-    
     lazy var productImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -24,7 +23,8 @@ class FeaturedProductCollectionCell: UICollectionViewCell {
     
     lazy var productNameLabel: UILabel = {
        let label = UILabel()
-        label.text = "Latte"
+        label.text = "Chocolate Chip Cream ®"
+        label.numberOfLines = 2
         label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -33,50 +33,18 @@ class FeaturedProductCollectionCell: UICollectionViewCell {
     
     lazy var priceLabel: UILabel = {
        let label = UILabel()
-        label.text = "R48.00"
+        label.text = "R48.00 ♥︎90% (1k)"
         label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-//    lazy var likeClickButton: UIButton = {
-//        let button = UIButton()
-//        let icon = UIImage(named: "like_button_icon")
-//        button.setImage(icon, for: .normal)
-//        button.imageView?.contentMode = .scaleAspectFit
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        return button
-//    }()
-    
-    lazy var likePercentageLabel: UILabel = {
-       let label = UILabel()
-        label.text = "♥︎90%"
-        label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)
-        label.textColor = UIColor.black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    lazy var mostLikedView: MostLikedView = {
+        let view = MostLikedView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
-    
-    lazy var numberOfLikesLabel: UILabel = {
-       let label = UILabel()
-        label.text = "(1k)"
-        label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)
-        label.textColor = UIColor.black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    lazy var priceTagAndLikesStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [priceLabel, likePercentageLabel, numberOfLikesLabel])
-        stackView.axis = .horizontal
-        stackView.distribution = .fillProportionally
-        stackView.spacing = 1
-        stackView.alignment = .leading
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return  stackView
-    }()
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -87,24 +55,29 @@ class FeaturedProductCollectionCell: UICollectionViewCell {
     func setupView() {
         
         addSubview(productImageView)
+        productImageView.addSubview(mostLikedView)
+//        addSubview(mostLikedView)
         addSubview(productNameLabel)
-        addSubview(priceTagAndLikesStackView)
+        addSubview(priceLabel)
         
+        productImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        productImageView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        productImageView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         productImageView.heightAnchor.constraint(equalToConstant: 130).isActive = true
-        productImageView.widthAnchor.constraint(equalToConstant: 130).isActive = true
-        productImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -80).isActive = true
-        productImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
+        mostLikedView.leftAnchor.constraint(equalTo: productImageView.leftAnchor).isActive = true
+        mostLikedView.bottomAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: -8).isActive = true
+        mostLikedView.widthAnchor.constraint(equalToConstant: 74).isActive = true
+        mostLikedView.heightAnchor.constraint(equalToConstant: 18).isActive = true
         
         productNameLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         productNameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -6).isActive = true
-        productNameLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 6).isActive = true
+        productNameLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor,
+                                              constant: 8).isActive = true
     
-
-        priceTagAndLikesStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -6).isActive = true
-        priceTagAndLikesStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
-        priceTagAndLikesStackView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        priceTagAndLikesStackView.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 6).isActive = true
-            
+        priceLabel.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 4).isActive = true
+        priceLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
+        priceLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -14,8 +14,8 @@ class AdvertContainerView: UIView {
     
     lazy var advertImageView: UIImageView = {
         let imageView = UIImageView()
-        //imageView.image = UIImage(named: "")
         imageView.layer.cornerRadius = 20.0
+//        imageView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
         imageView.backgroundColor = StarbucksColors.primaryColor
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
