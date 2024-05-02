@@ -9,6 +9,7 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
 
     var window: UIWindow?
 
@@ -16,10 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.tintColor = UIColor(red: 0.298, green: 0.62, blue: 0.922, alpha: 1)
+        window?.tintColor = StarbucksColors.primaryColor
         window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
 
-       // window?.rootViewController = TabBarController()
+        window?.rootViewController = TabBarController()
 
         return true
     }

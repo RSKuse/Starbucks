@@ -12,6 +12,15 @@
 		F3F1D2192BDA6380009BFF98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3F1D2182BDA6380009BFF98 /* Assets.xcassets */; };
 		F3F1D21C2BDA6380009BFF98 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F3F1D21B2BDA6380009BFF98 /* Base */; };
 		F3F1D2242BDA7622009BFF98 /* AdvertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1D2232BDA7622009BFF98 /* AdvertContainerView.swift */; };
+		F3F1D2462BDA9504009BFF98 /* TabBarControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1D2452BDA9504009BFF98 /* TabBarControllers.swift */; };
+		F3F1D2482BDA96B5009BFF98 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1D2472BDA96B5009BFF98 /* CartViewController.swift */; };
+		F3F1D24A2BDA9775009BFF98 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1D2492BDA9775009BFF98 /* ProfileViewController.swift */; };
+		F3F1D24C2BDA9C7B009BFF98 /* StarbucksColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1D24B2BDA9C7B009BFF98 /* StarbucksColors.swift */; };
+		F3F1D24F2BE1252F009BFF98 /* HomeViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1D24E2BE1252F009BFF98 /* HomeViewController+TableView.swift */; };
+		F3F1D2512BE16048009BFF98 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1D2502BE16048009BFF98 /* ProductTableViewCell.swift */; };
+		F3F1D2532BE24FAF009BFF98 /* FeaturedProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1D2522BE24FAF009BFF98 /* FeaturedProductsTableViewCell.swift */; };
+		F3F1D2552BE2558A009BFF98 /* FeaturedProductCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1D2542BE2558A009BFF98 /* FeaturedProductCollectionCell.swift */; };
+		F3F1D2592BE2E231009BFF98 /* TableSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1D2582BE2E231009BFF98 /* TableSectionHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +31,15 @@
 		F3F1D21B2BDA6380009BFF98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3F1D21D2BDA6380009BFF98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3F1D2232BDA7622009BFF98 /* AdvertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertContainerView.swift; sourceTree = "<group>"; };
+		F3F1D2452BDA9504009BFF98 /* TabBarControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllers.swift; sourceTree = "<group>"; };
+		F3F1D2472BDA96B5009BFF98 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		F3F1D2492BDA9775009BFF98 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F3F1D24B2BDA9C7B009BFF98 /* StarbucksColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksColors.swift; sourceTree = "<group>"; };
+		F3F1D24E2BE1252F009BFF98 /* HomeViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+TableView.swift"; sourceTree = "<group>"; };
+		F3F1D2502BE16048009BFF98 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		F3F1D2522BE24FAF009BFF98 /* FeaturedProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedProductsTableViewCell.swift; sourceTree = "<group>"; };
+		F3F1D2542BE2558A009BFF98 /* FeaturedProductCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedProductCollectionCell.swift; sourceTree = "<group>"; };
+		F3F1D2582BE2E231009BFF98 /* TableSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSectionHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +73,46 @@
 			isa = PBXGroup;
 			children = (
 				F3F1D20F2BDA637D009BFF98 /* AppDelegate.swift */,
-				F3F1D2132BDA637D009BFF98 /* HomeViewController.swift */,
+				F3F1D2452BDA9504009BFF98 /* TabBarControllers.swift */,
+				F3F1D24B2BDA9C7B009BFF98 /* StarbucksColors.swift */,
+				F3F1D2582BE2E231009BFF98 /* TableSectionHeaderView.swift */,
 				F3F1D2232BDA7622009BFF98 /* AdvertContainerView.swift */,
+				F3F1D24D2BE05265009BFF98 /* Controllers */,
 				F3F1D2182BDA6380009BFF98 /* Assets.xcassets */,
 				F3F1D21A2BDA6380009BFF98 /* LaunchScreen.storyboard */,
 				F3F1D21D2BDA6380009BFF98 /* Info.plist */,
 			);
 			path = Starbucks;
+			sourceTree = "<group>";
+		};
+		F3F1D24D2BE05265009BFF98 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F3F1D2562BE26CEA009BFF98 /* HomeViewController */,
+				F3F1D2572BE26D9E009BFF98 /* FeaturedProductsCollectionView */,
+				F3F1D2472BDA96B5009BFF98 /* CartViewController.swift */,
+				F3F1D2492BDA9775009BFF98 /* ProfileViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F3F1D2562BE26CEA009BFF98 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F3F1D2132BDA637D009BFF98 /* HomeViewController.swift */,
+				F3F1D24E2BE1252F009BFF98 /* HomeViewController+TableView.swift */,
+				F3F1D2502BE16048009BFF98 /* ProductTableViewCell.swift */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		F3F1D2572BE26D9E009BFF98 /* FeaturedProductsCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				F3F1D2522BE24FAF009BFF98 /* FeaturedProductsTableViewCell.swift */,
+				F3F1D2542BE2558A009BFF98 /* FeaturedProductCollectionCell.swift */,
+			);
+			path = FeaturedProductsCollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,9 +185,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3F1D24C2BDA9C7B009BFF98 /* StarbucksColors.swift in Sources */,
+				F3F1D2532BE24FAF009BFF98 /* FeaturedProductsTableViewCell.swift in Sources */,
+				F3F1D24A2BDA9775009BFF98 /* ProfileViewController.swift in Sources */,
+				F3F1D2512BE16048009BFF98 /* ProductTableViewCell.swift in Sources */,
 				F3F1D2142BDA637D009BFF98 /* HomeViewController.swift in Sources */,
+				F3F1D2462BDA9504009BFF98 /* TabBarControllers.swift in Sources */,
+				F3F1D2552BE2558A009BFF98 /* FeaturedProductCollectionCell.swift in Sources */,
+				F3F1D2482BDA96B5009BFF98 /* CartViewController.swift in Sources */,
+				F3F1D2592BE2E231009BFF98 /* TableSectionHeaderView.swift in Sources */,
 				F3F1D2242BDA7622009BFF98 /* AdvertContainerView.swift in Sources */,
 				F3F1D2102BDA637D009BFF98 /* AppDelegate.swift in Sources */,
+				F3F1D24F2BE1252F009BFF98 /* HomeViewController+TableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

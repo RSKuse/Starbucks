@@ -10,11 +10,13 @@ import UIKit
 
 class AdvertContainerView: UIView {
     
+    //let starbucksColors = StarbucksColors()
+    
     lazy var advertImageView: UIImageView = {
         let imageView = UIImageView()
         //imageView.image = UIImage(named: "")
         imageView.layer.cornerRadius = 20.0
-        imageView.backgroundColor = .red
+        imageView.backgroundColor = StarbucksColors.primaryColor
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -40,7 +42,6 @@ class AdvertContainerView: UIView {
         advertImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         advertImageView.heightAnchor.constraint(equalToConstant: 120.0).isActive = true
 
-        
         
     }
     
