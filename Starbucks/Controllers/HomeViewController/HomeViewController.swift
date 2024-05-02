@@ -9,6 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let advertHeaderView = AdvertContainerView()
+    
     lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = StarbucksImages.homeImage
@@ -17,13 +19,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
-    }()
-    
-    lazy var advertView: AdvertContainerView = {
-        let view = AdvertContainerView()
-        //view.backgroundColor = .cyan
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
     }()
     
     lazy var starbucksTableView: UITableView = {
@@ -42,24 +37,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         setupUI()
         setupNavigationBar()
         registerCell()
+        configureHeaderView()
     }
     
     
     func setupUI() {
-        view.addSubview(advertView)
         view.addSubview(starbucksTableView)
         
-        
-        advertView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 14).isActive = true
-        advertView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        advertView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        advertView.heightAnchor.constraint(equalToConstant: 140.0).isActive = true
-        
-        starbucksTableView.topAnchor.constraint(equalTo: advertView.bottomAnchor, constant: 10).isActive = true
-        starbucksTableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        starbucksTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        starbucksTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        starbucksTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        starbucksTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         starbucksTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
     }
     
     
@@ -75,7 +63,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         starbucksTableView.register(FeaturedProductsTableViewCell.self, forCellReuseIdentifier: "FeaturedProductsTableViewCellID")
         
     }
-    
-    
 }
 
+// Comment: Adding a HeaderView (not a TableSectionHeaderView) to a TableView
+extension HomeViewController {
+    func sizeHeaderToFit() {
+        advertHeaderView.setNeedsLayout()
+        advertHeaderView.layoutIfNeeded()
+        advertHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 140.0)
+    }
+
+    func configureHeaderView() {
+        advertHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 140.0)
+        starbucksTableView.tableHeaderView = advertHeaderView
+    }
+}

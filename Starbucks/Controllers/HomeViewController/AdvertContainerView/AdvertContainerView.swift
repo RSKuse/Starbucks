@@ -12,9 +12,13 @@ class AdvertContainerView: UIView {
     
     //let starbucksColors = StarbucksColors()
     
+    // HomeWork: Add a CollectionView in Here
+    
+    
     lazy var advertImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 20.0
+        // Comment: Rounding specific corners of a view without rounding all. 
 //        imageView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
         imageView.backgroundColor = StarbucksColors.primaryColor
         imageView.contentMode = .scaleAspectFill

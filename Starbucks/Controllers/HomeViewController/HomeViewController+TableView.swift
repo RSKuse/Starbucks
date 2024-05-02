@@ -51,6 +51,7 @@ extension HomeViewController {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = TableSectionHeaderView()
         
+        // Comment: Adds the tappability of the seeAllButton
         headerView.seeAllButton.addTarget(self, action: #selector(seeAllButtonTapped), for: .touchUpInside)
         
         if section == 0 {
@@ -66,7 +67,7 @@ extension HomeViewController {
     
     @objc func seeAllButtonTapped() {
         let productsViewController = ProductsViewController()
-        productsViewController.hidesBottomBarWhenPushed = true // Hides the tab bar when navigating
+        productsViewController.hidesBottomBarWhenPushed = true // Comment: Hides the tab bar when navigating
         navigationController?.pushViewController(productsViewController, animated: true)
     }
 
