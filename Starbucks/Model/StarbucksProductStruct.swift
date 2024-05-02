@@ -13,4 +13,6 @@ struct Product {
     let image: UIImage
     let price: Double
     let description: String
+    var rating: Double = 5.0
+    var numberOfLikes: Int = 0
 }

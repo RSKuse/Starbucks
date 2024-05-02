@@ -9,18 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let productsArray: [Product] = [
-            Product(name: "Espresso Frappuccino®", image: UIImage(named: "latte")!, price: 48.00, description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),
-            Product(name: "chocolateChip®", image: UIImage(named: "chocolateChip")!, price: 52.00, description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),
-            Product(name: "Espresso Frappuccino®", image: UIImage(named: "espressoFrappuccino")!, price: 48.00, description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),
-            Product(name: "Espresso Frappuccino®", image: UIImage(named: "latte")!, price: 48.00, description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),
-            Product(name: "Espresso Frappuccino®", image: UIImage(named: "espressoFrappuccino")!, price: 48.00, description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),
-            Product(name: "Espresso Frappuccino®", image: UIImage(named: "latte")!, price: 48.00, description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),
-            Product(name: "Espresso Frappuccino®", image: UIImage(named: "chocolateChip")!, price: 52.00, description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),
-            Product(name: "Espresso Frappuccino®", image: UIImage(named: "espressoFrappuccino")!, price: 48.00, description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),
-        ]
-    
-    
+    let starBucksDatabase = StarbucksDatabase()    
     let advertHeaderView = AdvertContainerView()
     
     lazy var logoImageView: UIImageView = {

@@ -12,7 +12,6 @@ class StarbucksColors {
     
     var starbucksGreen = UIColor(red: 0.0, green: 104.0 / 255.0, blue: 77.0 / 255.0, alpha: 1)
     static var primaryColor = UIColor(red: 0.0, green: 104.0 / 255.0, blue: 77.0 / 255.0, alpha: 1)
-    
     static var starbucksBlack = UIColor(red: 0.541, green: 0.537, blue: 0.557, alpha: 1)
     
 }
