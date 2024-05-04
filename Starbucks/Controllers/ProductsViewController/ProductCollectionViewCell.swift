@@ -10,69 +10,88 @@ import UIKit
 
 class ProductCollectionViewCell: UICollectionViewCell {
    
-    let productImageView: UIImageView = {
+    lazy var productImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "latte")
         imageView.clipsToBounds = true
-        // Add any additional styling or configuration
+//        imageView.layer.cornerRadius = 36
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.backgroundColor = .red
         return imageView
     }()
     
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        // Add any additional styling or configuration
+    lazy var productNameLabel: UILabel = {
+       let label = UILabel()
+        label.text = "Chocolate Chip Cream ®"
+        label.numberOfLines = 2
+        label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
+        label.textColor = UIColor.black
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    let priceLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        // Add any additional styling or configuration
+    lazy var priceLabel: UILabel = {
+       let label = UILabel()
+        label.text = "R48.00 ♥︎90% (1k)"
+        label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)
+        label.textColor = UIColor.black
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.numberOfLines = 0
-        // Add any additional styling or configuration
-        return label
+    lazy var mostLikedView: MostLikedView = {
+        let view = MostLikedView()
+        view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupUI()
+        backgroundColor = .clear
+        setupView()
+    }
+    
+    func setupView() {
+        
+        addSubview(productImageView)
+        productImageView.addSubview(mostLikedView)
+//        addSubview(mostLikedView)
+        addSubview(productNameLabel)
+        addSubview(priceLabel)
+        
+        productImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        productImageView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        productImageView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        productImageView.heightAnchor.constraint(equalToConstant: 130).isActive = true
+        
+        mostLikedView.leftAnchor.constraint(equalTo: productImageView.leftAnchor).isActive = true
+        mostLikedView.bottomAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: -8).isActive = true
+        mostLikedView.widthAnchor.constraint(equalToConstant: 74).isActive = true
+        mostLikedView.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        
+        productNameLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        productNameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -6).isActive = true
+        productNameLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor,
+                                              constant: 8).isActive = true
+    
+        priceLabel.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 4).isActive = true
+        priceLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
+        priceLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func setupUI() {
-        // Add UI elements to the cell's contentView
-        contentView.addSubview(productImageView)
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(priceLabel)
-        contentView.addSubview(descriptionLabel)
-        
-        // Add constraints for UI elements
-        // Example constraints:
-        productImageView.translatesAutoresizingMaskIntoConstraints = false
-        productImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
-        productImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
-        productImageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        productImageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        
-        // Add constraints for other UI elements
-    }
+
+
     
     // You may also need a method to configure the cell with product data
-    func configure(with product: Product) {
-        productImageView.image = product.image
-        nameLabel.text = product.name
-        priceLabel.text = "Price: \(product.price)"
-        descriptionLabel.text = product.description
-    }
+//    func configure(with product: Product) {
+//        productImageView.image = product.image
+//        productNameLabel.text = product.name
+//        priceLabel.text = "Price: \(product.price)"
+//    }
 }
 
