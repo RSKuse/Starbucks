@@ -12,6 +12,7 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
     
     let spacing: CGFloat = 2
     let products: [Product]
+    var navigationTitle: String
     
     lazy var productCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -26,14 +27,16 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
         return collectionView
     }()
     
-    init(products: [Product]) {
+    init(products: [Product], title: String) {
         self.products = products
+        self.navigationTitle = title
         super.init(nibName: nil, bundle: nil)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
+        navigationItem.title = navigationTitle
         setupConstraints()
         registerCollectionCells()
     }
@@ -69,7 +72,7 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
         let spacingBetweenItems: CGFloat = 8
         let totalSpacing = (2 * spacingBetweenItems) + ((numberOfItemsPerRow - 1) * spacingBetweenItems)
         let width = (collectionView.bounds.width - totalSpacing) / numberOfItemsPerRow
-        return CGSize(width: 171, height: 230)
+        return CGSize(width: width, height: 230)
     }
     
     required init?(coder: NSCoder) {

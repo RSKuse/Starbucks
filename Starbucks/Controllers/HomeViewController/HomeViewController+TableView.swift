@@ -103,7 +103,10 @@ extension HomeViewController {
         let headerView = TableSectionHeaderView()
         
         // Comment: Adds the tappability of the seeAllButton
-        headerView.seeAllButton.addTarget(self, action: #selector(seeAllButtonTapped), for: .touchUpInside)
+        headerView.seeAllButton.addTarget(self, 
+                                          action: #selector(seeAllButtonTapped),
+                                          for: .touchUpInside)
+        headerView.seeAllButton.tag = section
         headerView.title = starBucksDatabase.categoriesArray[section]
         
         /*
@@ -120,27 +123,33 @@ extension HomeViewController {
     }
     
     @objc func seeAllButtonTapped(sender: UIButton) {
-        guard let headerView = sender.superview as? TableSectionHeaderView else {
-            return
-        }
-        let sectionTitle = headerView.title
-        print("Section Title: \(sectionTitle)") 
-        
+//        guard let headerView = sender.superview as? TableSectionHeaderView else {
+//            return
+//        }
+//        print(sender.tag)
+//        let sectionTitle = headerView.title
+//        print("Section Title: \(sectionTitle)") 
+//        
         var productsToShow: [Product] = []
         
-        switch sectionTitle {
-        case "Featured":
+        // Use the categories array + sender.tag to access the titles.
+        let categoryTitle = starBucksDatabase.categoriesArray[sender.tag]
+        
+        // Practice More of Switch Statements. 
+        switch sender.tag {
+        case 0:
             productsToShow = starBucksDatabase.sortedFeaturedProducts()
-        case "Picked For You":
+        case 1:
             productsToShow = starBucksDatabase.pickedForYouArray
-        case "Bakery":
+        case 2:
             productsToShow = starBucksDatabase.bakeryArray
         default:
             break
         }
     
         
-        let productsViewController = ProductsViewController(products: productsToShow)
+        let productsViewController = ProductsViewController(products: productsToShow,
+                                                            title: categoryTitle)
         productsViewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(productsViewController, animated: true)
     }

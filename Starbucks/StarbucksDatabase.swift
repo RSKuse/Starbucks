@@ -10,7 +10,7 @@ import UIKit
 
 class StarbucksDatabase {
     
-    var categoriesArray: [String] = ["Featured", "Picked For You", "Bakery"]
+    var categoriesArray: [String] = ["Popular", "Picked For You", "Bakery"]
     
     let featuredArray: [Product] = [
             Product(name: "Hazelnut Chocolate Croissant®",
