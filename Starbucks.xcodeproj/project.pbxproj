@@ -10,6 +10,7 @@
 		45E198742BE40DAA00995770 /* StarbucksDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E198732BE40DAA00995770 /* StarbucksDatabase.swift */; };
 		45E8852A2BE393F000131E4D /* MostLikedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E885292BE393F000131E4D /* MostLikedView.swift */; };
 		45E8852D2BE396FA00131E4D /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E8852C2BE396FA00131E4D /* ProductsViewController.swift */; };
+		F35CDDFB2BE6B9E300494EFF /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35CDDFA2BE6B9E300494EFF /* ProductCollectionViewCell.swift */; };
 		F3F1D2102BDA637D009BFF98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1D20F2BDA637D009BFF98 /* AppDelegate.swift */; };
 		F3F1D2142BDA637D009BFF98 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1D2132BDA637D009BFF98 /* HomeViewController.swift */; };
 		F3F1D2192BDA6380009BFF98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3F1D2182BDA6380009BFF98 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		45E198732BE40DAA00995770 /* StarbucksDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksDatabase.swift; sourceTree = "<group>"; };
 		45E885292BE393F000131E4D /* MostLikedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostLikedView.swift; sourceTree = "<group>"; };
 		45E8852C2BE396FA00131E4D /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		F35CDDFA2BE6B9E300494EFF /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		F3F1D20C2BDA637D009BFF98 /* Starbucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Starbucks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3F1D20F2BDA637D009BFF98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3F1D2132BDA637D009BFF98 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				45E8852C2BE396FA00131E4D /* ProductsViewController.swift */,
+				F35CDDFA2BE6B9E300494EFF /* ProductCollectionViewCell.swift */,
 			);
 			path = ProductsViewController;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				F3F1D2242BDA7622009BFF98 /* AdvertContainerView.swift in Sources */,
 				F3F1D2102BDA637D009BFF98 /* AppDelegate.swift in Sources */,
 				F3F1D24F2BE1252F009BFF98 /* HomeViewController+TableView.swift in Sources */,
+				F35CDDFB2BE6B9E300494EFF /* ProductCollectionViewCell.swift in Sources */,
 				F3F1D2612BE3E1C3009BFF98 /* StarbucksProductStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

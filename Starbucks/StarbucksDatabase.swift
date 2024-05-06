@@ -10,9 +10,26 @@ import UIKit
 
 class StarbucksDatabase {
     
-    var categoriesArray: [String] = ["Featured", "Picked For You", "Bakery"]
+    var categoriesArray: [String] = ["Popular", "Picked For You", "Bakery"]
     
     let featuredArray: [Product] = [
+            Product(name: "Hazelnut Chocolate Croissant®",
+                    image: StarbucksImages.croissant!,
+                    price: 42.49,
+                    description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
+                    rating: 4.8,
+                    numberOfLikes: 1690 ),
+            Product(name: "Caramel Macchiato®",
+                    image: StarbucksImages.macchiato!,
+                    price: 54.99,
+                    description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
+                   numberOfLikes: 10654),
+            Product(name: "Mini Salted Caramel Vanilla Cake®",
+                    image: StarbucksImages.vanillaCake!,
+                    price: 79.49,
+                    description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
+                    rating: 3.9,
+                   numberOfLikes: 2054),
             Product(name: "Hazelnut Chocolate Croissant®",
                     image: StarbucksImages.croissant!,
                     price: 42.49,
