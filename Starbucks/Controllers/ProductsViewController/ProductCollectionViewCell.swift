@@ -9,20 +9,19 @@ import Foundation
 import UIKit
 
 class ProductCollectionViewCell: UICollectionViewCell {
-   
+    
     lazy var productImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(named: "latte")
         imageView.clipsToBounds = true
-//        imageView.layer.cornerRadius = 36
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .red
         return imageView
     }()
     
     lazy var productNameLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "Chocolate Chip Cream ®"
         label.numberOfLines = 2
         label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
@@ -32,7 +31,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     }()
     
     lazy var priceLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "R48.00 ♥︎90% (1k)"
         label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)
         label.textColor = UIColor.black
@@ -42,7 +41,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     lazy var mostLikedView: MostLikedView = {
         let view = MostLikedView()
-        view.isHidden = true
+        view.isHidden = false
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -57,7 +56,6 @@ class ProductCollectionViewCell: UICollectionViewCell {
         
         addSubview(productImageView)
         productImageView.addSubview(mostLikedView)
-//        addSubview(mostLikedView)
         addSubview(productNameLabel)
         addSubview(priceLabel)
         
@@ -75,7 +73,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         productNameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -6).isActive = true
         productNameLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor,
                                               constant: 8).isActive = true
-    
+        
         priceLabel.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 4).isActive = true
         priceLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
         priceLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
@@ -84,14 +82,5 @@ class ProductCollectionViewCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-
     
-    // You may also need a method to configure the cell with product data
-//    func configure(with product: Product) {
-//        productImageView.image = product.image
-//        productNameLabel.text = product.name
-//        priceLabel.text = "Price: \(product.price)"
-//    }
 }
-

@@ -10,6 +10,12 @@ import UIKit
 
 class TableSectionHeaderView: UIView {
     
+    var title: String? {
+        didSet {
+            titleLabel.text = title
+        }
+    }
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.bold)
@@ -22,7 +28,6 @@ class TableSectionHeaderView: UIView {
         button.setTitle("See All", for:.normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)
         button.setTitleColor(StarbucksColors.primaryColor, for:.normal)
-        // button.addTarget(self, action: #selector(seeAllButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
         

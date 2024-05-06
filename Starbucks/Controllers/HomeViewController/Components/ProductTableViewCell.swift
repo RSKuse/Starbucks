@@ -15,7 +15,6 @@ class ProductTableViewCell: UITableViewCell {
         imageView.image = UIImage(named: "latte")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        //imageView.layer.cornerRadius = 30
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

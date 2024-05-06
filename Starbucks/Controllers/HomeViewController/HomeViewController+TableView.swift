@@ -104,7 +104,7 @@ extension HomeViewController {
         
         // Comment: Adds the tappability of the seeAllButton
         headerView.seeAllButton.addTarget(self, action: #selector(seeAllButtonTapped), for: .touchUpInside)
-        headerView.titleLabel.text = starBucksDatabase.categoriesArray[section]
+        headerView.title = starBucksDatabase.categoriesArray[section]
         
         /*
         if section == 0 {
@@ -119,10 +119,31 @@ extension HomeViewController {
         return headerView
     }
     
-    @objc func seeAllButtonTapped() {
-        let productsViewController = ProductsViewController()
-        productsViewController.hidesBottomBarWhenPushed = true // Comment: Hides the tab bar when navigating
+    @objc func seeAllButtonTapped(sender: UIButton) {
+        guard let headerView = sender.superview as? TableSectionHeaderView else {
+            return
+        }
+        let sectionTitle = headerView.title
+        print("Section Title: \(sectionTitle)") 
+        
+        var productsToShow: [Product] = []
+        
+        switch sectionTitle {
+        case "Featured":
+            productsToShow = starBucksDatabase.sortedFeaturedProducts()
+        case "Picked For You":
+            productsToShow = starBucksDatabase.pickedForYouArray
+        case "Bakery":
+            productsToShow = starBucksDatabase.bakeryArray
+        default:
+            break
+        }
+    
+        
+        let productsViewController = ProductsViewController(products: productsToShow)
+        productsViewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(productsViewController, animated: true)
     }
+
     
 }
