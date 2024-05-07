@@ -8,18 +8,12 @@
 import Foundation
 import UIKit
 
-class ItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+class ProductViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    
-    
-    
     lazy var productTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.delegate = self
-        tableView.isHidden = true
         tableView.dataSource = self
-        tableView.allowsSelection = true
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -62,8 +56,6 @@ class ItemViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func registerCell() {
         productTableView.register(ItemInfoCell.self, forCellReuseIdentifier: "ItemInfoCellID")
-        
-            
         
     }
 

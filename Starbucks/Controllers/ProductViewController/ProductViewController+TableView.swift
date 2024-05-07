@@ -8,18 +8,18 @@
 import Foundation
 import UIKit
 
-
-extension ItemViewController {
+extension ProductViewController {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let InformationCell = tableView.dequeueReusableCell(withIdentifier: "ItemInfoCellID", for: indexPath) as! ItemInfoCell
-        return InformationCell
-        
-    }
-    
+        return tableView.dequeueReusableCell(withIdentifier: "ItemInfoCellID", for: indexPath) as! ItemInfoCell
+    }    
     
 }

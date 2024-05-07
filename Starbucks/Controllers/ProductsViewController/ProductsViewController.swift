@@ -67,12 +67,10 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
         cell.productNameLabel.text = product.name
         
         if product.numberOfLikes > 2000 {
-            
             cell.mostLikedView.isHidden = false
-            
         }
        
-            return cell
+        return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -84,12 +82,10 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let productViewController = ItemViewController()
+        let productViewController = ProductViewController()
         navigationController?.pushViewController(productViewController, animated: true)
     }
-    
-    
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

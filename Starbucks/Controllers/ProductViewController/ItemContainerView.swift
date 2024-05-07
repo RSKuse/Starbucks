@@ -10,7 +10,7 @@ import UIKit
 
 class ItemContainerView: UIView {
     
-    lazy var ItemImageView: UIImageView = {
+    lazy var itemImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = StarbucksColors.primaryColor
         imageView.contentMode = .scaleAspectFill
@@ -30,12 +30,13 @@ class ItemContainerView: UIView {
     
     func setupUI () {
         
-        addSubview(ItemImageView)
+        addSubview(itemImageView)
         
-        ItemImageView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        ItemImageView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        ItemImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        ItemImageView.heightAnchor.constraint(equalToConstant: 318.0).isActive = true
+        itemImageView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        itemImageView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        itemImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        itemImageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+
 
         
     }
