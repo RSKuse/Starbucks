@@ -71,11 +71,11 @@ extension HomeViewController {
     func sizeHeaderToFit() {
         advertHeaderView.setNeedsLayout()
         advertHeaderView.layoutIfNeeded()
-        advertHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 140.0)
+        advertHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 180)
     }
 
     func configureHeaderView() {
-        advertHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 140.0)
+        advertHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 180)
         starbucksTableView.tableHeaderView = advertHeaderView
     }
 }

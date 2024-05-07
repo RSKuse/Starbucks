@@ -10,19 +10,14 @@ import UIKit
 
 class AdvertContainerView: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    let imagePostCellHeight = CGFloat(10)
+    var imagePostCellHeight = CGFloat(140)
     var postImagesArray: [UIImage] = []
-    
-    //let starbucksColors = StarbucksColors()
-    
-    // HomeWork: Add a CollectionView in Here
     
     lazy var advertImageCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = UICollectionView.ScrollDirection.horizontal
         flowLayout.minimumLineSpacing = 0.0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-//        collectionView.contentInset = UIEdgeInsets(top: 0.0, left: 20.0, bottom: 0.0, right: 20.0)
         collectionView.isPagingEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -52,10 +47,8 @@ class AdvertContainerView: UICollectionViewCell, UICollectionViewDataSource, UIC
         
         advertImageCollectionView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         advertImageCollectionView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        advertImageCollectionView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        advertImageCollectionView.heightAnchor.constraint(equalToConstant: 120.0).isActive = true
-
-        
+        advertImageCollectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        advertImageCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
     func registerCollectionCells() {
@@ -64,10 +57,6 @@ class AdvertContainerView: UICollectionViewCell, UICollectionViewDataSource, UIC
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: frame.width, height: imagePostCellHeight)
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

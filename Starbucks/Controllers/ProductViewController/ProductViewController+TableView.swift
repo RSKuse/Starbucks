@@ -19,7 +19,7 @@ extension ProductViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "ItemInfoCellID", for: indexPath) as! ItemInfoCell
-    }    
+        return tableView.dequeueReusableCell(withIdentifier: ProductDetailsTableViewCell.cellID, for: indexPath) as! ProductDetailsTableViewCell
+    }
     
 }

@@ -31,8 +31,8 @@ class AdvertCell: UICollectionViewCell {
         
         imageView.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
         imageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
-        imageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 140.0).isActive = true
+        imageView.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
         
     }
     

@@ -55,7 +55,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func registerCell() {
-        productTableView.register(ItemInfoCell.self, forCellReuseIdentifier: "ItemInfoCellID")
+        productTableView.register(ProductDetailsTableViewCell.self, forCellReuseIdentifier: ProductDetailsTableViewCell.cellID)
         
     }
 
