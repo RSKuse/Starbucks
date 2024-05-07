@@ -41,7 +41,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     lazy var mostLikedView: MostLikedView = {
         let view = MostLikedView()
-        view.isHidden = false
+        view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

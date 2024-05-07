@@ -20,6 +20,7 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
         flowLayout.minimumLineSpacing = spacing
         flowLayout.minimumInteritemSpacing = spacing
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: -20.0, right: 0.0)
         collectionView.isPagingEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -64,7 +65,14 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
         let product = products[indexPath.item]
         cell.productImageView.image = product.image
         cell.productNameLabel.text = product.name
-        return cell
+        
+        if product.numberOfLikes > 2000 {
+            
+            cell.mostLikedView.isHidden = false
+            
+        }
+       
+            return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -74,6 +82,13 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
         let width = (collectionView.bounds.width - totalSpacing) / numberOfItemsPerRow
         return CGSize(width: width, height: 230)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let productViewController = ItemViewController()
+        navigationController?.pushViewController(productViewController, animated: true)
+    }
+    
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
