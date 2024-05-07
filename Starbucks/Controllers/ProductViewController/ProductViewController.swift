@@ -10,6 +10,7 @@ import UIKit
 
 class ProductViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var sizeOptions: [String] = ["Tall"] // ["Tall", "Grande", "Venti", "XXL"]
 
     lazy var productTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)

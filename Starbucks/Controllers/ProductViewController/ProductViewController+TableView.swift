@@ -12,19 +12,26 @@ extension ProductViewController {
     
     // HeaderView
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        /*
+    
         if section == 1 {
+            if sizeOptions.isEmpty == true {
+                return 0
+            }
             return 64.0
         } else {
             return 0
         }
-        */
         
-        return section == 1 ? 64 : 0
+        // return section == 1 ? 64 : 0
+    
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
+            if sizeOptions.count == 0 {
+                return nil
+            }
+            
             let headerView = TableSectionHeaderView()
             headerView.title = "Size"
             headerView.seeAllButton.isHidden = true
@@ -50,7 +57,7 @@ extension ProductViewController {
         */
         
         // Comment: return 3 if section is equal to 1 else return 1
-        return section == 1 ? 3 : 1
+        return section == 1 ? sizeOptions.count : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
