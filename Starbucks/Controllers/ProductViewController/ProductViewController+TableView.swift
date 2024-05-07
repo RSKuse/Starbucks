@@ -10,6 +10,31 @@ import UIKit
 
 extension ProductViewController {
     
+    // HeaderView
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        /*
+        if section == 1 {
+            return 64.0
+        } else {
+            return 0
+        }
+        */
+        
+        return section == 1 ? 64 : 0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 1 {
+            let headerView = TableSectionHeaderView()
+            headerView.title = "Size"
+            headerView.seeAllButton.isHidden = true
+            headerView.lineView.isHidden = false
+            return headerView
+        } else {
+            return nil
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }

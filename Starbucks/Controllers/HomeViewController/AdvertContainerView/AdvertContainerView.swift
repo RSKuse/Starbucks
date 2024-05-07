@@ -11,7 +11,7 @@ import UIKit
 class AdvertContainerView: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var imagePostCellHeight = CGFloat(140)
-    var postImagesArray: [UIImage] = []
+    var postImagesArray: [UIImage] = [UIImage(named: "espressoFrappuccino")!]
     
     lazy var advertImageCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -60,7 +60,7 @@ class AdvertContainerView: UICollectionViewCell, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return postImagesArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

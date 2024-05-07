@@ -16,6 +16,14 @@ class TableSectionHeaderView: UIView {
         }
     }
     
+    lazy var lineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.cyan
+        view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.bold)
@@ -44,14 +52,20 @@ class TableSectionHeaderView: UIView {
     }
     
     func setupUI() {
+        addSubview(lineView)
         addSubview(titleLabel)
         addSubview(seeAllButton)
         
+        lineView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        lineView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        lineView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        lineView.heightAnchor.constraint(equalToConstant: 4).isActive = true
+        
         titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
-        titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
         
         seeAllButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
-        seeAllButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        seeAllButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
     }
     
     @objc func seeAllButtonTapped() {
