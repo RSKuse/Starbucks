@@ -11,13 +11,14 @@ import UIKit
 class AdvertContainerView: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var imagePostCellHeight = CGFloat(140)
-    var postImagesArray: [UIImage] = [UIImage(named: "espressoFrappuccino")!]
+   // var postImagesArray: [UIImage] = [UIImage(named: "espressoFrappuccino")!]
     
     lazy var advertImageCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = UICollectionView.ScrollDirection.horizontal
         flowLayout.minimumLineSpacing = 0.0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -37,14 +38,7 @@ class AdvertContainerView: UICollectionViewCell, UICollectionViewDataSource, UIC
     
     func setupUI () {
         addSubview(advertImageCollectionView)
-//        addSubview(advertImageView)
-        
-//        
-//        advertImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
-//        advertImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
-//        advertImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-//        advertImageView.heightAnchor.constraint(equalToConstant: 120.0).isActive = true
-        
+     
         advertImageCollectionView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         advertImageCollectionView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         advertImageCollectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -60,7 +54,7 @@ class AdvertContainerView: UICollectionViewCell, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return postImagesArray.count
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

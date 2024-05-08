@@ -20,7 +20,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         return tableView
     }()
         
-    lazy var payCheckoutButton: UIButton = {
+    lazy var addToBasketButton: UIButton = {
         let button = UIButton()
         button.isEnabled = false
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -41,7 +41,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func setupUI() {
         view.addSubview(productTableView)
-        view.addSubview(payCheckoutButton)
+        view.addSubview(addToBasketButton)
         
         
         productTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
@@ -49,10 +49,10 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         productTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         productTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         
-        payCheckoutButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32).isActive = true
-        payCheckoutButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        payCheckoutButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-        payCheckoutButton.heightAnchor.constraint(equalToConstant: 42).isActive = true
+        addToBasketButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32).isActive = true
+        addToBasketButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        addToBasketButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        addToBasketButton.heightAnchor.constraint(equalToConstant: 42).isActive = true
         
     }
     

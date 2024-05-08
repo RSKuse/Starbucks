@@ -12,7 +12,7 @@ class AdvertCell: UICollectionViewCell {
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = StarbucksImages.homeImage
+        imageView.image = StarbucksImages.croissant
         imageView.layer.cornerRadius = 20.0
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
