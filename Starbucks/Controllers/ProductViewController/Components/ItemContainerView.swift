@@ -12,7 +12,7 @@ class ItemContainerView: UIView {
     
     lazy var itemImageView: UIImageView = {
         let imageView = UIImageView()
-        
+        imageView.image = StarbucksImages.chocolateChip
         imageView.backgroundColor = StarbucksColors.primaryColor
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -25,9 +25,6 @@ class ItemContainerView: UIView {
         setupUI()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     func setupUI () {
         
@@ -37,9 +34,11 @@ class ItemContainerView: UIView {
         itemImageView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         itemImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         itemImageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-
-
+        
+        
         
     }
-    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

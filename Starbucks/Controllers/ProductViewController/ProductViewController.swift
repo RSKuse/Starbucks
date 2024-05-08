@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class ProductViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    let productHeaderView = ItemContainerView()
 
     var sizeOptions: [String] = ["Tall"] // ["Tall", "Grande", "Venti", "XXL"]
 
@@ -36,6 +38,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         title = "Latte"
         setupUI()
         registerCell()
+        configureHeaderView()
       
     }
     
@@ -60,6 +63,17 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         productTableView.register(ProductDetailsTableViewCell.self, forCellReuseIdentifier: ProductDetailsTableViewCell.cellID)
         productTableView.register(ProductSizeTableCell.self, forCellReuseIdentifier: ProductSizeTableCell.cellID)
         productTableView.register(ProductDiscalimerTableCell.self, forCellReuseIdentifier: ProductDiscalimerTableCell.cellID)
+    }
+    
+    func sizeHeaderToFit() {
+        productHeaderView.setNeedsLayout()
+        productHeaderView.layoutIfNeeded()
+        productHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 318)
+    }
+
+    func configureHeaderView() {
+        productHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 318)
+        productTableView.tableHeaderView = productHeaderView
     }
 
 }
