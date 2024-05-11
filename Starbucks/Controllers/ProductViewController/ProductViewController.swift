@@ -63,7 +63,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     func registerCell() {
         productTableView.register(ProductDetailsTableViewCell.self, forCellReuseIdentifier: ProductDetailsTableViewCell.cellID)
         productTableView.register(ProductSizeTableCell.self, forCellReuseIdentifier: ProductSizeTableCell.cellID)
-        productTableView.register(ProductDiscalimerTableCell.self, forCellReuseIdentifier: ProductDiscalimerTableCell.cellID)
+        productTableView.register(ProductDisclaimerTableCell.self, forCellReuseIdentifier: ProductDisclaimerTableCell.cellID)
     }
     
     func sizeHeaderToFit() {

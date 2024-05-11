@@ -1,5 +1,5 @@
 //
-//  ProductDiscalimerTableCell.swift
+//  ProductDisclaimerTableCell.swift
 //  Starbucks
 //
 //  Created by Reuben Simphiwe Kuse on 2024/05/07.

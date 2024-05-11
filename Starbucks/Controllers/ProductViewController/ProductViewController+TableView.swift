@@ -68,7 +68,7 @@ extension ProductViewController {
             let sizeTableViewCell = tableView.dequeueReusableCell(withIdentifier: ProductSizeTableCell.cellID, for: indexPath) as! ProductSizeTableCell
             return sizeTableViewCell
         default:
-            return tableView.dequeueReusableCell(withIdentifier: ProductDiscalimerTableCell.cellID, for: indexPath) as! ProductDiscalimerTableCell
+            return tableView.dequeueReusableCell(withIdentifier: ProductDisclaimerTableCell.cellID, for: indexPath) as! ProductDisclaimerTableCell
         }
     }
     
