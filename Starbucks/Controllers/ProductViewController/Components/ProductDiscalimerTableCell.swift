@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ProductDiscalimerTableCell: UITableViewCell {
+class ProductDisclaimerTableCell: UITableViewCell {
     
     static var cellID = "ProductDiscalimerTableCellID"
     

@@ -9,8 +9,10 @@ import Foundation
 import UIKit
 
 class ProductSizeTableCell: UITableViewCell {
-    
     static var cellID = "ProductSizeTableCellID"
+    
+    
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: reuseIdentifier)

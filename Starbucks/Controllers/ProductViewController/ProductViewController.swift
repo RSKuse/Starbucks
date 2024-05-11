@@ -12,7 +12,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     let productHeaderView = ItemContainerView()
 
-    var sizeOptions: [String] = ["Tall"] // ["Tall", "Grande", "Venti", "XXL"]
+    var sizeOptions: [String] = ["Tall", "Grande", "Venti", "XXL"]
 
     lazy var productTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
@@ -36,7 +36,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Latte"
-        view.backgroundColor = .white 
+        view.backgroundColor = .white
         setupUI()
         registerCell()
         configureHeaderView()

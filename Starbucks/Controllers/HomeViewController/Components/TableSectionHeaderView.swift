@@ -18,7 +18,7 @@ class TableSectionHeaderView: UIView {
     
     lazy var lineView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.cyan
+        view.backgroundColor = UIColor.red
         view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view

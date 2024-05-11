@@ -178,8 +178,8 @@
 		F3F1D2572BE26D9E009BFF98 /* FeaturedProductsCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				F3F1D2522BE24FAF009BFF98 /* FeaturedProductsTableViewCell.swift */,
 				F3F1D2542BE2558A009BFF98 /* FeaturedProductCollectionCell.swift */,
+				F3F1D2522BE24FAF009BFF98 /* FeaturedProductsTableViewCell.swift */,
 				45E885292BE393F000131E4D /* MostLikedView.swift */,
 			);
 			path = FeaturedProductsCollectionView;

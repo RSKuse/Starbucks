@@ -17,7 +17,7 @@ extension ProductViewController {
             if sizeOptions.isEmpty == true {
                 return 0
             }
-            return 64.0
+            return 60.0
         } else {
             return 0
         }
@@ -75,9 +75,9 @@ extension ProductViewController {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 100
+            return 161
         case 1:
-            return 56
+            return 150
         default:
             return 56
         }
