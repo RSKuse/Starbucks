@@ -12,7 +12,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     let productHeaderView = ItemContainerView()
 
-    var sizeOptions: [String] = ["Tall", "Grande", "Venti", "XXL"]
+    var sizeOptions: [String] = ["Tall", "Grande", "Venti"]
 
     lazy var productTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)

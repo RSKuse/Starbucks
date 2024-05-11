@@ -48,6 +48,14 @@ extension ProductViewController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        if section == 0 {
+            return 1
+        } else if section == 1 {
+            return sizeOptions.count
+        } else {
+            return 1
+        }
+        
         /*
         if section == 1 {
             return 3
@@ -57,7 +65,7 @@ extension ProductViewController {
         */
         
         // Comment: return 3 if section is equal to 1 else return 1
-        return section == 1 ? sizeOptions.count : 1
+        //return section == 1 ? sizeOptions.count : 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
