@@ -47,12 +47,16 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = product.name
         view.backgroundColor = .white
         setupUI()
+        setupProductUI()
         registerCell()
         configureHeaderView()
-      
+    }
+    
+    func setupProductUI() {
+        title = product.name
+        productHeaderView.product = product
     }
     
     func setupUI() {

@@ -10,9 +10,14 @@ import UIKit
 
 class ItemContainerView: UIView {
     
+    var product: Product? {
+        didSet {
+            itemImageView.image = product?.image
+        }
+    }
+    
     lazy var itemImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = StarbucksImages.chocolateChip
         imageView.backgroundColor = StarbucksColors.primaryColor
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
