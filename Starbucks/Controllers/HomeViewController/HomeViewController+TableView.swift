@@ -99,6 +99,18 @@ extension HomeViewController {
         */
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        switch indexPath.section {
+        case 0:
+            return
+        default:
+            let productViewController = ProductViewController()
+            productViewController.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(productViewController, animated: true)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = TableSectionHeaderView()
         

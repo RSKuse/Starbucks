@@ -7,10 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4524A5632BF2933D00986B5B /* ProductTagContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524A5622BF2933D00986B5B /* ProductTagContainerView.swift */; };
 		45E198742BE40DAA00995770 /* StarbucksDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E198732BE40DAA00995770 /* StarbucksDatabase.swift */; };
 		45E8852A2BE393F000131E4D /* MostLikedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E885292BE393F000131E4D /* MostLikedView.swift */; };
 		45E8852D2BE396FA00131E4D /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E8852C2BE396FA00131E4D /* ProductsViewController.swift */; };
 		F35CDDFB2BE6B9E300494EFF /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35CDDFA2BE6B9E300494EFF /* ProductCollectionViewCell.swift */; };
+		F35CDDFD2BE98A2B00494EFF /* AdvertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35CDDFC2BE98A2B00494EFF /* AdvertCell.swift */; };
+		F35CDE012BEA3CD300494EFF /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35CDE002BEA3CD300494EFF /* ProductViewController.swift */; };
+		F35CDE032BEA462300494EFF /* ProductViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35CDE022BEA462300494EFF /* ProductViewController+TableView.swift */; };
+		F35CDE052BEA479500494EFF /* ItemContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35CDE042BEA479500494EFF /* ItemContainerView.swift */; };
+		F35CDE072BEA4E0300494EFF /* ProductDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35CDE062BEA4E0300494EFF /* ProductDetailsTableViewCell.swift */; };
+		F35CDE0A2BEA5EB700494EFF /* ProductDisclaimerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35CDE092BEA5EB700494EFF /* ProductDisclaimerTableCell.swift */; };
+		F35CDE0D2BEA612100494EFF /* ProductSizeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35CDE0C2BEA612100494EFF /* ProductSizeTableCell.swift */; };
 		F3F1D2102BDA637D009BFF98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1D20F2BDA637D009BFF98 /* AppDelegate.swift */; };
 		F3F1D2142BDA637D009BFF98 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1D2132BDA637D009BFF98 /* HomeViewController.swift */; };
 		F3F1D2192BDA6380009BFF98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3F1D2182BDA6380009BFF98 /* Assets.xcassets */; };
@@ -30,10 +38,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4524A5622BF2933D00986B5B /* ProductTagContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTagContainerView.swift; sourceTree = "<group>"; };
 		45E198732BE40DAA00995770 /* StarbucksDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksDatabase.swift; sourceTree = "<group>"; };
 		45E885292BE393F000131E4D /* MostLikedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostLikedView.swift; sourceTree = "<group>"; };
 		45E8852C2BE396FA00131E4D /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		F35CDDFA2BE6B9E300494EFF /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		F35CDDFC2BE98A2B00494EFF /* AdvertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertCell.swift; sourceTree = "<group>"; };
+		F35CDE002BEA3CD300494EFF /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		F35CDE022BEA462300494EFF /* ProductViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductViewController+TableView.swift"; sourceTree = "<group>"; };
+		F35CDE042BEA479500494EFF /* ItemContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemContainerView.swift; sourceTree = "<group>"; };
+		F35CDE062BEA4E0300494EFF /* ProductDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		F35CDE092BEA5EB700494EFF /* ProductDisclaimerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDisclaimerTableCell.swift; sourceTree = "<group>"; };
+		F35CDE0C2BEA612100494EFF /* ProductSizeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSizeTableCell.swift; sourceTree = "<group>"; };
 		F3F1D20C2BDA637D009BFF98 /* Starbucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Starbucks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3F1D20F2BDA637D009BFF98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3F1D2132BDA637D009BFF98 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -78,8 +94,31 @@
 			isa = PBXGroup;
 			children = (
 				F3F1D2232BDA7622009BFF98 /* AdvertContainerView.swift */,
+				F35CDDFC2BE98A2B00494EFF /* AdvertCell.swift */,
 			);
 			path = AdvertContainerView;
+			sourceTree = "<group>";
+		};
+		F35CDE082BEA513D00494EFF /* ProductViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F35CDE002BEA3CD300494EFF /* ProductViewController.swift */,
+				F35CDE022BEA462300494EFF /* ProductViewController+TableView.swift */,
+				F35CDE0B2BEA5EE500494EFF /* Components */,
+			);
+			path = ProductViewController;
+			sourceTree = "<group>";
+		};
+		F35CDE0B2BEA5EE500494EFF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F35CDE042BEA479500494EFF /* ItemContainerView.swift */,
+				F35CDE062BEA4E0300494EFF /* ProductDetailsTableViewCell.swift */,
+				F35CDE0C2BEA612100494EFF /* ProductSizeTableCell.swift */,
+				F35CDE092BEA5EB700494EFF /* ProductDisclaimerTableCell.swift */,
+				4524A5622BF2933D00986B5B /* ProductTagContainerView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		F3F1D2032BDA637D009BFF98 = {
@@ -120,6 +159,7 @@
 			children = (
 				F3F1D2562BE26CEA009BFF98 /* HomeViewController */,
 				45E8852B2BE396DC00131E4D /* ProductsViewController */,
+				F35CDE082BEA513D00494EFF /* ProductViewController */,
 				F3F1D2472BDA96B5009BFF98 /* CartViewController.swift */,
 				F3F1D2492BDA9775009BFF98 /* ProfileViewController.swift */,
 			);
@@ -141,8 +181,8 @@
 		F3F1D2572BE26D9E009BFF98 /* FeaturedProductsCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				F3F1D2522BE24FAF009BFF98 /* FeaturedProductsTableViewCell.swift */,
 				F3F1D2542BE2558A009BFF98 /* FeaturedProductCollectionCell.swift */,
+				F3F1D2522BE24FAF009BFF98 /* FeaturedProductsTableViewCell.swift */,
 				45E885292BE393F000131E4D /* MostLikedView.swift */,
 			);
 			path = FeaturedProductsCollectionView;
@@ -236,21 +276,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3F1D24C2BDA9C7B009BFF98 /* StarbucksColors.swift in Sources */,
+				F35CDE052BEA479500494EFF /* ItemContainerView.swift in Sources */,
 				45E8852A2BE393F000131E4D /* MostLikedView.swift in Sources */,
 				F3F1D2532BE24FAF009BFF98 /* FeaturedProductsTableViewCell.swift in Sources */,
 				F3F1D24A2BDA9775009BFF98 /* ProfileViewController.swift in Sources */,
+				F35CDE0D2BEA612100494EFF /* ProductSizeTableCell.swift in Sources */,
 				F3F1D2512BE16048009BFF98 /* ProductTableViewCell.swift in Sources */,
 				F3F1D2142BDA637D009BFF98 /* HomeViewController.swift in Sources */,
 				45E198742BE40DAA00995770 /* StarbucksDatabase.swift in Sources */,
 				F3F1D2462BDA9504009BFF98 /* TabBarControllers.swift in Sources */,
 				F3F1D2552BE2558A009BFF98 /* FeaturedProductCollectionCell.swift in Sources */,
+				F35CDE0A2BEA5EB700494EFF /* ProductDisclaimerTableCell.swift in Sources */,
+				F35CDDFD2BE98A2B00494EFF /* AdvertCell.swift in Sources */,
+				F35CDE032BEA462300494EFF /* ProductViewController+TableView.swift in Sources */,
 				F3F1D25E2BE387CC009BFF98 /* StarbucksImages.swift in Sources */,
+				F35CDE072BEA4E0300494EFF /* ProductDetailsTableViewCell.swift in Sources */,
 				45E8852D2BE396FA00131E4D /* ProductsViewController.swift in Sources */,
 				F3F1D2482BDA96B5009BFF98 /* CartViewController.swift in Sources */,
 				F3F1D2592BE2E231009BFF98 /* TableSectionHeaderView.swift in Sources */,
 				F3F1D2242BDA7622009BFF98 /* AdvertContainerView.swift in Sources */,
 				F3F1D2102BDA637D009BFF98 /* AppDelegate.swift in Sources */,
 				F3F1D24F2BE1252F009BFF98 /* HomeViewController+TableView.swift in Sources */,
+				F35CDE012BEA3CD300494EFF /* ProductViewController.swift in Sources */,
+				4524A5632BF2933D00986B5B /* ProductTagContainerView.swift in Sources */,
 				F35CDDFB2BE6B9E300494EFF /* ProductCollectionViewCell.swift in Sources */,
 				F3F1D2612BE3E1C3009BFF98 /* StarbucksProductStruct.swift in Sources */,
 			);

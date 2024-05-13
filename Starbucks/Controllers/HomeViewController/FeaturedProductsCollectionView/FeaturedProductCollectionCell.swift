@@ -57,7 +57,6 @@ class FeaturedProductCollectionCell: UICollectionViewCell {
         
         addSubview(productImageView)
         productImageView.addSubview(mostLikedView)
-//        addSubview(mostLikedView)
         addSubview(productNameLabel)
         addSubview(priceLabel)
         
