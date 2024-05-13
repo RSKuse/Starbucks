@@ -35,6 +35,7 @@ extension ProductViewController {
             let headerView = TableSectionHeaderView()
             headerView.title = "Size"
             headerView.seeAllButton.isHidden = true
+            headerView.requiredView.isHidden = false
             headerView.lineView.isHidden = false
             return headerView
         } else {

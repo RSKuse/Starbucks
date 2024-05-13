@@ -73,7 +73,7 @@ class ProductTableViewCell: UITableViewCell {
     
     func setupUI() {
         addSubview(productImageView)
-        addSubview(productInformationStackView)      
+        addSubview(productInformationStackView)
         
         productImageView.heightAnchor.constraint(equalToConstant: 90).isActive = true
         productImageView.widthAnchor.constraint(equalToConstant: 90).isActive = true

@@ -13,7 +13,7 @@ class ProductSizeTableCell: UITableViewCell {
     
     lazy var sizeTallLabel: UILabel = {
        let label = UILabel()
-        label.text = "Tall"
+        label.text = "Ndalo"
         label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.medium)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -22,7 +22,7 @@ class ProductSizeTableCell: UITableViewCell {
     
     lazy var sizeGrandeLabel: UILabel = {
        let label = UILabel()
-        label.text = "Grande"
+        label.text = "Asanda"
         label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.medium)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -31,7 +31,7 @@ class ProductSizeTableCell: UITableViewCell {
     
     lazy var sizeVentiLabel: UILabel = {
        let label = UILabel()
-        label.text = "Venti \n+R11.00"
+        label.text = "Melo"
         label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.medium)
         label.numberOfLines = 2
         label.textColor = .black

@@ -38,7 +38,16 @@ class TableSectionHeaderView: UIView {
         button.setTitleColor(StarbucksColors.primaryColor, for:.normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
-        
+    }()
+    
+    lazy var requiredView: ProductTagContainerView = {
+        let view = ProductTagContainerView()
+        view.tagLabel.text = "✓ Required"
+        view.isHidden = true
+        view.tagLabel.textColor = StarbucksColors.primaryColor
+        view.backgroundColor = StarbucksColors.lightPrimaryColor
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     override init(frame: CGRect) {
@@ -55,6 +64,7 @@ class TableSectionHeaderView: UIView {
         addSubview(lineView)
         addSubview(titleLabel)
         addSubview(seeAllButton)
+        addSubview(requiredView)
         
         lineView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         lineView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
@@ -66,6 +76,10 @@ class TableSectionHeaderView: UIView {
         
         seeAllButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
         seeAllButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
+        
+        requiredView.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
+        requiredView.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        requiredView.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
     }
     
     @objc func seeAllButtonTapped() {
