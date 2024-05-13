@@ -13,6 +13,8 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     let productHeaderView = ItemContainerView()
 
     var sizeOptions: [String] = ["Tall", "Grande", "Venti"]
+    
+    var product: Product
 
     lazy var productTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
@@ -33,9 +35,18 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         return button
     }()
     
+    init(product: Product) {
+        self.product = product
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Latte"
+        title = product.name
         view.backgroundColor = .white
         setupUI()
         registerCell()
