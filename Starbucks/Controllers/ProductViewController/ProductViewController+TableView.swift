@@ -86,7 +86,7 @@ extension ProductViewController {
         case 0:
             return 161
         case 1:
-            return 150
+            return 72
         default:
             return 56
         }

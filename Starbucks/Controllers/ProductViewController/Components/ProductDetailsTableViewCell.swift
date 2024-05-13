@@ -19,31 +19,6 @@ class ProductDetailsTableViewCell: UITableViewCell {
         return view
     }()
     
-    /*
-     lazy var numberOflikedView: UIView = {
-         let view = UIView()
-         view.layer.cornerRadius = 5
-         
-         let label = UILabel()
-         label.text = "♥︎90% (1k)"
-         label.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight.regular)
-         label.textColor = .white
-         label.textAlignment = .center
-         
-         view.addSubview(label) // Add label as subview to mostlikedView
-         
-         label.translatesAutoresizingMaskIntoConstraints = false
-         label.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-         label.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-         label.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-         label.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-      
-         view.backgroundColor = .black
-         view.translatesAutoresizingMaskIntoConstraints = false
-         return view
-     }()
-     */
-    
     lazy var numberOflikedView: ProductTagContainerView = {
         let view = ProductTagContainerView()
         view.tagLabel.text = "♥︎90% (1k)"
