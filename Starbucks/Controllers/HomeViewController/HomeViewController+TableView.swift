@@ -104,8 +104,14 @@ extension HomeViewController {
         switch indexPath.section {
         case 0:
             return
+        case 1:
+            let product = starBucksDatabase.pickedForYouArray[indexPath.row]
+            let productViewController = ProductViewController(product: product)
+            productViewController.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(productViewController, animated: true)
         default:
-            let productViewController = ProductViewController()
+            let product = starBucksDatabase.bakeryArray[indexPath.row]
+            let productViewController = ProductViewController(product: product)
             productViewController.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(productViewController, animated: true)
         }

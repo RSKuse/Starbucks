@@ -82,7 +82,8 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let productViewController = ProductViewController()
+        let product = products[indexPath.item]
+        let productViewController = ProductViewController(product: product)
         navigationController?.pushViewController(productViewController, animated: true)
     }
 
