@@ -28,6 +28,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         let button = UIButton()
         button.isEnabled = false
         button.setTitle("Add to basket • R48.00", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         button.layer.cornerRadius = 8.0
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = StarbucksColors.primaryColor

@@ -68,7 +68,7 @@ class StarbucksDatabase {
     let pickedForYouArray: [Product] = [
             Product(name: "Latte®", 
                     image: StarbucksImages.latte!,
-                    price: 48.00,
+                    price: 66.00,
                     description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),
             Product(name: "Chocolate Chip®",
                     image: StarbucksImages.chocolateChip!,
@@ -76,13 +76,13 @@ class StarbucksDatabase {
                     description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),
             Product(name: "Espresso Frappuccino®",
                     image: UIImage(named: "espressoFrappuccino")!,
-                    price: 48.00, description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.")
+                    price: 131.00, description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.")
         ]
     
     let bakeryArray: [Product] = [
             Product(name: "Crossaint®", 
                     image: UIImage(named: "latte")!,
-                    price: 48.00,
+                    price: 92.00,
                     description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.")
         ]
     
