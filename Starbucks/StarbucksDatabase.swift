@@ -23,6 +23,7 @@ class StarbucksDatabase {
                     image: StarbucksImages.macchiato!,
                     price: 54.99,
                     description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
+                    size: [ProductSize(name: "Tall", price: 0.0)],
                    numberOfLikes: 10654),
             Product(name: "Mini Salted Caramel Vanilla Cake®",
                     image: StarbucksImages.vanillaCake!,
@@ -36,14 +37,6 @@ class StarbucksDatabase {
                     description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
                     rating: 4.8,
                     numberOfLikes: 1690 ),
-            Product(name: "Caramel Macchiato®",
-                    image: StarbucksImages.macchiato!,
-                    price: 54.99,
-                    description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
-                    size: [ProductSize(name: "Tall", price: 0.0),
-                           ProductSize(name: "Venti", price: 4.0),
-                           ProductSize(name: "Grande", price: 8.0)],
-                    numberOfLikes: 104),
             Product(name: "Mini Salted Caramel Vanilla Cake®",
                     image: StarbucksImages.vanillaCake!,
                     price: 79.49,
@@ -70,14 +63,18 @@ class StarbucksDatabase {
                     image: StarbucksImages.latte!,
                     price: 66.00,
                     description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),
+            
             Product(name: "Chocolate Chip®",
                     image: StarbucksImages.chocolateChip!,
                     price: 52.00,
-                    description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),
+                    description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
+                    size: [ProductSize(name: "Large", price: 35.89),
+                           ProductSize(name: "Medium", price: 25.32),
+                           ProductSize(name: "Small", price: 15.00),
+                           ProductSize(name: "Baby Size", price: 0.0)]),
             Product(name: "Espresso Frappuccino®",
                     image: UIImage(named: "espressoFrappuccino")!,
-                    price: 131.00, description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.")
-        ]
+                    price: 131.00, description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.")]
     
     let bakeryArray: [Product] = [
             Product(name: "Crossaint®", 
