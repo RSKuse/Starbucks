@@ -12,7 +12,7 @@ extension ProductViewController {
     
     // HeaderView
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    
+        
         if section == 1 {
             if sizeOptions.isEmpty == true {
                 return 0
@@ -23,7 +23,7 @@ extension ProductViewController {
         }
         
         // return section == 1 ? 64 : 0
-    
+        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -58,12 +58,12 @@ extension ProductViewController {
         }
         
         /*
-        if section == 1 {
-            return 3
-        } else {
-            return 1
-        }
-        */
+         if section == 1 {
+         return 3
+         } else {
+         return 1
+         }
+         */
         
         // Comment: return 3 if section is equal to 1 else return 1
         //return section == 1 ? sizeOptions.count : 3
@@ -90,6 +90,13 @@ extension ProductViewController {
         default:
             return 56
         }
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
     }
     
 }

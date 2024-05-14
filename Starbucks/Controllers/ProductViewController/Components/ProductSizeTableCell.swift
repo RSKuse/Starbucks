@@ -45,7 +45,7 @@ class ProductSizeTableCell: UITableViewCell {
         button.setImage(icon, for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        //button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return button
     }()
     
@@ -56,8 +56,9 @@ class ProductSizeTableCell: UITableViewCell {
     }
     
     func setupUI() {
-        addSubview(sizePriceStackView)
         addSubview(checkMarkButton)
+        addSubview(sizePriceStackView)
+        
         
         sizePriceStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
         sizePriceStackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
@@ -70,25 +71,4 @@ class ProductSizeTableCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func buttonAction() {
-        var currentImage = checkMarkButton.currentImage
-        if currentImage == checkMarkButton.imageView?.image {
-             currentImage = UIImage(named: "unSelectedCheckMark")
-                checkMarkButton.setImage(UIImage(named: "selectedCheckmark"), for: .normal)
-        } else {
-                checkMarkButton.setImage(UIImage(named: "unSelectedCheckMark"), for: .normal)
-            }
-        }
 }
-
-
-//}
-//@objc func followButtonAction() {
-//    if followButton.title(for: .normal) == "Follow" {
-//        followButton.setTitle("Unfollow", for: .normal)
-//    } else {
-//        followButton.setTitle("Follow", for: .normal)
-//    }
-//}
-//
-//}

@@ -16,4 +16,6 @@ class StarbucksImages {
     static var latte = UIImage(named: "latte")
     static var vanillaCake = UIImage(named: "vanilla_cake")
     static var macchiato = UIImage(named: "macchiato")
+    static var checkMarkButton = UIImage(named: "unSelectedCheckMark")
+    static var checkMarkButton2 = UIImage(named: "selectedCheckmark")
 }
