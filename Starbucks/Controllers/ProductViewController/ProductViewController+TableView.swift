@@ -72,7 +72,18 @@ extension ProductViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            return tableView.dequeueReusableCell(withIdentifier: ProductDetailsTableViewCell.cellID, for: indexPath) as! ProductDetailsTableViewCell
+            let productViewCell = tableView.dequeueReusableCell(withIdentifier: ProductDetailsTableViewCell.cellID, for: indexPath) as! ProductDetailsTableViewCell
+            productViewCell.productNameLabel.text = product.name
+            productViewCell.productPriceLabel.text = " R\(product.price)" // comment: Practice on Playground
+            productViewCell.productDescription.text = product.description
+            
+            if product.numberOfLikes > 0 {
+                productViewCell.mostlikedView.isHidden = false
+            } else {
+                productViewCell.mostlikedView.isHidden = true
+            }
+            
+            return productViewCell
         case 1:
             let sizeTableViewCell = tableView.dequeueReusableCell(withIdentifier: ProductSizeTableCell.cellID, for: indexPath) as! ProductSizeTableCell
             return sizeTableViewCell

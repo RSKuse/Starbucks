@@ -84,13 +84,8 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let product = products[indexPath.item]
         let productViewController = ProductViewController(product: product)
-        productViewController.productName = product.name
-        productViewController.productPrice = product.price
         navigationController?.pushViewController(productViewController, animated: true)
     }
-
-
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

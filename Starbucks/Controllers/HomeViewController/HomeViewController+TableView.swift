@@ -112,8 +112,8 @@ extension HomeViewController {
         }
         let productViewController = ProductViewController(product: product)
         productViewController.hidesBottomBarWhenPushed = true
-        productViewController.productName = product.name
-        productViewController.productPrice = product.price
+//        productViewController.productName = product.name
+//        productViewController.productPrice = product.price
         navigationController?.pushViewController(productViewController, animated: true)
     }
 

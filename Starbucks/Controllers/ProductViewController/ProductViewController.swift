@@ -10,8 +10,8 @@ import UIKit
 
 class ProductViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var productName: String = ""
-    var productPrice: Double = 0.0
+//    var productName: String = ""
+//    var productPrice: Double = 0.0
     let productHeaderView = ItemContainerView()
     var sizeOptions: [String] = ["Tall", "Grande", "Venti"]
     var product: Product
