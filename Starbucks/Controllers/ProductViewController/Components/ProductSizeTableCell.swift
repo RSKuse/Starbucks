@@ -12,7 +12,7 @@ class ProductSizeTableCell: UITableViewCell {
     static var cellID = "ProductSizeTableCellID"
     
     lazy var sizeNameLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "Tall"
         label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.medium)
         label.textColor = .black
@@ -21,10 +21,10 @@ class ProductSizeTableCell: UITableViewCell {
     }()
     
     lazy var priceSizeLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "+R4.00"
         label.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.regular)
-        label.textColor = StarbucksColors.starbucksTextGray
+        label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -39,7 +39,16 @@ class ProductSizeTableCell: UITableViewCell {
         return stackView
     }()
     
-
+    lazy var checkMarkButton: UIButton = {
+        let button = UIButton()
+        let icon = UIImage(named: "unSelectedCheckMark")
+        button.setImage(icon, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        return button
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
@@ -48,15 +57,38 @@ class ProductSizeTableCell: UITableViewCell {
     
     func setupUI() {
         addSubview(sizePriceStackView)
+        addSubview(checkMarkButton)
         
         sizePriceStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
         sizePriceStackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-
         
+        checkMarkButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
+        checkMarkButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
-
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    @objc func buttonAction() {
+        var currentImage = checkMarkButton.currentImage
+        if currentImage == checkMarkButton.imageView?.image {
+             currentImage = UIImage(named: "unSelectedCheckMark")
+                checkMarkButton.setImage(UIImage(named: "selectedCheckmark"), for: .normal)
+        } else {
+                checkMarkButton.setImage(UIImage(named: "unSelectedCheckMark"), for: .normal)
+            }
+        }
 }
+
+
+//}
+//@objc func followButtonAction() {
+//    if followButton.title(for: .normal) == "Follow" {
+//        followButton.setTitle("Unfollow", for: .normal)
+//    } else {
+//        followButton.setTitle("Follow", for: .normal)
+//    }
+//}
+//
+//}
