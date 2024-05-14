@@ -17,7 +17,8 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     var product: Product
 
     lazy var productTableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .plain)
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.backgroundColor = .cyan
         tableView.delegate = self
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
