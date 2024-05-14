@@ -42,26 +42,16 @@ class ProductSizeTableCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: reuseIdentifier)
-        //backgroundColor = .brown
+        backgroundColor = .clear
         setupUI()
     }
     
     func setupUI() {
         addSubview(sizePriceStackView)
-//        addSubview(sizeGrandeLabel)
-//        addSubview(sizeVentiLabel)
-        
         
         sizePriceStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
         sizePriceStackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        
-//        sizeGrandeLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
-//        sizeGrandeLabel.topAnchor.constraint(equalTo: sizeTallLabel.bottomAnchor, constant: 28).isActive = true
-//        
-//        sizeVentiLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
-//        sizeVentiLabel.topAnchor.constraint(equalTo: sizeGrandeLabel.bottomAnchor, constant: 40).isActive = true
-//        sizeVentiLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16).isActive = true
-        
+
         
     }
 
