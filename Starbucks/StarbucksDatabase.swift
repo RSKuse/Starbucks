@@ -10,7 +10,7 @@ import UIKit
 
 class StarbucksDatabase {
     
-    var categoriesArray: [String] = ["Popular", "Picked For You", "Bakery", "Cold bevarages"]
+    var categoriesArray: [String] = ["Featured", "Picked For You", "Bakery"]
     
     let featuredArray: [Product] = [
             Product(name: "Hazelnut Chocolate Croissant®",
@@ -81,9 +81,13 @@ class StarbucksDatabase {
     
     let bakeryArray: [Product] = [
             Product(name: "Crossaint®", 
-                    image: UIImage(named: "latte")!,
+                    image: UIImage(named: "Hazelnut Chocolate Croissant")!,
+                    price: 42.00,
+                    description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),
+            Product(name: "vanilla cake®",
+                    image: UIImage(named: "vanilla_cake")!,
                     price: 92.00,
-                    description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.")
+                    description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),
         ]
     
 }
