@@ -101,22 +101,22 @@ extension HomeViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        var product: Product
         switch indexPath.section {
         case 0:
             return
         case 1:
-            let product = starBucksDatabase.pickedForYouArray[indexPath.row]
-            let productViewController = ProductViewController(product: product)
-            productViewController.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(productViewController, animated: true)
+            product = starBucksDatabase.pickedForYouArray[indexPath.row]
         default:
-            let product = starBucksDatabase.bakeryArray[indexPath.row]
-            let productViewController = ProductViewController(product: product)
-            productViewController.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(productViewController, animated: true)
+            product = starBucksDatabase.bakeryArray[indexPath.row]
         }
+        let productViewController = ProductViewController(product: product)
+        productViewController.hidesBottomBarWhenPushed = true
+        productViewController.productName = product.name
+        productViewController.productPrice = product.price
+        navigationController?.pushViewController(productViewController, animated: true)
     }
-    
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = TableSectionHeaderView()
         

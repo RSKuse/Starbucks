@@ -90,6 +90,7 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
     }
 
 
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
