@@ -41,7 +41,7 @@ class ProductSizeTableCell: UITableViewCell {
     
     lazy var checkMarkButton: UIButton = {
         let button = UIButton()
-        let icon = UIImage(named: "unSelectedCheckMark")
+        let icon = StarbucksImages.checkMarkButton
         button.setImage(icon, for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.translatesAutoresizingMaskIntoConstraints = false
