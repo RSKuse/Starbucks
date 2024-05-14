@@ -60,7 +60,7 @@ class ProductDetailsTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .clear
+        backgroundColor = .white
         setupUI()
     }
     
