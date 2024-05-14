@@ -86,10 +86,10 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
         let productViewController = ProductViewController(product: product)
         navigationController?.pushViewController(productViewController, animated: true)
     }
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
 
 
 }

@@ -12,6 +12,10 @@ class ProductDetailsTableViewCell: UITableViewCell {
     
     static var cellID = "ProductDetailsTableViewCellID"
     
+//    var productName: String = ""
+//    var productPrice: String = ""
+//    var productDescription: String = ""
+    
     lazy var mostlikedView: ProductTagContainerView = {
         let view = ProductTagContainerView()
         view.tagLabel.text = "#1 Most Liked"
