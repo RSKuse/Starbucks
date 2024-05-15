@@ -14,7 +14,7 @@ extension ProductViewController {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         if section == 1 {
-            if sizeOptions.isEmpty == true {
+            guard let _ = product.size else {
                 return 0
             }
             return 60.0
@@ -28,10 +28,9 @@ extension ProductViewController {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
-            if sizeOptions.count == 0 {
+            guard let _ = product.size else {
                 return nil
             }
-            
             let headerView = TableSectionHeaderView()
             headerView.title = "Size"
             headerView.seeAllButton.isHidden = true
@@ -52,7 +51,11 @@ extension ProductViewController {
         if section == 0 {
             return 1
         } else if section == 1 {
-            return sizeOptions.count
+            guard let size = product.size else {
+                return 0
+            }
+            return size.count
+
         } else {
             return 1
         }
@@ -66,7 +69,7 @@ extension ProductViewController {
          */
         
         // Comment: return 3 if section is equal to 1 else return 1
-        //return section == 1 ? sizeOptions.count : 3
+        // return section == 1 ? sizeOptions.count : 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,10 +89,44 @@ extension ProductViewController {
             return productViewCell
         case 1:
             let sizeTableViewCell = tableView.dequeueReusableCell(withIdentifier: ProductSizeTableCell.cellID, for: indexPath) as! ProductSizeTableCell
+            let size = product.size?[indexPath.row]
+            sizeTableViewCell.sizeNameLabel.text = size?.name
+//          sizeTableViewCell.sizeNameLabel.text = product.size?[indexPath.row].name
+            
+            // comment practice more (to optional unwrap)
+            if let price = size?.price {
+                sizeTableViewCell.priceSizeLabel.text = " R\(String(describing: price))"
+            }
+            
             return sizeTableViewCell
         default:
             return tableView.dequeueReusableCell(withIdentifier: ProductDisclaimerTableCell.cellID, for: indexPath) as! ProductDisclaimerTableCell
         }
+          
+    }
+ 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 1 {
+            let size = product.size?[indexPath.row]
+            
+            guard let price = size?.price else {
+                return
+            }
+            addToBasketButton.setTitle("Add to basket R\(product.price + price)", for: UIControl.State.normal)
+            
+            
+//        addToBasketButton.setTitle("Add to basket • R\(produc)", for: .normal)
+            
+            // comment practice more (to optional unwrap)
+//            if let price = size?.price {
+//                addToBasketButton.setTitle("Add to basket R\(product.price + price)", for: .normal)
+//                print(product.price + price)
+//            }
+//            print(size?.price)
+             
+        }
+
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
