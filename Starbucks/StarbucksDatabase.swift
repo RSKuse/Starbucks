@@ -74,7 +74,7 @@ class StarbucksDatabase {
                            ProductSize(name: "Baby Size", price: 0.0)]),
             Product(name: "Espresso Frappuccino®",
                     image: UIImage(named: "espressoFrappuccino")!,
-                    price: 131.00, description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.")]
+                    price: 131.00, description: "Dark, rich espresso lies in wait under a smoothed and stretched layer of thick milk foam. An alchemy of barista artistry and craft.")]
     
     let bakeryArray: [Product] = [
             Product(name: "Crossaint®", 

@@ -27,11 +27,12 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     lazy var addToBasketButton: UIButton = {
         let button = UIButton()
         button.isEnabled = false
-        button.setTitle("Add to basket • R48.00", for: .normal)
+        button.setTitle("Add to basket • R\(product.price)", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         button.layer.cornerRadius = 8.0
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = StarbucksColors.primaryColor
+        button.addTarget(self, action: #selector(addToBasket), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -93,6 +94,17 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         productHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 318)
         productTableView.tableHeaderView = productHeaderView
     }
+    
+    @objc func addToBasket() {
+        // Add product to cart
+        let cartViewController = CartViewController()
+        cartViewController.cartProducts.append(product)
+        navigationController?.pushViewController(cartViewController, animated: true)
+    }
+    
+    
+    
+    
 
 }
 
