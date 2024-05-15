@@ -89,13 +89,47 @@ extension ProductViewController {
             return productViewCell
         case 1:
             let sizeTableViewCell = tableView.dequeueReusableCell(withIdentifier: ProductSizeTableCell.cellID, for: indexPath) as! ProductSizeTableCell
+            let size = product.size?[indexPath.row]
+            sizeTableViewCell.sizeNameLabel.text = size?.name
+//          sizeTableViewCell.sizeNameLabel.text = product.size?[indexPath.row].name
             
-            
+            // comment practice more (to optional unwrap)
+            if let price = size?.price {
+                sizeTableViewCell.priceSizeLabel.text = " R\(String(describing: price))"
+            }
             
             return sizeTableViewCell
         default:
             return tableView.dequeueReusableCell(withIdentifier: ProductDisclaimerTableCell.cellID, for: indexPath) as! ProductDisclaimerTableCell
         }
+          
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 1 {
+            let size = product.size?[indexPath.row]
+            
+            guard let price = size?.price else {
+                return
+            }
+            addToBasketButton.setTitle("Add to basket R\(product.price + price)", for: UIControl.State.normal)
+            
+            
+//        addToBasketButton.setTitle("Add to basket • R\(produc)", for: .normal)
+            
+            // comment practice more (to optional unwrap)
+//            if let price = size?.price {
+//                addToBasketButton.setTitle("Add to basket R\(product.price + price)", for: .normal)
+//                print(product.price + price)
+//            }
+            print(size?.price)
+             
+        }
+         
+        
+        
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
