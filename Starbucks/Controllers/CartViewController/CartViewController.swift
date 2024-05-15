@@ -12,10 +12,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     // Dummy array of products in the cart
-    var cartProducts: [Product] = [
-        Product(name: "Cheese Cake", image: StarbucksImages.chocolateChip!, price: 10.99, description: "Delicious cheese cake with a crumbly crust."),
-        Product(name: "Mocha", image: StarbucksImages.latte!, price: 4.99, description: "Rich chocolatey mocha made with espresso and steamed milk.")
-    ]
+    var cartProducts: [CartModel] = [CartModel(name: "Chocolate Chip®", image: StarbucksImages.chocolateChip!, price: 52.00, size: [ProductSize(name: "Large", price: 35.89)])]
     
     
     lazy var cartTableView: UITableView = {

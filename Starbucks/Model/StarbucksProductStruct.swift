@@ -23,3 +23,11 @@ struct ProductSize {
     let price: Double
     
 }
+
+struct CartModel {
+    let name: String
+    let image: UIImage
+    let price: Double
+    var size: [ProductSize]?
+
+}
