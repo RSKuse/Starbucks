@@ -12,7 +12,7 @@ extension CartViewController {
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(100.0)
+        return CGFloat(150.0)
         
     }
     
@@ -25,7 +25,7 @@ extension CartViewController {
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCellID", for: indexPath) as! ProductTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCellID", for: indexPath) as! CartTableViewCell
             let product = cartProducts[indexPath.row]
             cell.productNameLabel.text = product.name
             cell.priceLabel.text = "R\(product.price)"

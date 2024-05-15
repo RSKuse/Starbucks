@@ -12,7 +12,10 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     // Dummy array of products in the cart
-    var cartProducts: [Product] = []
+    var cartProducts: [Product] = [
+        Product(name: "Cheese Cake", image: StarbucksImages.chocolateChip!, price: 10.99, description: "Delicious cheese cake with a crumbly crust."),
+        Product(name: "Mocha", image: StarbucksImages.latte!, price: 4.99, description: "Rich chocolatey mocha made with espresso and steamed milk.")
+    ]
     
     
     lazy var cartTableView: UITableView = {
@@ -57,7 +60,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func registerCell() {
-        cartTableView.register(ProductTableViewCell.self, forCellReuseIdentifier: "ProductTableViewCellID")
+        cartTableView.register(CartTableViewCell.self, forCellReuseIdentifier: "CartTableViewCellID")
            
     }
     
