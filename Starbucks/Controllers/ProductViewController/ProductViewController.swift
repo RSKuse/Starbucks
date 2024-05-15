@@ -101,10 +101,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         cartViewController.cartProducts.append(product)
         navigationController?.pushViewController(cartViewController, animated: true)
     }
-    
-    
-    
-    
+ 
 
 }
 

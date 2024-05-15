@@ -21,40 +21,45 @@ class CartTableViewCell: UITableViewCell {
     
     lazy var productNameLabel: UILabel = {
        let label = UILabel()
-        label.text = ""
-        label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
+        label.text = "Espresso Frappuccino®"
+        label.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.medium)
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    lazy var priceLabel: UILabel = {
-       let label = UILabel()
-        label.text = "R48.00 90% (33)"
-        label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)
-        label.textColor = UIColor.black
+    lazy var sizeNameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Tall"
+        label.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight.light)
+        label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    lazy var menuDescriptionLabel: UILabel = {
-       let label = UILabel()
-        var paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineHeightMultiple = 1.05
-        label.textColor = StarbucksColors.starbucksBlack // I need to practice
-        let attributedString = NSMutableAttributedString(string: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.\n", attributes: [NSAttributedString.Key.kern: -0.1, NSAttributedString.Key.paragraphStyle: paragraphStyle])
-        label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.light)
-        label.attributedText = attributedString
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 3
+    lazy var priceSizeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "+R4.00"
+        label.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight.semibold)
+        label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    lazy var productInformationStackView: UIStackView = {
+    lazy var priceSizeStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [sizeNameLabel,
+                                                       priceSizeLabel])
+        stackView.axis = .horizontal
+        stackView.distribution = .fillProportionally
+        stackView.spacing = 1
+        stackView.alignment = .leading
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+
+    lazy var productNamePriceSizeStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [productNameLabel,
-                                                       priceLabel,
-                                                       menuDescriptionLabel])
+                                                       priceSizeStackView])
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
         stackView.spacing = 1
@@ -62,6 +67,16 @@ class CartTableViewCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
+    
+    lazy var productPriceLabel: UILabel = {
+        let label = UILabel()
+        label.text = "R48.00"
+        label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.bold)
+        label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: reuseIdentifier)
@@ -71,23 +86,26 @@ class CartTableViewCell: UITableViewCell {
     
     func setupUI() {
         addSubview(productImageView)
-        addSubview(productInformationStackView)
+        addSubview(priceSizeStackView)
+        addSubview(productNamePriceSizeStackView)
+        addSubview(productPriceLabel)
         
-        productImageView.heightAnchor.constraint(equalToConstant: 90).isActive = true
-        productImageView.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        productImageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        productImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
         productImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
         productImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
-        
-
-        productInformationStackView.rightAnchor.constraint(equalTo: rightAnchor,
+    
+        productNamePriceSizeStackView.rightAnchor.constraint(equalTo: rightAnchor,
                                                           constant: -20).isActive = true
-        productInformationStackView.leftAnchor.constraint(equalTo: productImageView.rightAnchor,
-                                                           constant: 20).isActive = true
-        productInformationStackView.topAnchor.constraint(equalTo: topAnchor,
-                                                         constant: 12).isActive = true
-        productInformationStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
-                                                            constant: -12).isActive = true
+        productNamePriceSizeStackView.leftAnchor.constraint(equalTo: productImageView.rightAnchor,
+                                                           constant: -12).isActive = true
+        productNamePriceSizeStackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+       
+        productPriceLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
+        productPriceLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+
     }
     
     required init?(coder: NSCoder) {
