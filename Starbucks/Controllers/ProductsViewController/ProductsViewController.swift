@@ -55,7 +55,6 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
         productCollectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: "ProductCollectionViewCellID")
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return products.count
     }
