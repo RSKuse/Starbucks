@@ -14,7 +14,7 @@ extension ProductViewController {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         if section == 1 {
-            guard let size = product.size else {
+            guard let _ = product.size else {
                 return 0
             }
             return 60.0
@@ -28,7 +28,7 @@ extension ProductViewController {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
-            guard let size = product.size else {
+            guard let _ = product.size else {
                 return nil
             }
             let headerView = TableSectionHeaderView()
@@ -69,7 +69,7 @@ extension ProductViewController {
          */
         
         // Comment: return 3 if section is equal to 1 else return 1
-        //return section == 1 ? sizeOptions.count : 3
+        // return section == 1 ? sizeOptions.count : 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,7 +104,7 @@ extension ProductViewController {
         }
           
     }
-    
+ 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == 1 {
@@ -123,13 +123,10 @@ extension ProductViewController {
 //                addToBasketButton.setTitle("Add to basket R\(product.price + price)", for: .normal)
 //                print(product.price + price)
 //            }
-            print(size?.price)
+//            print(size?.price)
              
         }
-         
-        
-        
-        
+
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
