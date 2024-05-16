@@ -99,10 +99,9 @@ class CartTableViewCell: UITableViewCell {
         productNamePriceSizeStackView.rightAnchor.constraint(equalTo: rightAnchor,
                                                           constant: -20).isActive = true
         productNamePriceSizeStackView.leftAnchor.constraint(equalTo: productImageView.rightAnchor,
-                                                           constant: -12).isActive = true
+                                                           constant: 12).isActive = true
         productNamePriceSizeStackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
-       
         productPriceLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
         productPriceLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
 

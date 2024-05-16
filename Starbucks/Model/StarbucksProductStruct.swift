@@ -24,10 +24,4 @@ struct ProductSize {
     
 }
 
-struct CartModel {
-    let name: String
-    let image: UIImage
-    let price: Double
-    var size: [ProductSize]?
 
-}
