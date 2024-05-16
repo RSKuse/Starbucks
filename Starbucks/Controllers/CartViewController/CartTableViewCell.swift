@@ -9,6 +9,7 @@ import UIKit
 
 class CartTableViewCell: UITableViewCell {
     
+    static var cellID = "CartTableViewCellID"
     
     lazy var productImageView: UIImageView = {
         let imageView = UIImageView()

@@ -24,7 +24,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.isHidden = true
+        tableView.isHidden = false
         tableView.allowsSelection = true
         tableView.backgroundColor = StarbucksColors.starbucksBackgroundGray
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -35,6 +35,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         let label = UILabel()
         label.text = "Your cart will be shown here. \nGet started by adding items"
         label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)
+        label.isHidden = true
         label.textColor = StarbucksColors.starbucksTextGray
         label.textAlignment = .center
         label.numberOfLines = 2
@@ -64,7 +65,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         cartTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         cartTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         cartTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        cartTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        cartTableView.bottomAnchor.constraint(equalTo: amountContainer.topAnchor).isActive = true
         
         amountContainer.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         amountContainer.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
@@ -74,7 +75,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func registerCell() {
-        cartTableView.register(CartTableViewCell.self, forCellReuseIdentifier: "CartTableViewCellID")
+        cartTableView.register(CartTableViewCell.self, forCellReuseIdentifier: CartTableViewCell.cellID)
            
     }
     
@@ -82,6 +83,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         navigationController?.navigationBar.backgroundColor = .white
          
     }
+    
     
     
 }
