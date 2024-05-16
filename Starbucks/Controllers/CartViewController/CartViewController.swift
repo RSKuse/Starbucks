@@ -12,24 +12,30 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     // Dummy array of products in the cart
-    var cartProducts: [Product] = [
-        Product(name: "Cheese Cake", image: StarbucksImages.chocolateChip!, price: 10.99, description: "Delicious cheese cake with a crumbly crust."),
-        Product(name: "Mocha", image: StarbucksImages.latte!, price: 4.99, description: "Rich chocolatey mocha made with espresso and steamed milk.")
-    ]
+    var cartProducts: [CartModel] = [CartModel(name: "Chocolate Chip®", image: StarbucksImages.chocolateChip!, price: 52.00, size: [ProductSize(name: "Large", price: 35.89)])]
     
+    lazy var amountContainer: TotalAmountContainerView = {
+        let view = TotalAmountContainerView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     lazy var cartTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(ProductTableViewCell.self, forCellReuseIdentifier: "ProductTableViewCellID")
+        tableView.isHidden = false
+        tableView.allowsSelection = true
+        tableView.backgroundColor = StarbucksColors.starbucksBackgroundGray
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
     lazy var emptyCartLabel: UILabel = {
         let label = UILabel()
-        label.text = "You have no items in your cart. Start shopping."
+        label.text = "Your cart will be shown here. \nGet started by adding items"
+        label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)
+        label.isHidden = true
         label.textColor = StarbucksColors.starbucksTextGray
         label.textAlignment = .center
         label.numberOfLines = 2
@@ -39,8 +45,11 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .cyan
+        self.view.backgroundColor = StarbucksColors.starbucksBackgroundGray
+        title = "Cart"
+        setupNavigationBar()
         setupUI()
+        registerCell()
         
     }
     
@@ -48,21 +57,33 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         view.addSubview(cartTableView)
         view.addSubview(emptyCartLabel)
+        view.addSubview(amountContainer)
         
         emptyCartLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         emptyCartLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
         cartTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         cartTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        cartTableView.rightAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        cartTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        cartTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        cartTableView.bottomAnchor.constraint(equalTo: amountContainer.topAnchor).isActive = true
+        
+        amountContainer.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        amountContainer.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        amountContainer.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        amountContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
     }
     
     func registerCell() {
-        cartTableView.register(CartTableViewCell.self, forCellReuseIdentifier: "CartTableViewCellID")
+        cartTableView.register(CartTableViewCell.self, forCellReuseIdentifier: CartTableViewCell.cellID)
            
     }
+    
+    func setupNavigationBar() {
+        navigationController?.navigationBar.backgroundColor = .white
+         
+    }
+    
     
     
 }

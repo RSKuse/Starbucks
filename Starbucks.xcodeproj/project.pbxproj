@@ -21,6 +21,8 @@
 		F35CDE0D2BEA612100494EFF /* ProductSizeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35CDE0C2BEA612100494EFF /* ProductSizeTableCell.swift */; };
 		F3E9C8BF2BF50E0600D89ECD /* CartViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C8BE2BF50E0600D89ECD /* CartViewController+TableView.swift */; };
 		F3E9C8C12BF5207E00D89ECD /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C8C02BF5207E00D89ECD /* CartTableViewCell.swift */; };
+		F3E9C8C32BF5E46A00D89ECD /* CartModelStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C8C22BF5E46A00D89ECD /* CartModelStruct.swift */; };
+		F3E9C8C52BF5EBDD00D89ECD /* TotalAmountContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C8C42BF5EBDD00D89ECD /* TotalAmountContainerView.swift */; };
 		F3F1D2102BDA637D009BFF98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1D20F2BDA637D009BFF98 /* AppDelegate.swift */; };
 		F3F1D2142BDA637D009BFF98 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F1D2132BDA637D009BFF98 /* HomeViewController.swift */; };
 		F3F1D2192BDA6380009BFF98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3F1D2182BDA6380009BFF98 /* Assets.xcassets */; };
@@ -54,6 +56,8 @@
 		F35CDE0C2BEA612100494EFF /* ProductSizeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSizeTableCell.swift; sourceTree = "<group>"; };
 		F3E9C8BE2BF50E0600D89ECD /* CartViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartViewController+TableView.swift"; sourceTree = "<group>"; };
 		F3E9C8C02BF5207E00D89ECD /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		F3E9C8C22BF5E46A00D89ECD /* CartModelStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModelStruct.swift; sourceTree = "<group>"; };
+		F3E9C8C42BF5EBDD00D89ECD /* TotalAmountContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalAmountContainerView.swift; sourceTree = "<group>"; };
 		F3F1D20C2BDA637D009BFF98 /* Starbucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Starbucks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3F1D20F2BDA637D009BFF98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3F1D2132BDA637D009BFF98 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				F3F1D2472BDA96B5009BFF98 /* CartViewController.swift */,
+				F3E9C8C42BF5EBDD00D89ECD /* TotalAmountContainerView.swift */,
 				F3E9C8BE2BF50E0600D89ECD /* CartViewController+TableView.swift */,
 				F3E9C8C02BF5207E00D89ECD /* CartTableViewCell.swift */,
 			);
@@ -215,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				F3F1D2602BE3E1C3009BFF98 /* StarbucksProductStruct.swift */,
+				F3E9C8C22BF5E46A00D89ECD /* CartModelStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,6 +308,7 @@
 				45E198742BE40DAA00995770 /* StarbucksDatabase.swift in Sources */,
 				F3F1D2462BDA9504009BFF98 /* TabBarControllers.swift in Sources */,
 				F3F1D2552BE2558A009BFF98 /* FeaturedProductCollectionCell.swift in Sources */,
+				F3E9C8C52BF5EBDD00D89ECD /* TotalAmountContainerView.swift in Sources */,
 				F35CDE0A2BEA5EB700494EFF /* ProductDisclaimerTableCell.swift in Sources */,
 				F35CDDFD2BE98A2B00494EFF /* AdvertCell.swift in Sources */,
 				F35CDE032BEA462300494EFF /* ProductViewController+TableView.swift in Sources */,
@@ -316,6 +323,7 @@
 				F35CDE012BEA3CD300494EFF /* ProductViewController.swift in Sources */,
 				4524A5632BF2933D00986B5B /* ProductTagContainerView.swift in Sources */,
 				F35CDDFB2BE6B9E300494EFF /* ProductCollectionViewCell.swift in Sources */,
+				F3E9C8C32BF5E46A00D89ECD /* CartModelStruct.swift in Sources */,
 				F3F1D2612BE3E1C3009BFF98 /* StarbucksProductStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

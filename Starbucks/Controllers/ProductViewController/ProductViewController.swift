@@ -96,15 +96,11 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @objc func addToBasket() {
-        // Add product to cart
+       
         let cartViewController = CartViewController()
-        cartViewController.cartProducts.append(product)
         navigationController?.pushViewController(cartViewController, animated: true)
     }
-    
-    
-    
-    
+ 
 
 }
 
