@@ -59,7 +59,6 @@ class ProductSizeTableCell: UITableViewCell {
         addSubview(checkMarkButton)
         addSubview(sizePriceStackView)
         
-        
         sizePriceStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
         sizePriceStackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         

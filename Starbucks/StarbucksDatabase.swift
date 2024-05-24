@@ -87,11 +87,7 @@ class StarbucksDatabase {
                     description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),
         ]
     
-    
-    let cartProducts: [CartModel] = [
-    CartModel(name: "Chocolate Chip®", image: StarbucksImages.chocolateChip!, price: 52.00, size: [ProductSize(name: "Large", price: 35.89)
-    ])]
-        
-   
+    static var cartProducts: [CartModel] = []
+ 
     
 }

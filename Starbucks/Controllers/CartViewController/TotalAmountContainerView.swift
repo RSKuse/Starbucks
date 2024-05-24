@@ -61,17 +61,11 @@ class TotalAmountContainerView: UIView {
         payCheckoutButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
         payCheckoutButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
         payCheckoutButton.heightAnchor.constraint(equalToConstant: 42).isActive = true
-        
-        
-        
     }
     
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
+ 
 }
 

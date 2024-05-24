@@ -30,7 +30,6 @@ class ItemContainerView: UIView {
         setupUI()
     }
     
-    
     func setupUI () {
         
         addSubview(itemImageView)

@@ -75,7 +75,7 @@ class ProductDetailsTableViewCell: UITableViewCell {
         addSubview(productPriceLabel)
         addSubview(productDescription)
         
-        
+
         mostlikedView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
         mostlikedView.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
         mostlikedView.heightAnchor.constraint(equalToConstant: 18).isActive = true

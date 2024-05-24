@@ -62,8 +62,6 @@ class AdvertContainerView: UICollectionViewCell, UICollectionViewDataSource, UIC
         return advertCollectionCell
         
     }
-    
-    
-    
+ 
 }
 

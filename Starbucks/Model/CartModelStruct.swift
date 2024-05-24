@@ -14,6 +14,5 @@ struct CartModel {
     let image: UIImage
     let price: Double
     var size: [ProductSize]?
-
 }
 

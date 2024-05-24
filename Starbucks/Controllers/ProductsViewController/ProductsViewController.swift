@@ -66,6 +66,7 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
         cell.productImageView.image = product.image
         cell.productNameLabel.text = product.name
         
+        
         if product.numberOfLikes > 2000 {
             cell.mostLikedView.isHidden = false
         }
@@ -89,9 +90,7 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-
-
+    
 }
     
     
