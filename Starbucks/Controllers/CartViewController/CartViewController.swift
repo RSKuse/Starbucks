@@ -10,9 +10,9 @@ import UIKit
 
 class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
-    // Dummy array of products in the cart
-    var cartProducts: [CartModel] = [CartModel(name: "Chocolate Chip®", image: StarbucksImages.chocolateChip!, price: 52.00, size: [ProductSize(name: "Large", price: 35.89)])]
+    var cartProductarray: [CartModel] = []
+    let starbucksDatabase = StarbucksDatabase()
+    var cartProductArray: [CartModel] = StarbucksDatabase.cartProducts
     
     lazy var amountContainer: TotalAmountContainerView = {
         let view = TotalAmountContainerView()
@@ -50,7 +50,6 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         setupNavigationBar()
         setupUI()
         registerCell()
-        
     }
     
     func setupUI() {
@@ -83,7 +82,5 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         navigationController?.navigationBar.backgroundColor = .white
          
     }
-    
-    
-    
+
 }

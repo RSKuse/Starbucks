@@ -74,7 +74,7 @@ class FeaturedProductCollectionCell: UICollectionViewCell {
         productNameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -6).isActive = true
         productNameLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor,
                                               constant: 8).isActive = true
-    
+        
         priceLabel.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 4).isActive = true
         priceLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
         priceLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true

@@ -10,11 +10,12 @@ import UIKit
 
 class ProductViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-//    var productName: String = ""
-//    var productPrice: Double = 0.0
+    //    var productName: String = ""
+    //    var productPrice: Double = 0.0
     let productHeaderView = ItemContainerView()
-    var product: Product
-
+    var product: Product!
+    
+    
     lazy var productTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.backgroundColor = .white
@@ -23,10 +24,10 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
-        
+    
     lazy var addToBasketButton: UIButton = {
         let button = UIButton()
-        button.isEnabled = false
+        button.isEnabled = true
         button.setTitle("Add to basket • R\(product.price)", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         button.layer.cornerRadius = 8.0
@@ -75,7 +76,6 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         addToBasketButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         addToBasketButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         addToBasketButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
-        
     }
     
     func registerCell() {
@@ -89,20 +89,41 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         productHeaderView.layoutIfNeeded()
         productHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 318)
     }
-
+    
     func configureHeaderView() {
         productHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 318)
         productTableView.tableHeaderView = productHeaderView
     }
     
     @objc func addToBasket() {
-       
-        let cartViewController = CartViewController()
-        navigationController?.pushViewController(cartViewController, animated: true)
+        let cartItem = CartModel(
+            name: product.name,
+            image: product.image,
+            price: product.price,
+            size: product.size
+        )
+        
+        StarbucksDatabase.cartProducts.append(cartItem)
+        
+        // Optionally, show a confirmation to the user
+        let alert = UIAlertController(title: "Added to Cart", message: "\(product.name) has been added to your cart.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true, completion: nil)
     }
- 
-
+    
 }
+    
+    //    @objc func addToBasket() {
+    //
+    //        let cartItem = CartModel(name: product.name, image: product.image, price: product.price)
+    //        StarbucksDatabase.cartProducts.append(cartItem)
+    //        print(StarbucksDatabase.cartProducts.count)
+    //
+    //
+    //    }
+    //
+    
+
 
 
 

@@ -10,14 +10,12 @@ import UIKit
 
 extension HomeViewController {
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 219
         } else {
             return 116
         }
-            
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -165,12 +163,10 @@ extension HomeViewController {
             break
         }
     
-        
         let productsViewController = ProductsViewController(products: productsToShow,
                                                             title: categoryTitle)
         productsViewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(productsViewController, animated: true)
     }
 
-    
 }

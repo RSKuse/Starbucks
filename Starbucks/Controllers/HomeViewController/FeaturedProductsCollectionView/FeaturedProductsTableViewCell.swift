@@ -31,7 +31,6 @@ class FeaturedProductsTableViewCell: UITableViewCell, UICollectionViewDelegate, 
         
     }()
 
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -46,10 +45,7 @@ class FeaturedProductsTableViewCell: UITableViewCell, UICollectionViewDelegate, 
         featuredProductCollectionView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         featuredProductCollectionView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
         featuredProductCollectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-//        featuredProductCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
         featuredProductCollectionView.heightAnchor.constraint(equalToConstant: 210).isActive = true
-        
-
     }
     
     func registerCollectionCell() {
@@ -83,7 +79,7 @@ extension FeaturedProductsTableViewCell {
         productCollectionCell.productNameLabel.text = product.name
         
         if product.numberOfLikes == 0 {
-            productCollectionCell.priceLabel.text = "R\(product.price)"
+    
         } else {
             
             productCollectionCell.mostLikedView.isHidden = false
@@ -95,8 +91,7 @@ extension FeaturedProductsTableViewCell {
                 productCollectionCell.priceLabel.text = "R\(product.price) ♥︎\(product.rating) (\(product.numberOfLikes))"
             }
         }
-        
-        
+
         return productCollectionCell
     }
 

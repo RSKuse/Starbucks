@@ -133,8 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				F3F1D2472BDA96B5009BFF98 /* CartViewController.swift */,
-				F3E9C8C42BF5EBDD00D89ECD /* TotalAmountContainerView.swift */,
 				F3E9C8BE2BF50E0600D89ECD /* CartViewController+TableView.swift */,
+				F3E9C8C42BF5EBDD00D89ECD /* TotalAmountContainerView.swift */,
 				F3E9C8C02BF5207E00D89ECD /* CartTableViewCell.swift */,
 			);
 			path = CartViewController;

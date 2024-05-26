@@ -23,8 +23,8 @@ class StarbucksDatabase {
                     image: StarbucksImages.macchiato!,
                     price: 54.99,
                     description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
-                    size: [ProductSize(name: "Tall", price: 0.0)],
-                   numberOfLikes: 10654),
+                    size: [ProductSize(name: "Tall", price: 4.00)],
+                   numberOfLikes: 203),
             Product(name: "Mini Salted Caramel Vanilla Cake®",
                     image: StarbucksImages.vanillaCake!,
                     price: 79.49,
@@ -87,11 +87,12 @@ class StarbucksDatabase {
                     description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),
         ]
     
-    
-    let cartProducts: [CartModel] = [
-    CartModel(name: "Chocolate Chip®", image: StarbucksImages.chocolateChip!, price: 52.00, size: [ProductSize(name: "Large", price: 35.89)
-    ])]
-        
-   
+    static var cartProducts: [CartModel] = []
+    static var allProducts: [CartModel] = [
+
+
+    ]
+ 
     
 }
+                  

@@ -22,8 +22,7 @@ extension ProductViewController {
             return 0
         }
         
-        // return section == 1 ? 64 : 0
-        
+        // return section == 1 ? 64 : 0  
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
