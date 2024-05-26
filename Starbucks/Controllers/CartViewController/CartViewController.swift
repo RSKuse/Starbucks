@@ -10,8 +10,9 @@ import UIKit
 
 class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-//    var cartProductarray: [CartModel] = []
-//    let starbucksDatabase = StarbucksDatabase()
+    var cartProductarray: [CartModel] = []
+    let starbucksDatabase = StarbucksDatabase()
+    var cartProductArray: [CartModel] = StarbucksDatabase.cartProducts
     
     lazy var amountContainer: TotalAmountContainerView = {
         let view = TotalAmountContainerView()

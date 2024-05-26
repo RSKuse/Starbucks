@@ -88,6 +88,11 @@ class StarbucksDatabase {
         ]
     
     static var cartProducts: [CartModel] = []
+    static var allProducts: [CartModel] = [
+
+
+    ]
  
     
 }
+                  

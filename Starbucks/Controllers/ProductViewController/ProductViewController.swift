@@ -111,7 +111,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         present(alert, animated: true, completion: nil)
     }
     
-
+}
     
     //    @objc func addToBasket() {
     //
@@ -123,7 +123,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     //    }
     //
     
-}
+
 
 
 

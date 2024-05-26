@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 class ItemContainerView: UIView {
-   // added did set for imageHeaderView Navigation 
+   
+    // added did set for imageHeaderView Navigation 
     var product: Product? {
         didSet {
             itemImageView.image = product?.image
