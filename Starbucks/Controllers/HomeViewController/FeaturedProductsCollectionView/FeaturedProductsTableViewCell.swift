@@ -79,7 +79,7 @@ extension FeaturedProductsTableViewCell {
         productCollectionCell.productNameLabel.text = product.name
         
         if product.numberOfLikes == 0 {
-            productCollectionCell.priceLabel.text = "R\(product.price)"
+    
         } else {
             
             productCollectionCell.mostLikedView.isHidden = false

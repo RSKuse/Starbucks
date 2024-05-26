@@ -65,7 +65,8 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
         let product = products[indexPath.item]
         cell.productImageView.image = product.image
         cell.productNameLabel.text = product.name
-        
+        cell.priceLabel.text = " R\(product.price)"
+        //productPriceLabel.text = " R\(product.price)"
         
         if product.numberOfLikes > 2000 {
             cell.mostLikedView.isHidden = false
@@ -90,7 +91,7 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
 }
     
     
