@@ -50,7 +50,14 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         setupNavigationBar()
         setupUI()
         registerCell()
+        updateCartView()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Reload the table view each time the view appears
+        cartTableView.reloadData()
+    }
+    
     
     func setupUI() {
         
@@ -75,12 +82,41 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func registerCell() {
         cartTableView.register(CartTableViewCell.self, forCellReuseIdentifier: CartTableViewCell.cellID)
-           
+        
     }
     
     func setupNavigationBar() {
         navigationController?.navigationBar.backgroundColor = .white
-         
+        
     }
-
+    
+    func updateCartView() {
+        if StarbucksDatabase.cartProducts.isEmpty {
+            cartTableView.isHidden = true
+            emptyCartLabel.isHidden = false
+        } else {
+            cartTableView.isHidden = false
+            emptyCartLabel.isHidden = true
+            cartTableView.reloadData()
+            updateTotalAmount()
+        }
+    }
+    
+    func updateTotalAmount() {
+        var totalAmount = 0.0
+        for product in StarbucksDatabase.cartProducts {
+            totalAmount += product.price
+            
+            // Add size prices if available
+            if let sizes = product.size {
+                for size in sizes {
+                    totalAmount += size.price
+                }
+            }
+        }
+        // Round the totalAmount to two decimal places
+        let roundedTotal = String(format: "%.2f", totalAmount)
+        amountContainer.priceLabel.text = "R\(roundedTotal)"
+    }
+    
 }

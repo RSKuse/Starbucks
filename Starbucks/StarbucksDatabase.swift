@@ -87,12 +87,8 @@ class StarbucksDatabase {
                     description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),
         ]
     
-    static var cartProducts: [CartModel] = []
-    static var allProducts: [CartModel] = [
-
-
-    ]
- 
+    
+    static var cartProducts: [CartModel] = [] 
     
 }
                   
