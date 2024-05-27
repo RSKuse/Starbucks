@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 struct CartModel {
     let name: String
     let image: UIImage

@@ -26,11 +26,30 @@ extension CartViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CartTableViewCell.cellID, for: indexPath) as! CartTableViewCell
-        //cell.productNameLabel.text = StarbucksDatabase.cartProducts.name[indexPath.item]
-        return cell
         
+        // Fetch cart product from cartProducts array
+        let cartProduct = StarbucksDatabase.cartProducts[indexPath.row]
+        
+        // Configure cell with cart product data
+        cell.productNameLabel.text = cartProduct.name
+        cell.productImageView.image = cartProduct.image
+        cell.productPriceLabel.text = "\(cartProduct.price)" // Assuming price is a Double
+        
+        // Set size name and price if available
+        if let size = cartProduct.size {
+            if let firstSize = size.first {
+                cell.sizeNameLabel.text = firstSize.name
+                cell.priceSizeLabel.text = "+\(firstSize.price)"
+            }
+        } else {
+            // If size is nil, hide size and price labels
+            cell.sizeNameLabel.text = nil
+            cell.priceSizeLabel.text = nil
+        }
+        
+        return cell
     }
-    
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             StarbucksDatabase.cartProducts.remove(at: indexPath.row)
