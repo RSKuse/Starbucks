@@ -14,6 +14,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     //    var productPrice: Double = 0.0
     let productHeaderView = ItemContainerView()
     var product: Product!
+    var selectedSize: ProductSize?
     
     
     lazy var productTableView: UITableView = {
@@ -91,8 +92,14 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func configureHeaderView() {
+       // productHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 318)
+        productTableView.tableHeaderView = productHeaderView
+        
         productHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 318)
         productTableView.tableHeaderView = productHeaderView
+        sizeHeaderToFit()
+        
+        
     }
     
     @objc func addToBasket() {
@@ -101,7 +108,8 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
             name: product.name,
             image: product.image,
             price: product.price,
-            size: product.size
+            size: product.size,
+            selectedSize: selectedSize // Pass the selected size here
         )
         
         // Append the item to the cartProducts array first
@@ -118,6 +126,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true, completion: nil)
     }
+
 
         
         func navigateToCart() {

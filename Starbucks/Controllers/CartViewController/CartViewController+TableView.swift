@@ -34,18 +34,20 @@ extension CartViewController {
         cell.productNameLabel.text = cartProduct.name
         cell.productImageView.image = cartProduct.image
         cell.productPriceLabel.text = "\(cartProduct.price)" // Assuming price is a Double
-        
+
         // Set size name and price if available
-        if let size = cartProduct.size {
-            if let firstSize = size.first {
-                cell.sizeNameLabel.text = firstSize.name
-                cell.priceSizeLabel.text = "+\(firstSize.price)"
+        if let sizes = cartProduct.size {
+            for size in sizes {
+                sizeNameString += "\(size.name)\n"
+                priceSizeString += "+\(size.price)\n"
             }
         } else {
             // If size is nil, hide size and price labels
             cell.sizeNameLabel.text = nil
             cell.priceSizeLabel.text = nil
         }
+        cell.sizeNameLabel.text = sizeNameString
+        cell.priceSizeLabel.text = priceSizeString
         
         return cell
     }
