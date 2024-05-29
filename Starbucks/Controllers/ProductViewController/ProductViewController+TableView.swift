@@ -21,8 +21,6 @@ extension ProductViewController {
         } else {
             return 0
         }
-        
-        // return section == 1 ? 64 : 0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -59,16 +57,7 @@ extension ProductViewController {
             return 1
         }
         
-        /*
-         if section == 1 {
-         return 3
-         } else {
-         return 1
-         }
-         */
         
-        // Comment: return 3 if section is equal to 1 else return 1
-        // return section == 1 ? sizeOptions.count : 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,12 +93,26 @@ extension ProductViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
+        switch indexPath.section {
+        case 1:
             selectedSize = product.size?[indexPath.row]
             addToBasketButton.setTitle("Add to basket R\(product.price + (selectedSize?.price ?? 0))", for: .normal)
             
+            // Update the checkmark for the selected row and deselect other rows
+            if let selectedCell = tableView.cellForRow(at: indexPath) as? ProductSizeTableCell {
+                selectedCell.checkMarkButton.setImage(StarbucksImages.selectedCheckmarkImage, for: .normal)
+            }
+            
+            for visibleIndexPath in tableView.indexPathsForVisibleRows ?? [] {
+                if visibleIndexPath != indexPath,
+                   let otherCell = tableView.cellForRow(at: visibleIndexPath) as? ProductSizeTableCell {
+                    otherCell.checkMarkButton.setImage(StarbucksImages.unSelectedCheckmarkImage, for: .normal)
+                }
+            }
+            
+        default:
+            break
         }
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

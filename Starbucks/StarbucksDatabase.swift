@@ -68,10 +68,11 @@ class StarbucksDatabase {
                     image: StarbucksImages.chocolateChip!,
                     price: 52.00,
                     description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
-                    size: [ProductSize(name: "Large", price: 35.89),
+                    size: [ProductSize(name: "No Options Selected", price: 0.0),
+                           ProductSize(name: "Large", price: 35.89),
                            ProductSize(name: "Medium", price: 25.32),
                            ProductSize(name: "Small", price: 15.00),
-                           ProductSize(name: "Baby Size", price: 0.0)]),
+                           ]),
             Product(name: "Espresso Frappuccino®",
                     image: UIImage(named: "espressoFrappuccino")!,
                     price: 131.00, description: "Dark, rich espresso lies in wait under a smoothed and stretched layer of thick milk foam. An alchemy of barista artistry and craft.")]
@@ -84,9 +85,7 @@ class StarbucksDatabase {
             Product(name: "vanilla cake®",
                     image: UIImage(named: "vanilla_cake")!,
                     price: 92.00,
-                    description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),
-        ]
-    
+                    description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),]
     
     static var cartProducts: [CartModel] = [] 
     

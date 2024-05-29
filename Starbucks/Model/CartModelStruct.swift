@@ -16,4 +16,3 @@ struct CartModel {
     var selectedSize: ProductSize? // Add selectedSize property
 }
 
-

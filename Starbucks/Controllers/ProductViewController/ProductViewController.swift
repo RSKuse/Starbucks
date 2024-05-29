@@ -66,8 +66,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     func setupUI() {
         view.addSubview(productTableView)
         view.addSubview(addToBasketButton)
-        
-        
+          
         productTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         productTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         productTableView.bottomAnchor.constraint(equalTo: addToBasketButton.topAnchor, constant: -20).isActive = true
@@ -92,7 +91,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func configureHeaderView() {
-       // productHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 318)
+        // productHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 318)
         productTableView.tableHeaderView = productHeaderView
         
         productHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 318)
@@ -120,22 +119,20 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let cartViewController = navigationController?.viewControllers.first(where: { $0 is CartViewController }) as? CartViewController {
             cartViewController.cartTableView.reloadData()
         }
-        
         // Optionally, show a confirmation to the user
         let alert = UIAlertController(title: "Added to Cart", message: "\(product.name) has been added to your cart.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true, completion: nil)
     }
-
-
-        
-        func navigateToCart() {
-            let cartViewController = CartViewController()
-            cartViewController.cartProductarray = StarbucksDatabase.cartProducts // Pass the cart products data
-            navigationController?.pushViewController(cartViewController, animated: true)
-        }
-        
+    
+    
+    func navigateToCart() {
+        let cartViewController = CartViewController()
+        cartViewController.cartProductarray = StarbucksDatabase.cartProducts // Pass the cart products data
+        navigationController?.pushViewController(cartViewController, animated: true)
     }
+    
+}
 
     
     //    @objc func addToBasket() {

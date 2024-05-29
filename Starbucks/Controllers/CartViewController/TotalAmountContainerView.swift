@@ -33,11 +33,10 @@ class TotalAmountContainerView: UIView {
         button.setTitle("Pay & Checkout", for: .normal)
         button.setTitleColor(StarbucksColors.starbucksTextGray, for: .normal)
         button.backgroundColor = StarbucksColors.starbucksBackgroundGray
+        button.addTarget(self, action: #selector(payCheckoutButtonTapped), for: .touchUpInside)
         button.layer.cornerRadius = 8.0
         return button
     }()
-    
-
     
     // comment practice how to write this
     override init(frame: CGRect) {
@@ -66,6 +65,11 @@ class TotalAmountContainerView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
- 
+    
+    @objc func payCheckoutButtonTapped() {
+        // Notification to the view controller to handle the alert presentation
+        NotificationCenter.default.post(name: NSNotification.Name("payCheckoutButtonTapped"), object: nil)
+    }
+    
 }
 
