@@ -10,7 +10,6 @@ import UIKit
 
 extension CartViewController {
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(120.0)
         
@@ -26,26 +25,27 @@ extension CartViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CartTableViewCell.cellID, for: indexPath) as! CartTableViewCell
-        
-        // Fetch cart product from cartProducts array
         let cartProduct = StarbucksDatabase.cartProducts[indexPath.row]
-        
-        // Configure cell with cart product data
         cell.productNameLabel.text = cartProduct.name
         cell.productImageView.image = cartProduct.image
-        cell.productPriceLabel.text = "\(cartProduct.price)" // Assuming price is a Double
-        
+        cell.productPriceLabel.text = "R\(cartProduct.price)" // Assuming price is a Double
+
         // Set size name and price if available
-        if let size = cartProduct.size {
-            if let firstSize = size.first {
-                cell.sizeNameLabel.text = firstSize.name
-                cell.priceSizeLabel.text = "+\(firstSize.price)"
+        if let sizes = cartProduct.size {
+            for size in sizes {
+                sizeNameString += "\(size.name)\n"
+                priceSizeString += "+R\(size.price)\n"
             }
-        } else {
-            // If size is nil, hide size and price labels
-            cell.sizeNameLabel.text = nil
-            cell.priceSizeLabel.text = nil
         }
+        
+        // Set the selected size's name and price if available
+        if let selectedSize = cartProduct.selectedSize {
+            sizeNameString = "\(selectedSize.name)\n"
+            priceSizeString = "+R\(selectedSize.price)\n"
+        }
+        
+        cell.sizeNameLabel.text = sizeNameString
+        cell.priceSizeLabel.text = priceSizeString
         
         return cell
     }
@@ -54,6 +54,7 @@ extension CartViewController {
         if editingStyle == .delete {
             StarbucksDatabase.cartProducts.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            updateTotalAmount()
         }
     }
     

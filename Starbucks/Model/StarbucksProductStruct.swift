@@ -17,7 +17,6 @@ struct Product {
     var rating: Double = 5.0
     var numberOfLikes: Int = 0
 }
-
 struct ProductSize {
     let name: String
     let price: Double

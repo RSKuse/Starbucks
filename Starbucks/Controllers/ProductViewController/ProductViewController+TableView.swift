@@ -21,8 +21,6 @@ extension ProductViewController {
         } else {
             return 0
         }
-        
-        // return section == 1 ? 64 : 0  
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -54,21 +52,12 @@ extension ProductViewController {
                 return 0
             }
             return size.count
-
+            
         } else {
             return 1
         }
         
-        /*
-         if section == 1 {
-         return 3
-         } else {
-         return 1
-         }
-         */
         
-        // Comment: return 3 if section is equal to 1 else return 1
-        // return section == 1 ? sizeOptions.count : 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -90,7 +79,7 @@ extension ProductViewController {
             let sizeTableViewCell = tableView.dequeueReusableCell(withIdentifier: ProductSizeTableCell.cellID, for: indexPath) as! ProductSizeTableCell
             let size = product.size?[indexPath.row]
             sizeTableViewCell.sizeNameLabel.text = size?.name
-//          sizeTableViewCell.sizeNameLabel.text = product.size?[indexPath.row].name
+            //          sizeTableViewCell.sizeNameLabel.text = product.size?[indexPath.row].name
             
             // comment practice more (to optional unwrap)
             if let price = size?.price {
@@ -101,31 +90,29 @@ extension ProductViewController {
         default:
             return tableView.dequeueReusableCell(withIdentifier: ProductDisclaimerTableCell.cellID, for: indexPath) as! ProductDisclaimerTableCell
         }
-          
     }
- 
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if indexPath.section == 1 {
-            let size = product.size?[indexPath.row]
+        switch indexPath.section {
+        case 1:
+            selectedSize = product.size?[indexPath.row]
+            addToBasketButton.setTitle("Add to basket R\(product.price + (selectedSize?.price ?? 0))", for: .normal)
             
-            guard let price = size?.price else {
-                return
+            // Update the checkmark for the selected row and deselect other rows
+            if let selectedCell = tableView.cellForRow(at: indexPath) as? ProductSizeTableCell {
+                selectedCell.checkMarkButton.setImage(StarbucksImages.selectedCheckmarkImage, for: .normal)
             }
-            addToBasketButton.setTitle("Add to basket R\(product.price + price)", for: UIControl.State.normal)
             
+            for visibleIndexPath in tableView.indexPathsForVisibleRows ?? [] {
+                if visibleIndexPath != indexPath,
+                   let otherCell = tableView.cellForRow(at: visibleIndexPath) as? ProductSizeTableCell {
+                    otherCell.checkMarkButton.setImage(StarbucksImages.unSelectedCheckmarkImage, for: .normal)
+                }
+            }
             
-//        addToBasketButton.setTitle("Add to basket • R\(produc)", for: .normal)
-            
-            // comment practice more (to optional unwrap)
-//            if let price = size?.price {
-//                addToBasketButton.setTitle("Add to basket R\(product.price + price)", for: .normal)
-//                print(product.price + price)
-//            }
-//            print(size?.price)
-             
+        default:
+            break
         }
-
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

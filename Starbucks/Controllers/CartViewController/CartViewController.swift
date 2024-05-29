@@ -10,9 +10,12 @@ import UIKit
 
 class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var cartProductArray: [CartModel] = StarbucksDatabase.cartProducts
     var cartProductarray: [CartModel] = []
     let starbucksDatabase = StarbucksDatabase()
-    var cartProductArray: [CartModel] = StarbucksDatabase.cartProducts
+    var sizeNameString = ""
+    var priceSizeString = ""
+    
     
     lazy var amountContainer: TotalAmountContainerView = {
         let view = TotalAmountContainerView()
@@ -51,14 +54,14 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         setupUI()
         registerCell()
         updateCartView()
+        NotificationCenter.default.addObserver(self, selector: #selector(payCheckoutButtonTapped), name: NSNotification.Name("payCheckoutButtonTapped"), object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Reload the table view each time the view appears
         cartTableView.reloadData()
+        updateCartView()
     }
-    
-    
     func setupUI() {
         
         view.addSubview(cartTableView)
@@ -94,26 +97,53 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         if StarbucksDatabase.cartProducts.isEmpty {
             cartTableView.isHidden = true
             emptyCartLabel.isHidden = false
+            amountContainer.payCheckoutButton.isEnabled = false
         } else {
             cartTableView.isHidden = false
             emptyCartLabel.isHidden = true
             cartTableView.reloadData()
             updateTotalAmount()
+            amountContainer.payCheckoutButton.isEnabled = true
+            amountContainer.payCheckoutButton.backgroundColor = StarbucksColors.primaryColor
+            amountContainer.payCheckoutButton.setTitleColor(.white, for: .normal)
         }
+    }
+    
+    @objc func payCheckoutButtonTapped() {
+        let totalAmount = amountContainer.priceLabel.text ?? "R0.00"
+        let alert = UIAlertController(title: "Confirm Payment", message: "Do you want to pay \(totalAmount)?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Pay", style: .default, handler: { _ in
+            // Handle the payment logic here
+            self.completePayment()
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func completePayment() {
+        // Logic to handle payment completion
+        // For example, you can clear the cart and show a success message
+        StarbucksDatabase.cartProducts.removeAll()
+        updateCartView()
+        amountContainer.priceLabel.text = "R0.00"
+        
+        let successAlert = UIAlertController(title: "Payment Successful", message: "Your payment was completed successfully.", preferredStyle: .alert)
+        successAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(successAlert, animated: true, completion: nil)
     }
     
     func updateTotalAmount() {
         var totalAmount = 0.0
         for product in StarbucksDatabase.cartProducts {
+            // Add the main price of the product
             totalAmount += product.price
             
-            // Add size prices if available
-            if let sizes = product.size {
-                for size in sizes {
-                    totalAmount += size.price
-                }
+            // Add the price of the selected size if available
+            if let selectedSize = product.selectedSize {
+                totalAmount += selectedSize.price
             }
         }
+        
         // Round the totalAmount to two decimal places
         let roundedTotal = String(format: "%.2f", totalAmount)
         amountContainer.priceLabel.text = "R\(roundedTotal)"
