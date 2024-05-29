@@ -133,7 +133,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func updateTotalAmount() {
-        var totalAmount = 0.0
+        var totalAmount = 0.00
         for product in StarbucksDatabase.cartProducts {
             // Add the main price of the product
             totalAmount += product.price
@@ -145,8 +145,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         // Round the totalAmount to two decimal places
-        let roundedTotal = String(format: "%.2f", totalAmount)
-        amountContainer.priceLabel.text = "R\(roundedTotal)"
+        let roundedTotal = String(format: " %.2f", totalAmount)
+        amountContainer.priceLabel.text = " R\(roundedTotal)"
     }
     
 }

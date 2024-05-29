@@ -75,7 +75,7 @@ extension HomeViewController {
             let product = starBucksDatabase.pickedForYouArray[indexPath.row]
             productCell.productImageView.image = product.image
             productCell.productNameLabel.text = product.name
-            productCell.priceLabel.text = "R\(product.price)"
+            productCell.priceLabel.text = String(format: " R%.2f", product.price)
             productCell.menuDescriptionLabel.text = product.description
             return productCell
         default:
@@ -83,7 +83,7 @@ extension HomeViewController {
             let product = starBucksDatabase.bakeryArray[indexPath.row]
             productCell.productImageView.image = product.image
             productCell.productNameLabel.text = product.name
-            productCell.priceLabel.text = "R\(product.price)"
+            productCell.priceLabel.text = String(format: " R%.2f", product.price)
             productCell.menuDescriptionLabel.text = product.description
             return productCell
         }

@@ -65,7 +65,7 @@ extension ProductViewController {
         case 0:
             let productViewCell = tableView.dequeueReusableCell(withIdentifier: ProductDetailsTableViewCell.cellID, for: indexPath) as! ProductDetailsTableViewCell
             productViewCell.productNameLabel.text = product.name
-            productViewCell.productPriceLabel.text = " R\(product.price)" // comment: Practice on Playground
+            productViewCell.productPriceLabel.text = String(format: " R%.2f", product.price) // comment: Practice on Playground
             productViewCell.productDescription.text = product.description
             
             if product.numberOfLikes > 0 {
@@ -83,7 +83,7 @@ extension ProductViewController {
             
             // comment practice more (to optional unwrap)
             if let price = size?.price {
-                sizeTableViewCell.priceSizeLabel.text = " R\(String(describing: price))"
+                sizeTableViewCell.priceSizeLabel.text = String(format: " +R%.2f", price)
             }
             
             return sizeTableViewCell
@@ -96,7 +96,7 @@ extension ProductViewController {
         switch indexPath.section {
         case 1:
             selectedSize = product.size?[indexPath.row]
-            addToBasketButton.setTitle("Add to basket R\(product.price + (selectedSize?.price ?? 0))", for: .normal)
+            addToBasketButton.setTitle(String(format: "Add to basket R%.2f", product.price + (selectedSize?.price ?? 0)), for: .normal)
             
             // Update the checkmark for the selected row and deselect other rows
             if let selectedCell = tableView.cellForRow(at: indexPath) as? ProductSizeTableCell {

@@ -84,11 +84,11 @@ extension FeaturedProductsTableViewCell {
             
             productCollectionCell.mostLikedView.isHidden = false
             if product.numberOfLikes > 1000 && product.numberOfLikes < 2000 {
-                productCollectionCell.priceLabel.text = "R\(product.price) ♥︎\(product.rating) (1k)"
+                productCollectionCell.priceLabel.text = " R\(product.price) ♥︎\(product.rating) (1k)"
             } else if product.numberOfLikes > 2000 && product.numberOfLikes < 3000 {
-                productCollectionCell.priceLabel.text = "R\(product.price) ♥︎\(product.rating) (2k)"
+                productCollectionCell.priceLabel.text = " R\(product.price) ♥︎\(product.rating) (2k)"
             } else {
-                productCollectionCell.priceLabel.text = "R\(product.price) ♥︎\(product.rating) (\(product.numberOfLikes))"
+                productCollectionCell.priceLabel.text = " R\(product.price) ♥︎\(product.rating) (\(product.numberOfLikes))"
             }
         }
 
