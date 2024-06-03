@@ -39,15 +39,18 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         return button
     }()
     
+    // Initializer
     init(product: Product) {
         self.product = product
         super.init(nibName: nil, bundle: nil)
     }
     
+    // Required init for using storyboard or nibs (which is not the case here)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // Setup UI components
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -57,12 +60,13 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         configureHeaderView()
     }
     
+    // Setup product UI
     func setupProductUI() {
         title = product.name
         addToBasketButton.setTitle(String(format: "Add to basket • R%.2f", product.price), for: .normal)
         productHeaderView.product = product
-
     }
+    
     
     func setupUI() {
         view.addSubview(productTableView)
@@ -79,29 +83,31 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         addToBasketButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
     }
     
+    // Register table view cells
     func registerCell() {
         productTableView.register(ProductDetailsTableViewCell.self, forCellReuseIdentifier: ProductDetailsTableViewCell.cellID)
         productTableView.register(ProductSizeTableCell.self, forCellReuseIdentifier: ProductSizeTableCell.cellID)
         productTableView.register(ProductDisclaimerTableCell.self, forCellReuseIdentifier: ProductDisclaimerTableCell.cellID)
     }
     
+    
+    // Adjust header size to fit content
     func sizeHeaderToFit() {
         productHeaderView.setNeedsLayout()
         productHeaderView.layoutIfNeeded()
         productHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 318)
     }
     
+    // Configure header view
     func configureHeaderView() {
-        // productHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 318)
-        productTableView.tableHeaderView = productHeaderView
         
+        productTableView.tableHeaderView = productHeaderView
         productHeaderView.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: 318)
         productTableView.tableHeaderView = productHeaderView
         sizeHeaderToFit()
-        
-        
     }
     
+    // Add product to basket
     @objc func addToBasket() {
         print("Add to basket button tapped")
         let cartItem = CartModel(
@@ -120,16 +126,16 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let cartViewController = navigationController?.viewControllers.first(where: { $0 is CartViewController }) as? CartViewController {
             cartViewController.cartTableView.reloadData()
         }
-        // Optionally, show a confirmation to the user
+        // show a confirmation to the user
         let alert = UIAlertController(title: "Added to Cart", message: "\(product.name) has been added to your cart.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true, completion: nil)
     }
     
-    
+    // Navigate to cart & // Pass the cart products data
     func navigateToCart() {
         let cartViewController = CartViewController()
-        cartViewController.cartProductarray = StarbucksDatabase.cartProducts // Pass the cart products data
+        cartViewController.cartProductarray = StarbucksDatabase.cartProducts
         navigationController?.pushViewController(cartViewController, animated: true)
     }
     
