@@ -71,7 +71,6 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.addSubview(emptyCartLabel)
         view.addSubview(amountContainer)
         
-    
         emptyCartLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         emptyCartLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
             

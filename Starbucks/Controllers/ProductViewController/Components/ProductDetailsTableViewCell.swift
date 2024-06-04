@@ -79,12 +79,10 @@ class ProductDetailsTableViewCell: UITableViewCell {
         mostlikedView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
         mostlikedView.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
         mostlikedView.heightAnchor.constraint(equalToConstant: 18).isActive = true
-//        mostlikedView.widthAnchor.constraint(equalToConstant: 74).isActive = true
      
         numberOflikedView.leftAnchor.constraint(equalTo: mostlikedView.rightAnchor, constant: 8).isActive = true
         numberOflikedView.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
         numberOflikedView.heightAnchor.constraint(equalToConstant: 18).isActive = true
-//        numberOflikedView.widthAnchor.constraint(equalToConstant: 74).isActive = true
         
         productNameLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
         productNameLabel.topAnchor.constraint(equalTo: mostlikedView.bottomAnchor, constant: 15).isActive = true
