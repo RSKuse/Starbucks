@@ -12,6 +12,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     let starBucksDatabase = StarbucksDatabase()    
     let advertHeaderView = AdvertContainerView()
     
+    // This is a dictionary
+    var countryCapitalCity = ["South Africa": ["Jhb", "PTA", "DBN"],
+                              "England" : ["London", "Manche", "Liverpool"], 
+                              "Zimbabwe": ["Harare", "Bulawayo"]]
+    
     lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = StarbucksImages.homeImage
@@ -39,8 +44,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         setupNavigationBar()
         registerCell()
         configureHeaderView()
+        
+        print(countryCapitalCity["SouthAfrica"])
+        print(countryCapitalCity["England"])
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if !StarbucksDatabase.cartProducts.isEmpty {
+            tabBarController?.tabBar.items?[1].badgeValue = "\(StarbucksDatabase.cartProducts.count)"
+        }
+    }
     
     func setupUI() {
         view.addSubview(starbucksTableView)
@@ -59,10 +73,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         logoImageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
         
     }
+    
     func registerCell() {
         starbucksTableView.register(ProductTableViewCell.self, forCellReuseIdentifier: "ProductTableViewCellID")
         starbucksTableView.register(FeaturedProductsTableViewCell.self, forCellReuseIdentifier: "FeaturedProductsTableViewCellID")
-        
+    }
+    
+    func showProduct(product: Product) {
+        let productViewController = ProductViewController(product: product)
+        productViewController.hidesBottomBarWhenPushed = true
+        productViewController.number = { valueSelected in
+            
+            print(valueSelected)
+            
+        }
+        navigationController?.pushViewController(productViewController, animated: true)
     }
 }
 

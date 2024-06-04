@@ -12,6 +12,9 @@ class FeaturedProductsTableViewCell: UITableViewCell, UICollectionViewDelegate, 
     
     var featuredProductsArray: [Product] = []
     
+    // Closure
+    var didSelectProduct: ((Product) -> Void)?
+    
     lazy var featuredProductCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = UICollectionView.ScrollDirection.horizontal
@@ -82,10 +85,11 @@ extension FeaturedProductsTableViewCell {
     
         } else {
             
-            productCollectionCell.mostLikedView.isHidden = false
+            productCollectionCell.mostLikedView.isHidden = true
             if product.numberOfLikes > 1000 && product.numberOfLikes < 2000 {
                 productCollectionCell.priceLabel.text = " R\(product.price) ♥︎\(product.rating) (1k)"
             } else if product.numberOfLikes > 2000 && product.numberOfLikes < 3000 {
+                productCollectionCell.mostLikedView.isHidden = false
                 productCollectionCell.priceLabel.text = " R\(product.price) ♥︎\(product.rating) (2k)"
             } else {
                 productCollectionCell.priceLabel.text = " R\(product.price) ♥︎\(product.rating) (\(product.numberOfLikes))"
@@ -93,6 +97,12 @@ extension FeaturedProductsTableViewCell {
         }
 
         return productCollectionCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let product = featuredProductsArray[indexPath.item]
+        didSelectProduct?(product)
+        // didSelectProduct = product
     }
 
 }

@@ -38,6 +38,7 @@ extension HomeViewController {
             return starBucksDatabase.pickedForYouArray.count
         } else {
             return starBucksDatabase.bakeryArray.count
+            
         }
         /*
         switch section {
@@ -69,6 +70,9 @@ extension HomeViewController {
         case 0:
             let featuredProductCell = tableView.dequeueReusableCell(withIdentifier: "FeaturedProductsTableViewCellID", for: indexPath) as! FeaturedProductsTableViewCell
             featuredProductCell.featuredProductsArray = starBucksDatabase.sortedFeaturedProducts()
+            featuredProductCell.didSelectProduct = { productSelected in
+                self.showProduct(product: productSelected)
+            }
             return featuredProductCell
         case 1:
             let productCell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCellID", for: indexPath) as! ProductTableViewCell
@@ -108,11 +112,7 @@ extension HomeViewController {
         default:
             product = starBucksDatabase.bakeryArray[indexPath.row]
         }
-        let productViewController = ProductViewController(product: product)
-        productViewController.hidesBottomBarWhenPushed = true
-//        productViewController.productName = product.name
-//        productViewController.productPrice = product.price
-        navigationController?.pushViewController(productViewController, animated: true)
+        showProduct(product: product)
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -139,13 +139,7 @@ extension HomeViewController {
     }
     
     @objc func seeAllButtonTapped(sender: UIButton) {
-//        guard let headerView = sender.superview as? TableSectionHeaderView else {
-//            return
-//        }
-//        print(sender.tag)
-//        let sectionTitle = headerView.title
-//        print("Section Title: \(sectionTitle)") 
-//        
+    
         var productsToShow: [Product] = []
         
         // Use the categories array + sender.tag to access the titles.

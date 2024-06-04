@@ -23,7 +23,7 @@ class FeaturedProductCollectionCell: UICollectionViewCell {
     
     lazy var productNameLabel: UILabel = {
        let label = UILabel()
-        label.text = "Chocolate Chip Cream ®"
+        //label.text = "Chocolate Chip Cream ®"
         label.numberOfLines = 2
         label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
         label.textColor = UIColor.black
@@ -33,7 +33,7 @@ class FeaturedProductCollectionCell: UICollectionViewCell {
     
     lazy var priceLabel: UILabel = {
        let label = UILabel()
-        label.text = "R48.00 ♥︎90% (1k)"
+        //label.text = "R48.00 ♥︎90% (1k)"
         label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false

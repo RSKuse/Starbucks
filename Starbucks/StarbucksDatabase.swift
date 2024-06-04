@@ -41,13 +41,13 @@ class StarbucksDatabase {
                 price: 79.49,
                 description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
                 rating: 3.7,
-                numberOfLikes: 205),
+                numberOfLikes: 2205),
         Product(name: "Mini Chocolate Cake®",
                 image: StarbucksImages.vanillaCake!,
                 price: 109.29,
                 description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
-                rating: 3.8,
-                numberOfLikes: 1347)
+                rating: 4.8,
+                numberOfLikes: 3000)
         
     ]
     
@@ -89,6 +89,20 @@ class StarbucksDatabase {
                 description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream."),]
     
     static var cartProducts: [CartModel] = []
+    
+//    func categories() -> [String: [Product]] {
+//        return ["Featured": featuredArray,
+//                "Picked For You": pickedForYouArray,
+//                "Bakery": bakeryArray]
+//    }
+    
+    var categories: [String: [Product]] {
+        return ["Featured": featuredArray,
+                "Picked For You": pickedForYouArray,
+                "Bakery": bakeryArray,
+                "Deserts": []]
+    }
+
     
 }
                   

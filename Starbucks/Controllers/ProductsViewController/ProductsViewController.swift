@@ -70,6 +70,8 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
         
         if product.numberOfLikes > 2000 {
             cell.mostLikedView.isHidden = false
+        } else {
+            cell.mostLikedView.isHidden = true
         }
        
         return cell
