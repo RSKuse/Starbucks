@@ -19,27 +19,31 @@ extension HomeViewController {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return starBucksDatabase.categoriesArray.count
-        
+        return starBucksDatabase.categories.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        /*
-        switch starBucksDatabase.categoriesArray[section] {
-        case "Featured":
+
+        if section == 0 {
             return 1
-            case ""
         }
-        */
         
+        return starBucksDatabase.categories[section].products.count
+        
+        /**
+         * Old Approach with Arrays
+         */
+        
+        /*
         if starBucksDatabase.categoriesArray[section] == "Featured" {
             return 1
         } else if starBucksDatabase.categoriesArray[section] == "Picked For You" {
             return starBucksDatabase.pickedForYouArray.count
         } else {
             return starBucksDatabase.bakeryArray.count
-            
         }
+         */
+        
         /*
         switch section {
         case 0:
@@ -69,25 +73,20 @@ extension HomeViewController {
         switch indexPath.section {
         case 0:
             let featuredProductCell = tableView.dequeueReusableCell(withIdentifier: "FeaturedProductsTableViewCellID", for: indexPath) as! FeaturedProductsTableViewCell
-            featuredProductCell.featuredProductsArray = starBucksDatabase.sortedFeaturedProducts()
+            let featuredProducts = starBucksDatabase.categories[indexPath.section]
+            featuredProductCell.featuredProductsArray = featuredProducts.products
             featuredProductCell.didSelectProduct = { productSelected in
                 self.showProduct(product: productSelected)
             }
             return featuredProductCell
-        case 1:
-            let productCell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCellID", for: indexPath) as! ProductTableViewCell
-            let product = starBucksDatabase.pickedForYouArray[indexPath.row]
-            productCell.productImageView.image = product.image
-            productCell.productNameLabel.text = product.name
-            productCell.priceLabel.text = String(format: " R%.2f", product.price)
-            productCell.menuDescriptionLabel.text = product.description
-            return productCell
         default:
-            let productCell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCellID", for: indexPath) as! ProductTableViewCell
-            let product = starBucksDatabase.bakeryArray[indexPath.row]
+            guard let productCell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCellID", for: indexPath) as? ProductTableViewCell else {
+                return UITableViewCell()
+            }
+            let product = starBucksDatabase.categories[indexPath.section].products[indexPath.row]
             productCell.productImageView.image = product.image
             productCell.productNameLabel.text = product.name
-            productCell.priceLabel.text = String(format: " R%.2f", product.price)
+            productCell.priceLabel.text = StarbucksPriceDecimal.currencyFormat(price: product.price)
             productCell.menuDescriptionLabel.text = product.description
             return productCell
         }
@@ -103,6 +102,17 @@ extension HomeViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch indexPath.section {
+        case 0:
+            return
+        default:
+            let categories = starBucksDatabase.categories[indexPath.section]
+            let product = categories.products[indexPath.row]
+            showProduct(product: product)
+        }
+        
+        /*
         var product: Product
         switch indexPath.section {
         case 0:
@@ -113,6 +123,7 @@ extension HomeViewController {
             product = starBucksDatabase.bakeryArray[indexPath.row]
         }
         showProduct(product: product)
+        */
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -123,7 +134,7 @@ extension HomeViewController {
                                           action: #selector(seeAllButtonTapped),
                                           for: .touchUpInside)
         headerView.seeAllButton.tag = section
-        headerView.title = starBucksDatabase.categoriesArray[section]
+        headerView.title = starBucksDatabase.categories[section].name
         
         /*
         if section == 0 {
@@ -140,6 +151,13 @@ extension HomeViewController {
     
     @objc func seeAllButtonTapped(sender: UIButton) {
     
+        let categoryTitle = starBucksDatabase.categories[sender.tag].name
+        let products = starBucksDatabase.categories[sender.tag].products
+        let productsViewController = ProductsViewController(products: products,
+                                                            title: categoryTitle)
+        productsViewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(productsViewController, animated: true)
+        /*
         var productsToShow: [Product] = []
         
         // Use the categories array + sender.tag to access the titles.
@@ -161,6 +179,7 @@ extension HomeViewController {
                                                             title: categoryTitle)
         productsViewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(productsViewController, animated: true)
+        */
     }
 
 }

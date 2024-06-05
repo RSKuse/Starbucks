@@ -21,8 +21,7 @@ class ProductTableViewCell: UITableViewCell {
     
     lazy var productNameLabel: UILabel = {
        let label = UILabel()
-        label.text = ""
-        label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
+        label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

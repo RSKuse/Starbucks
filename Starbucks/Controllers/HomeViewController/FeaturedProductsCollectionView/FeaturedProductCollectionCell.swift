@@ -25,7 +25,7 @@ class FeaturedProductCollectionCell: UICollectionViewCell {
        let label = UILabel()
         //label.text = "Chocolate Chip Cream ®"
         label.numberOfLines = 2
-        label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
+        label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
