@@ -8,19 +8,27 @@
 import Foundation
 import UIKit
 
-struct Product {
-    let name: String
-    let image: UIImage
-    let price: Double
-    let description: String
-    var size: [ProductSize]?
-    var rating: Double = 5.0
-    var numberOfLikes: Int = 0
+struct Product: Codable {
+    var name: String
+    var image: UIImage
+    var price: Double
+    var description: String
+    var size: [ProductSize]
+    var rating: Double
+    var numberOfLikes: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case name, image, price, description, size, rating, numberOfLikes
+    }
 }
 
-struct ProductSize {
-    let name: String
-    let price: Double
+struct ProductSize: Codable {
+    let name: String?
+    let price: Double?
+    
+    enum CodingKeys: String, CodingKey {
+        case name, price
+    }
 }
 
 

@@ -36,7 +36,7 @@ extension ProductViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: return 1
-        case 1: return product.size?.count ?? 0
+        case 1: return product.size.count ?? 0
         default: return 1
         }
     }
@@ -54,10 +54,9 @@ extension ProductViewController {
             
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductSizeTableCell.cellID, for: indexPath) as! ProductSizeTableCell
-            if let size = product.size?[indexPath.row] {
-                cell.sizeNameLabel.text = size.name
-                cell.priceSizeLabel.text = "+" + StarbucksPriceDecimal.currencyFormat(price: size.price)
-            }
+            let size = product.size[indexPath.row]
+            cell.sizeNameLabel.text = size.name
+            cell.priceSizeLabel.text = "+" + StarbucksPriceDecimal.currencyFormat(price: size.price)
             return cell
             
         default:
@@ -86,7 +85,7 @@ extension ProductViewController {
         
         guard let cell = tableView.cellForRow(at: indexPath) as? ProductSizeTableCell else { return }
         selectedIndexPath = indexPath
-        selectedSize = product.size?[indexPath.row]
+        selectedSize = product.size[indexPath.row]
         let newPrice = product.price + (selectedSize?.price ?? 0)
         addToBasketButton.setTitle(StarbucksPriceDecimal.currencyFormat(price: newPrice), for: .normal)
         cell.checkMarkButton.setImage(StarbucksImages.selectedCheckmarkImage, for: .normal)

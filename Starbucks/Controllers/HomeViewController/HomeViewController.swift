@@ -9,8 +9,10 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let starBucksDatabase = StarbucksDatabase()    
+//    let starBucksDatabase = StarbucksDatabase()    
     let advertHeaderView = AdvertContainerView()
+    
+    var categories: [StarbucksCategoryModel] = []
     
     // This is a dictionary
 //    var countryCapitalCity = ["South Africa": ["Jhb", "PTA", "DBN"],
@@ -40,6 +42,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         //view.backgroundColor = .white
         super.viewDidLoad()
+        let category = extractDatabaseFromJson()
+        if let category = category {
+            categories = [category]
+        }
         setupUI()
         setupNavigationBar()
         registerCell()
@@ -49,12 +55,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        print(countryCapitalCity["England"])
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        if !StarbucksDatabase.cartProducts.isEmpty {
-//            tabBarController?.tabBar.items?[1].badgeValue = "\(StarbucksDatabase.cartProducts.count)"
-//        }
-//    }
+    func extractDatabaseFromJson() -> StarbucksCategoryModel? {
+        return ConvertJsonToModel.convert(fromFileName: "StarbucksCategories")
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
