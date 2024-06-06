@@ -13,9 +13,11 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     //    var productName: String = ""
     //    var productPrice: Double = 0.0
     let productHeaderView = ItemContainerView()
-    var product: Product!
+    var product: Product
     var selectedSize: ProductSize?
+    var selectedIndexPath: IndexPath?
     
+    var number: ((Int) -> Void)?
     
     lazy var productTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -109,26 +111,27 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // Add product to basket
     @objc func addToBasket() {
-        print("Add to basket button tapped")
+        
+        
+        
         let cartItem = CartModel(
             name: product.name,
             image: product.image,
-            price: product.price,
-            size: product.size,
+            cost: product.price + (selectedSize?.price ?? 0),
+            numberOfItems: 1,
             selectedSize: selectedSize // Pass the selected size here
         )
         
         // Append the item to the cartProducts array first
         StarbucksDatabase.cartProducts.append(cartItem)
-        print("Cart contents:", StarbucksDatabase.cartProducts)
         
-        // Reload the table view after updating the cartProducts array
-        if let cartViewController = navigationController?.viewControllers.first(where: { $0 is CartViewController }) as? CartViewController {
-            cartViewController.cartTableView.reloadData()
-        }
         // show a confirmation to the user
+    
         let alert = UIAlertController(title: "Added to Cart", message: "\(product.name) has been added to your cart.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
+            self.navigationController?.popToRootViewController(animated: true)
+            self.number?(3)
+        }))
         present(alert, animated: true, completion: nil)
     }
     

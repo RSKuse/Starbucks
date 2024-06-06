@@ -20,6 +20,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     lazy var amountContainer: TotalAmountContainerView = {
         let view = TotalAmountContainerView()
+        view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -49,7 +50,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = StarbucksColors.starbucksBackgroundGray
+        self.view.backgroundColor = UIColor.white
         title = "Cart"
         setupNavigationBar()
         setupUI()
@@ -71,11 +72,10 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.addSubview(emptyCartLabel)
         view.addSubview(amountContainer)
         
-    
         emptyCartLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         emptyCartLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
             
-        cartTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        cartTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         cartTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         cartTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         cartTableView.bottomAnchor.constraint(equalTo: amountContainer.topAnchor).isActive = true
@@ -98,10 +98,12 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     //Update Cart View
     func updateCartView() {
         if StarbucksDatabase.cartProducts.isEmpty {
+            amountContainer.isHidden = true
             cartTableView.isHidden = true
             emptyCartLabel.isHidden = false
             amountContainer.payCheckoutButton.isEnabled = false
         } else {
+            amountContainer.isHidden = false
             cartTableView.isHidden = false
             emptyCartLabel.isHidden = true
             cartTableView.reloadData()
@@ -135,16 +137,12 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //Update Total Amount
     func updateTotalAmount() {
-        var totalAmount = 0.00
+        var totalAmount = 0.0
         for product in StarbucksDatabase.cartProducts {
-            totalAmount += product.price
-            if let selectedSize = product.selectedSize {
-                totalAmount += selectedSize.price
-            }
+            totalAmount += product.cost
         }
         
-        let roundedTotal = String(format: "%.2f", totalAmount)
-        amountContainer.priceLabel.text = "R\(roundedTotal)"
+        amountContainer.priceLabel.text = StarbucksPriceDecimal.currencyFormat(price: totalAmount)
     }
 
 }

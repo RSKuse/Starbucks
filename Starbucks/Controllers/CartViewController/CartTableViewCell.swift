@@ -31,7 +31,6 @@ class CartTableViewCell: UITableViewCell {
     
     lazy var sizeNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Tall"
         label.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight.light)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -40,7 +39,6 @@ class CartTableViewCell: UITableViewCell {
     
     lazy var priceSizeLabel: UILabel = {
         let label = UILabel()
-        label.text = "+R4.00"
         label.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight.semibold)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -71,7 +69,8 @@ class CartTableViewCell: UITableViewCell {
     
     lazy var productPriceLabel: UILabel = {
         let label = UILabel()
-        label.text = "R48.00"
+        label.text = "R48.0000"
+        label.textAlignment = .right
         label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.bold)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false

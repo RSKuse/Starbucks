@@ -11,8 +11,8 @@ import UIKit
 struct CartModel {
     let name: String
     let image: UIImage
-    let price: Double
-    var size: [ProductSize]?
+    let cost: Double
+    var numberOfItems: Int
     var selectedSize: ProductSize? // Add selectedSize property
 }
 

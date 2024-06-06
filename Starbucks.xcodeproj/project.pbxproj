@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4524A5632BF2933D00986B5B /* ProductTagContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524A5622BF2933D00986B5B /* ProductTagContainerView.swift */; };
+		457DCF8E2C11128700297354 /* StarbucksCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457DCF8D2C11128700297354 /* StarbucksCategoryModel.swift */; };
 		45E198742BE40DAA00995770 /* StarbucksDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E198732BE40DAA00995770 /* StarbucksDatabase.swift */; };
 		45E8852A2BE393F000131E4D /* MostLikedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E885292BE393F000131E4D /* MostLikedView.swift */; };
 		45E8852D2BE396FA00131E4D /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E8852C2BE396FA00131E4D /* ProductsViewController.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		4524A5622BF2933D00986B5B /* ProductTagContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTagContainerView.swift; sourceTree = "<group>"; };
+		457DCF8D2C11128700297354 /* StarbucksCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksCategoryModel.swift; sourceTree = "<group>"; };
 		45E198732BE40DAA00995770 /* StarbucksDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksDatabase.swift; sourceTree = "<group>"; };
 		45E885292BE393F000131E4D /* MostLikedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostLikedView.swift; sourceTree = "<group>"; };
 		45E8852C2BE396FA00131E4D /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				F3F1D2602BE3E1C3009BFF98 /* StarbucksProductStruct.swift */,
+				457DCF8D2C11128700297354 /* StarbucksCategoryModel.swift */,
 				F3E9C8C22BF5E46A00D89ECD /* CartModelStruct.swift */,
 			);
 			path = Model;
@@ -322,6 +325,7 @@
 				F3F1D2482BDA96B5009BFF98 /* CartViewController.swift in Sources */,
 				F3F1D2592BE2E231009BFF98 /* TableSectionHeaderView.swift in Sources */,
 				F3F1D2242BDA7622009BFF98 /* AdvertContainerView.swift in Sources */,
+				457DCF8E2C11128700297354 /* StarbucksCategoryModel.swift in Sources */,
 				F3F1D2102BDA637D009BFF98 /* AppDelegate.swift in Sources */,
 				F3F1D24F2BE1252F009BFF98 /* HomeViewController+TableView.swift in Sources */,
 				F35CDE012BEA3CD300494EFF /* ProductViewController.swift in Sources */,
