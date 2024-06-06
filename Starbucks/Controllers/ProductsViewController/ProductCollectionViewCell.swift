@@ -10,6 +10,8 @@ import UIKit
 
 class ProductCollectionViewCell: UICollectionViewCell {
     
+    static var cellID = "ProductCollectionViewCellID"
+    
     lazy var productImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill

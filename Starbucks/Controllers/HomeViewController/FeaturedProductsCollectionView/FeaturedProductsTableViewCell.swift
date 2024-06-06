@@ -10,6 +10,8 @@ import UIKit
 
 class FeaturedProductsTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    static var cellID = "FeaturedProductsTableViewCellID"
+    
     var featuredProductsArray: [Product] = []
     
     // Closure

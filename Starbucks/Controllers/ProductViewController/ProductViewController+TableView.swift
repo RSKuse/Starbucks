@@ -47,7 +47,7 @@ extension ProductViewController {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailsTableViewCell.cellID, for: indexPath) as! ProductDetailsTableViewCell
             cell.productNameLabel.text = product.name
-            cell.productPriceLabel.text = String(format: "R%.2f", product.price)
+            cell.productPriceLabel.text = StarbucksPriceDecimal.currencyFormat(price: product.price)
             cell.productDescription.text = product.description
             cell.mostlikedView.isHidden = product.numberOfLikes <= 0
             return cell

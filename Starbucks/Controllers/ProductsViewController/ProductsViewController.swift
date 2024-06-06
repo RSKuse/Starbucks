@@ -52,7 +52,7 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     func registerCollectionCells() {
-        productCollectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: "ProductCollectionViewCellID")
+        productCollectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: ProductCollectionViewCell.cellID)
     }
     
     
@@ -65,7 +65,8 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
         let product = products[indexPath.item]
         cell.productImageView.image = product.image
         cell.productNameLabel.text = product.name
-        cell.priceLabel.text = String(format: " R%.2f", product.price)
+        cell.priceLabel.text = StarbucksPriceDecimal.currencyFormat(price: product.price)
+       
         //productPriceLabel.text = " R\(product.price)"
         
         if product.numberOfLikes > 2000 {
