@@ -3,7 +3,7 @@
     "name": "Featured",
     "products": [{
         "name": "Hazelnut Chocolate Croissant",
-        "image": "macchiato",
+        "imageName": "macchiato",
         "price": 42.49,
         "description": "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
         "rating": 4.8,

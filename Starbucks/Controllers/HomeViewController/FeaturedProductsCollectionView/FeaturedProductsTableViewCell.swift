@@ -80,7 +80,7 @@ extension FeaturedProductsTableViewCell {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let productCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeaturedProductCollectionCellID", for: indexPath) as! FeaturedProductCollectionCell
         let product = featuredProductsArray[indexPath.item]
-        // productCollectionCell.productImageView.image = product.image
+        productCollectionCell.productImageView.image = UIImage(named: product.imageName)
         productCollectionCell.productNameLabel.text = product.name
         
         if product.numberOfLikes == 0 {

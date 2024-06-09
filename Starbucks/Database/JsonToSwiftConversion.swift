@@ -10,6 +10,7 @@ import Foundation
 final class ConvertJsonToModel {
 
     class func convert<Model: Codable>(fromFileName file: String) -> Model? {
+        
         do {
             let data = try fetchJsonData(inFile: file)
             let model: Model = try JSONDecoder().decode(Model.self, from: data)

@@ -10,7 +10,7 @@ import UIKit
 
 struct Product: Codable {
     var name: String
-    var image: String
+    var imageName: String
     var price: Double
     var description: String
     var size: [ProductSize]
@@ -18,7 +18,7 @@ struct Product: Codable {
     var numberOfLikes: Int = 0
     
     enum CodingKeys: String, CodingKey {
-        case name, image, price, description, size, rating, numberOfLikes
+        case name, imageName, price, description, size, rating, numberOfLikes
     }
 }
 
