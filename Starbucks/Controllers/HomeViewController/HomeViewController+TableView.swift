@@ -84,7 +84,7 @@ extension HomeViewController {
                 return UITableViewCell()
             }
             let product = categories[indexPath.section].products[indexPath.row]
-            productCell.productImageView.image = product.image
+            // productCell.productImageView.image = product.image
             productCell.productNameLabel.text = product.name
             productCell.priceLabel.text = StarbucksPriceDecimal.currencyFormat(price: product.price)
             productCell.menuDescriptionLabel.text = product.description

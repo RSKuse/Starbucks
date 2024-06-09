@@ -113,12 +113,9 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // Add product to basket
     @objc func addToBasket() {
-        
-        
-        
         let cartItem = CartModel(
             name: product.name,
-            image: product.image,
+            image: UIImage(), // product.image,
             cost: product.price + (selectedSize?.price ?? 0),
             numberOfItems: 1,
             selectedSize: selectedSize // Pass the selected size here

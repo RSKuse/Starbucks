@@ -43,6 +43,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //view.backgroundColor = .white
         super.viewDidLoad()
         let category = extractDatabaseFromJson()
+        
         if let category = category {
             categories = [category]
         }
@@ -53,6 +54,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
 //        print(countryCapitalCity["SouthAfrica"])
 //        print(countryCapitalCity["England"])
+        
     }
     
     func extractDatabaseFromJson() -> StarbucksCategoryModel? {

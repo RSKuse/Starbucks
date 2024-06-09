@@ -21,7 +21,6 @@
 		F35CDE072BEA4E0300494EFF /* ProductDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35CDE062BEA4E0300494EFF /* ProductDetailsTableViewCell.swift */; };
 		F35CDE0A2BEA5EB700494EFF /* ProductDisclaimerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35CDE092BEA5EB700494EFF /* ProductDisclaimerTableCell.swift */; };
 		F35CDE0D2BEA612100494EFF /* ProductSizeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35CDE0C2BEA612100494EFF /* ProductSizeTableCell.swift */; };
-		F382C72C2C11DDB500239F1B /* StarbucksProduct.json in Resources */ = {isa = PBXBuildFile; fileRef = F382C72B2C11DDB500239F1B /* StarbucksProduct.json */; };
 		F382C72E2C11E74800239F1B /* StarbucksCategories.json in Resources */ = {isa = PBXBuildFile; fileRef = F382C72D2C11E74800239F1B /* StarbucksCategories.json */; };
 		F382C7302C11ED8500239F1B /* JsonToSwiftConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F382C72F2C11ED8500239F1B /* JsonToSwiftConversion.swift */; };
 		F3E9C8BF2BF50E0600D89ECD /* CartViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E9C8BE2BF50E0600D89ECD /* CartViewController+TableView.swift */; };
@@ -61,7 +60,6 @@
 		F35CDE062BEA4E0300494EFF /* ProductDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		F35CDE092BEA5EB700494EFF /* ProductDisclaimerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDisclaimerTableCell.swift; sourceTree = "<group>"; };
 		F35CDE0C2BEA612100494EFF /* ProductSizeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSizeTableCell.swift; sourceTree = "<group>"; };
-		F382C72B2C11DDB500239F1B /* StarbucksProduct.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StarbucksProduct.json; sourceTree = "<group>"; };
 		F382C72D2C11E74800239F1B /* StarbucksCategories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StarbucksCategories.json; sourceTree = "<group>"; };
 		F382C72F2C11ED8500239F1B /* JsonToSwiftConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonToSwiftConversion.swift; sourceTree = "<group>"; };
 		F3E9C8BE2BF50E0600D89ECD /* CartViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartViewController+TableView.swift"; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 			children = (
 				45E198732BE40DAA00995770 /* StarbucksDatabase.swift */,
 				F382C72F2C11ED8500239F1B /* JsonToSwiftConversion.swift */,
-				F382C72B2C11DDB500239F1B /* StarbucksProduct.json */,
 				F382C72D2C11E74800239F1B /* StarbucksCategories.json */,
 			);
 			path = Database;
@@ -307,7 +304,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F382C72E2C11E74800239F1B /* StarbucksCategories.json in Resources */,
-				F382C72C2C11DDB500239F1B /* StarbucksProduct.json in Resources */,
 				F3F1D2192BDA6380009BFF98 /* Assets.xcassets in Resources */,
 				F3F1D21C2BDA6380009BFF98 /* Base in Resources */,
 			);

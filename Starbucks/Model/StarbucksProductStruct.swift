@@ -10,12 +10,12 @@ import UIKit
 
 struct Product: Codable {
     var name: String
-    var image: UIImage
+    var image: String
     var price: Double
     var description: String
     var size: [ProductSize]
-    var rating: Double
-    var numberOfLikes: Int
+    var rating: Double = 5.0
+    var numberOfLikes: Int = 0
     
     enum CodingKeys: String, CodingKey {
         case name, image, price, description, size, rating, numberOfLikes

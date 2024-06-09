@@ -63,7 +63,7 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCellID", for: indexPath) as! ProductCollectionViewCell
         let product = products[indexPath.item]
-        cell.productImageView.image = product.image
+        //cell.productImageView.image = product.image
         cell.productNameLabel.text = product.name
         cell.priceLabel.text = StarbucksPriceDecimal.currencyFormat(price: product.price)
        

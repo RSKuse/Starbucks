@@ -13,7 +13,7 @@ class ItemContainerView: UIView {
     // added did set for imageHeaderView Navigation 
     var product: Product? {
         didSet {
-            itemImageView.image = product?.image
+            // itemImageView.image = product?.image
         }
     }
     

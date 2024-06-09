@@ -26,7 +26,9 @@ extension CartViewController {
         // Check if there's a selected size
         if let selectedSize = cartProduct.selectedSize {
             cell.sizeNameLabel.text = "\(selectedSize.name)"
-            cell.priceSizeLabel.text = StarbucksPriceDecimal.currencyFormat(price: selectedSize.price)
+            if let price = selectedSize.price {
+                cell.priceSizeLabel.text = StarbucksPriceDecimal.currencyFormat(price: price)
+            }
         }
         return cell
     }
