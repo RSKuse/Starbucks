@@ -1,22 +1,83 @@
 
 {
-    "name": "Featured",
-    "products": [{
-        "name": "Hazelnut Chocolate Croissant",
-        "imageName": "macchiato",
-        "price": 42.49,
-        "description": "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
-        "rating": 4.8,
-        "numberOfLikes": 1690,
-        "availablePrices": [3.5, 7.8, 33.4, 56.0],
-        "size": [ 
-            {
-                "name": "Tall",
-                "price": 5.0
-            },
-            {
-                "name": "Venti",
-                "price": 7.0
-            }]
-    }]
+    "categories": [
+        {
+            "name": "Featured",
+            "products": [
+                {
+                    "name": "Hazelnut Chocolate Croissant",
+                    "imageName": "macchiato",
+                    "price": 42.49,
+                    "description": "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
+                    "rating": 4.8,
+                    "numberOfLikes": 1690,
+                    "availablePrices": [3.5, 7.8, 33.4, 56.0],
+                    "size": [
+                        {
+                            "name": "Tall",
+                            "price": 5.0
+                        },
+                        {
+                            "name": "Venti",
+                            "price": 7.0
+                        }]
+                },
+                {
+                    "name": "Caramel Macchiato®",
+                    "imageName": "chocolateChip",
+                    "price": 54.99,
+                    "description": "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
+                    "rating": 4.8,
+                    "numberOfLikes": 203
+                },
+                {
+                    "name": "Hazelnut Chocolate Croissant®",
+                    "imageName": "croissant",
+                    "price": 37.49,
+                    "description": "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
+                    "rating": 4.8,
+                    "numberOfLikes": 37
+                },
+                {
+                    "name": "Mini Salted Caramel Vanilla Cake®",
+                    "imageName": "vanilla_cake",
+                    "price": 179.49,
+                    "description": "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
+                    "rating": 3.7,
+                    "numberOfLikes": 2205
+                }
+            ]
+        },
+        {
+            "name": "Picked For You",
+            "products": [
+                {
+                    "name": "Latte®",
+                    "imageName": "latte",
+                    "price": 48.99,
+                    "description": "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
+                    "rating": 4.8,
+                    "numberOfLikes": 1690,
+                    "availablePrices": [3.5, 7.8, 33.4, 56.0],
+                    "size": [
+                        {
+                            "name": "Grande",
+                            "price": 4.0
+                        },
+                        {
+                            "name": "Venti",
+                            "price": 8.0
+                        }]
+                },
+                {
+                    "name": "Expresso Frappacino®",
+                    "imageName": "espressoFrappuccino",
+                    "price": 64.99,
+                    "description": "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
+                    "rating": 4.8,
+                    "numberOfLikes": 203
+                }
+            ]
+        }
+    ]
 }

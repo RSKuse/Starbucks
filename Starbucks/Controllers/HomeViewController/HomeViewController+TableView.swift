@@ -90,14 +90,7 @@ extension HomeViewController {
             productCell.menuDescriptionLabel.text = product.description
             return productCell
         }
-        
-        /*
-        if indexPath.section == 0 {
-            
-        } else {
-            
-        }
-        */
+
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -108,8 +101,8 @@ extension HomeViewController {
             return
         default:
             let categories = categories[indexPath.section]
-//            let product = products[indexPath.row]
-//            showProduct(product: product)
+            let product = categories.products[indexPath.row]
+            showProduct(product: product)
         }
         
         /*

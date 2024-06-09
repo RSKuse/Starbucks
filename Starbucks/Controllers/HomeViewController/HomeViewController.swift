@@ -45,7 +45,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let category = extractDatabaseFromJson()
         
         if let category = category {
-            categories = [category]
+            categories = category.categories
         }
         setupUI()
         setupNavigationBar()
@@ -57,7 +57,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    func extractDatabaseFromJson() -> StarbucksCategoryModel? {
+    func extractDatabaseFromJson() -> Categories? {
         return ConvertJsonToModel.convert(fromFileName: "StarbucksCategories")
     }
     
@@ -100,9 +100,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let productViewController = ProductViewController(product: product)
         productViewController.hidesBottomBarWhenPushed = true
         productViewController.number = { valueSelected in
-            
             print(valueSelected)
-            
         }
         navigationController?.pushViewController(productViewController, animated: true)
     }

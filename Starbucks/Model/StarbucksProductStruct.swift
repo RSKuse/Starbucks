@@ -13,7 +13,7 @@ struct Product: Codable {
     var imageName: String
     var price: Double
     var description: String
-    var size: [ProductSize]
+    var size: [ProductSize]?
     var rating: Double = 5.0
     var numberOfLikes: Int = 0
     
@@ -23,8 +23,8 @@ struct Product: Codable {
 }
 
 struct ProductSize: Codable {
-    let name: String?
-    let price: Double?
+    let name: String
+    let price: Double
     
     enum CodingKeys: String, CodingKey {
         case name, price

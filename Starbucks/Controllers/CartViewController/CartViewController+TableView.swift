@@ -20,15 +20,13 @@ extension CartViewController {
         
         // Configure cell with cart product data
         cell.productNameLabel.text = cartProduct.name
-        cell.productImageView.image = cartProduct.image
+        cell.productImageView.image = UIImage(named: cartProduct.image)
         cell.productPriceLabel.text = StarbucksPriceDecimal.currencyFormat(price: cartProduct.cost)
         
         // Check if there's a selected size
         if let selectedSize = cartProduct.selectedSize {
             cell.sizeNameLabel.text = "\(selectedSize.name)"
-            if let price = selectedSize.price {
-                cell.priceSizeLabel.text = StarbucksPriceDecimal.currencyFormat(price: price)
-            }
+            cell.priceSizeLabel.text = StarbucksPriceDecimal.currencyFormat(price: selectedSize.price)
         }
         return cell
     }

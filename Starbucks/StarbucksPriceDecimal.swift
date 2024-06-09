@@ -11,7 +11,7 @@ import UIKit
 class StarbucksPriceDecimal {
 
     static func currencyFormat(price: Double) -> String {
-        return String(format: "R%,2f", price)
+        return String(format: "R%.2f", price)
     }
 
 }

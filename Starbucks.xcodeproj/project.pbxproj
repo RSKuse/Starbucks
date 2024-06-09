@@ -141,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				45E198732BE40DAA00995770 /* StarbucksDatabase.swift */,
-				F382C72F2C11ED8500239F1B /* JsonToSwiftConversion.swift */,
 				F382C72D2C11E74800239F1B /* StarbucksCategories.json */,
 			);
 			path = Database;
@@ -182,6 +181,7 @@
 				F3F1D24B2BDA9C7B009BFF98 /* StarbucksColors.swift */,
 				F3F1D25D2BE387CC009BFF98 /* StarbucksImages.swift */,
 				F352BB9D2C07727300564C9A /* StarbucksPriceDecimal.swift */,
+				F382C72F2C11ED8500239F1B /* JsonToSwiftConversion.swift */,
 				F382C72A2C11DCF100239F1B /* Database */,
 				F3F1D25F2BE3E17C009BFF98 /* Model */,
 				F3F1D24D2BE05265009BFF98 /* Controllers */,
@@ -238,8 +238,8 @@
 		F3F1D25F2BE3E17C009BFF98 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F3F1D2602BE3E1C3009BFF98 /* StarbucksProductStruct.swift */,
 				457DCF8D2C11128700297354 /* StarbucksCategoryModel.swift */,
+				F3F1D2602BE3E1C3009BFF98 /* StarbucksProductStruct.swift */,
 				F3E9C8C22BF5E46A00D89ECD /* CartModelStruct.swift */,
 			);
 			path = Model;
