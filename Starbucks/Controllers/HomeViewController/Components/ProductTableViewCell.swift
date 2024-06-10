@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class ProductTableViewCell: UITableViewCell {
+    static var cellID = "ProductTableViewCellID"
     
     lazy var productImageView: UIImageView = {
         let imageView = UIImageView()

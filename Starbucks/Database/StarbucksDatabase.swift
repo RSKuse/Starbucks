@@ -9,10 +9,13 @@ import Foundation
 import UIKit
 
 class StarbucksDatabase {
+    static var cartProducts: [CartModel] = []
+}
+
+/*
+    // var categoriesArray: [String] = ["Favourites", "Picked For You", "Bakery"]
     
-    // var categoriesArray: [String] = ["Featured", "Picked For You", "Bakery"]
-    
-    /**
+    //**
      Cart Array
      */
     static var cartProducts: [CartModel] = []
@@ -104,19 +107,36 @@ class StarbucksDatabase {
                  price: 92.00,
                  description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.")]
     }
+    
+    var specialisedCoffee: [Product] {
+        [Product(name: "Chai Latte",
+                 image: UIImage(named: "vanilla_cake")!,
+                 price: 109.45,
+                 description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.",
+                size: [ProductSize(name: "Grande", price: 17.00),
+                       ProductSize(name: "Venti", price: 29.00),
+                      ]),
+         Product(name: "Morocan Americano",
+                  image: UIImage(named: "vanilla_cake")!,
+                  price: 198.45,
+                  description: "Mocha syrup and java chips combined with milk, blended with ice and topped with whipped cream.")]
+    }
         
         
     var categories: [StarbucksCategoryModel] {
-        [StarbucksCategoryModel(name: "Featured",
+        [StarbucksCategoryModel(name: "Favourites",
                                 products: featuredArray),
          StarbucksCategoryModel(name: "Picked For You",
                                 products: pickedForYouArray),
          StarbucksCategoryModel(name: "Bakery",
                                 products: bakeryArray),
          StarbucksCategoryModel(name: "Deserts",
-                                products: desertsArray)]
+                                products: desertsArray),
+         StarbucksCategoryModel(name: "Specialised Coffees",
+                                products: specialisedCoffee)]
                                                     
     }
 
 }
                   
+*/

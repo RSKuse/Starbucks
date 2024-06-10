@@ -9,13 +9,15 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let starBucksDatabase = StarbucksDatabase()    
+//    let starBucksDatabase = StarbucksDatabase()    
     let advertHeaderView = AdvertContainerView()
     
+    var categories: [StarbucksCategoryModel] = []
+    
     // This is a dictionary
-    var countryCapitalCity = ["South Africa": ["Jhb", "PTA", "DBN"],
-                              "England" : ["London", "Manche", "Liverpool"], 
-                              "Zimbabwe": ["Harare", "Bulawayo"]]
+//    var countryCapitalCity = ["South Africa": ["Jhb", "PTA", "DBN"],
+//                              "England" : ["London", "Manche", "Liverpool"], 
+//                              "Zimbabwe": ["Harare", "Bulawayo"]]
     
     lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -40,19 +42,33 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         //view.backgroundColor = .white
         super.viewDidLoad()
+        let category = extractDatabaseFromJson()
+        
+        if let category = category {
+            categories = category.categories
+        }
         setupUI()
         setupNavigationBar()
         registerCell()
         configureHeaderView()
         
-        print(countryCapitalCity["SouthAfrica"])
-        print(countryCapitalCity["England"])
+//        print(countryCapitalCity["SouthAfrica"])
+//        print(countryCapitalCity["England"])
+        
+    }
+    
+    func extractDatabaseFromJson() -> Categories? {
+        return ConvertJsonToModel.convert(fromFileName: "StarbucksCategories")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if !StarbucksDatabase.cartProducts.isEmpty {
-            tabBarController?.tabBar.items?[1].badgeValue = "\(StarbucksDatabase.cartProducts.count)"
+        if let cartTabBarItem = tabBarController?.tabBar.items?[1] {
+            if StarbucksDatabase.cartProducts.isEmpty {
+                cartTabBarItem.badgeValue = nil
+            } else {
+                cartTabBarItem.badgeValue = "\(StarbucksDatabase.cartProducts.count)"
+            }
         }
     }
     
@@ -75,20 +91,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func registerCell() {
-        starbucksTableView.register(ProductTableViewCell.self, forCellReuseIdentifier: "ProductTableViewCellID")
-        starbucksTableView.register(FeaturedProductsTableViewCell.self, forCellReuseIdentifier: "FeaturedProductsTableViewCellID")
+        starbucksTableView.register(ProductTableViewCell.self, forCellReuseIdentifier: ProductTableViewCell.cellID)
+        starbucksTableView.register(FeaturedProductsTableViewCell.self, forCellReuseIdentifier: FeaturedProductsTableViewCell.cellID)
+    
     }
     
     func showProduct(product: Product) {
         let productViewController = ProductViewController(product: product)
         productViewController.hidesBottomBarWhenPushed = true
         productViewController.number = { valueSelected in
-            
             print(valueSelected)
-            
         }
         navigationController?.pushViewController(productViewController, animated: true)
     }
+
 }
 
 // Comment: Adding a HeaderView (not a TableSectionHeaderView) to a TableView

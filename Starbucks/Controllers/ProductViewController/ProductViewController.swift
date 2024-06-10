@@ -31,7 +31,8 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     lazy var addToBasketButton: UIButton = {
         let button = UIButton()
         button.isEnabled = true
-        button.setTitle(String(format: "Add to basket • R%.2f", product.price), for: .normal)
+        let buttonText = "Add to basket •  " + StarbucksPriceDecimal.currencyFormat(price: product.price)
+        button.setTitle(buttonText, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         button.layer.cornerRadius = 8.0
         button.setTitleColor(.white, for: .normal)
@@ -65,7 +66,8 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     // Setup product UI
     func setupProductUI() {
         title = product.name
-        addToBasketButton.setTitle(String(format: "Add to basket • R%.2f", product.price), for: .normal)
+        let basketButtonText = "Add to basket " + StarbucksPriceDecimal.currencyFormat(price: product.price)
+        addToBasketButton.setTitle(basketButtonText, for: .normal)
         productHeaderView.product = product
     }
     
@@ -111,12 +113,9 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // Add product to basket
     @objc func addToBasket() {
-        
-        
-        
         let cartItem = CartModel(
             name: product.name,
-            image: product.image,
+            image:product.imageName,
             cost: product.price + (selectedSize?.price ?? 0),
             numberOfItems: 1,
             selectedSize: selectedSize // Pass the selected size here

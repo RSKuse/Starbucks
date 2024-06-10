@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct StarbucksCategoryModel {
+struct Categories: Codable {
+    let categories: [StarbucksCategoryModel]
+}
+
+struct StarbucksCategoryModel: Codable {
     let name: String
     let products: [Product]
 }

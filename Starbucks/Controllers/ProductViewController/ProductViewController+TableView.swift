@@ -17,8 +17,7 @@ extension ProductViewController {
     
     // Configure the header view for section 1 (Size section)
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard section == 1, let _ = product.size else { return nil }
-        
+        guard section == 1 else { return nil }
         let headerView = TableSectionHeaderView()
         headerView.title = "Size"
         headerView.seeAllButton.isHidden = true
@@ -47,13 +46,14 @@ extension ProductViewController {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductDetailsTableViewCell.cellID, for: indexPath) as! ProductDetailsTableViewCell
             cell.productNameLabel.text = product.name
-            cell.productPriceLabel.text = String(format: "R%.2f", product.price)
+            cell.productPriceLabel.text = StarbucksPriceDecimal.currencyFormat(price: product.price)
             cell.productDescription.text = product.description
             cell.mostlikedView.isHidden = product.numberOfLikes <= 0
             return cell
             
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductSizeTableCell.cellID, for: indexPath) as! ProductSizeTableCell
+            
             if let size = product.size?[indexPath.row] {
                 cell.sizeNameLabel.text = size.name
                 cell.priceSizeLabel.text = "+" + StarbucksPriceDecimal.currencyFormat(price: size.price)

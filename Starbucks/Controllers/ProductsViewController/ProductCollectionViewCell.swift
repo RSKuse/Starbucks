@@ -10,10 +10,11 @@ import UIKit
 
 class ProductCollectionViewCell: UICollectionViewCell {
     
+    static var cellID = "ProductCollectionViewCellID"
+    
     lazy var productImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "latte")
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .red
