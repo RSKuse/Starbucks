@@ -17,6 +17,19 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var number: ((Int) -> Void)?
     
+    /**
+     - Ask Gugu about this
+     reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
+         return s1 > s2
+     })
+     */
+    
+    /**
+     Is this a closure as well and how does it work.
+     func backward(_ s1: String, _ s2: String) -> Bool {
+         return s1 > s2
+     }
+     */
     lazy var productTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.backgroundColor = .white
