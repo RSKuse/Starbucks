@@ -47,6 +47,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let category = category {
             categories = category.categories
         }
+        
         setupUI()
         setupNavigationBar()
         registerCell()

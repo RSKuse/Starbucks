@@ -10,10 +10,12 @@ import UIKit
 
 class StarbucksDatabase {
     static var cartProducts: [CartModel] = []
+    
+    
 }
 
 /*
-    // var categoriesArray: [String] = ["Favourites", "Picked For You", "Bakery"]
+    // var categoriesArray: [String] = ["Favourites", "Picked For You", "Bakery", ""]
     
     //**
      Cart Array
@@ -140,3 +142,4 @@ class StarbucksDatabase {
 }
                   
 */
+
