@@ -22,11 +22,9 @@ class FeaturedProductsTableViewCell: UITableViewCell, UICollectionViewDelegate, 
         flowLayout.scrollDirection = UICollectionView.ScrollDirection.horizontal
         flowLayout.minimumLineSpacing = 10.0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        // Comment: This will push the collectionview on the left and right by 20.0
+        // This will push the collectionview on the left and right by 20.0
         collectionView.contentInset = UIEdgeInsets(top: 0.0, left: 20.0, bottom: 0.0, right: 20.0)
         collectionView.backgroundColor = UIColor.clear
-        
-        // Comment: Hide the horizontal indicator
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isScrollEnabled = true
         collectionView.delegate = self
@@ -43,7 +41,6 @@ class FeaturedProductsTableViewCell: UITableViewCell, UICollectionViewDelegate, 
         backgroundColor = UIColor.clear
     }
         
-    
     func setupView() {
         contentView.addSubview(featuredProductCollectionView)
 
@@ -72,7 +69,6 @@ extension FeaturedProductsTableViewCell {
         return featuredProductsArray.count
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 130.0, height: 210.0)
     }
@@ -83,28 +79,22 @@ extension FeaturedProductsTableViewCell {
         productCollectionCell.productImageView.image = UIImage(named: product.imageName)
         productCollectionCell.productNameLabel.text = product.name
         
-        if product.numberOfLikes == 0 {
-    
-        } else {
-            
+        if product.numberOfLikes > 0 {
             productCollectionCell.mostLikedView.isHidden = true
             if product.numberOfLikes > 1000 && product.numberOfLikes < 2000 {
-                productCollectionCell.priceLabel.text = " R\(product.price) ♥︎\(product.rating) (1k)"
+                productCollectionCell.priceLabel.text = "R\(product.price) ♥︎\(product.rating) (1k)"
             } else if product.numberOfLikes > 2000 && product.numberOfLikes < 3000 {
                 productCollectionCell.mostLikedView.isHidden = false
-                productCollectionCell.priceLabel.text = " R\(product.price) ♥︎\(product.rating) (2k)"
+                productCollectionCell.priceLabel.text = "R\(product.price) ♥︎\(product.rating) (2k)"
             } else {
-                productCollectionCell.priceLabel.text = " R\(product.price) ♥︎\(product.rating) (\(product.numberOfLikes))"
+                productCollectionCell.priceLabel.text = "R\(product.price) ♥︎\(product.rating) (\(product.numberOfLikes))"
             }
         }
-
         return productCollectionCell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let product = featuredProductsArray[indexPath.item]
         didSelectProduct?(product)
-        // didSelectProduct = product
     }
-
 }

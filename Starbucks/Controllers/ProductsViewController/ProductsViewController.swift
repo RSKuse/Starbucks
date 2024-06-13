@@ -4,13 +4,12 @@
 //
 //  Created by Gugulethu Mhlanga on 2024/05/02.
 //
-
 import Foundation
 import UIKit
 
 class ProductsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    let spacing: CGFloat = 2
+    let spacing: CGFloat = 8
     let products: [Product]
     var navigationTitle: String
     
@@ -45,16 +44,17 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
     func setupConstraints() {
         view.addSubview(productCollectionView)
         
-        productCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        productCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-        productCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        productCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            productCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
+            productCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+            productCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            productCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
     
     func registerCollectionCells() {
         productCollectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: ProductCollectionViewCell.cellID)
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return products.count
@@ -67,11 +67,7 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
         cell.productNameLabel.text = product.name
         cell.priceLabel.text = StarbucksPriceDecimal.currencyFormat(price: product.price)
        
-        if product.numberOfLikes > 2000 {
-            cell.mostLikedView.isHidden = false
-        } else {
-            cell.mostLikedView.isHidden = true
-        }
+        cell.mostLikedView.isHidden = product.numberOfLikes <= 2000
        
         return cell
     }
@@ -89,13 +85,8 @@ class ProductsViewController: UIViewController, UICollectionViewDataSource, UICo
         let productViewController = ProductViewController(product: product)
         navigationController?.pushViewController(productViewController, animated: true)
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }
-    
-    
-    
-    
- 

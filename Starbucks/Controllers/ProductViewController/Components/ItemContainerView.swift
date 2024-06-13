@@ -20,7 +20,7 @@ class ItemContainerView: UIView {
     
     lazy var itemImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = StarbucksColors.primaryColor
+        //imageView.backgroundColor = StarbucksColors.primaryColor
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false

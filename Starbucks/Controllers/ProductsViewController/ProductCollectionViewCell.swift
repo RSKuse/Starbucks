@@ -17,7 +17,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .red
+        imageView.backgroundColor = .clear
         return imageView
     }()
     
@@ -54,34 +54,34 @@ class ProductCollectionViewCell: UICollectionViewCell {
     }
     
     func setupView() {
-        
         addSubview(productImageView)
-        productImageView.addSubview(mostLikedView)
+        addSubview(mostLikedView)
         addSubview(productNameLabel)
         addSubview(priceLabel)
         
-        productImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        productImageView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        productImageView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        productImageView.heightAnchor.constraint(equalToConstant: 130).isActive = true
-        
-        mostLikedView.leftAnchor.constraint(equalTo: productImageView.leftAnchor).isActive = true
-        mostLikedView.bottomAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: -8).isActive = true
-        mostLikedView.widthAnchor.constraint(equalToConstant: 74).isActive = true
-        mostLikedView.heightAnchor.constraint(equalToConstant: 18).isActive = true
-        
-        productNameLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        productNameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -6).isActive = true
-        productNameLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor,
-                                              constant: 8).isActive = true
-        
-        priceLabel.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 4).isActive = true
-        priceLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
-        priceLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            productImageView.topAnchor.constraint(equalTo: topAnchor),
+            productImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            productImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            productImageView.heightAnchor.constraint(equalToConstant: 130),
+            
+            mostLikedView.leadingAnchor.constraint(equalTo: productImageView.leadingAnchor),
+            mostLikedView.bottomAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: -8),
+            mostLikedView.widthAnchor.constraint(equalToConstant: 74),
+            mostLikedView.heightAnchor.constraint(equalToConstant: 18),
+            
+            productNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            productNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -6),
+            productNameLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 8),
+            
+            priceLabel.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 4),
+            priceLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            priceLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
+        ])
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
