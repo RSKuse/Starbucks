@@ -40,11 +40,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }()
     
     override func viewDidLoad() {
-        //view.backgroundColor = .white
         super.viewDidLoad()
-        let category = extractDatabaseFromJson()
-        
-        if let category = category {
+        view.backgroundColor = .white
+   
+        if let category = ConvertJsonToModel.createStarBucksCategory() {
             categories = category.categories
         }
         
@@ -56,10 +55,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        print(countryCapitalCity["SouthAfrica"])
 //        print(countryCapitalCity["England"])
         
-    }
-    
-    func extractDatabaseFromJson() -> Categories? {
-        return ConvertJsonToModel.convert(fromFileName: "StarbucksCategories")
     }
     
     override func viewDidAppear(_ animated: Bool) {
